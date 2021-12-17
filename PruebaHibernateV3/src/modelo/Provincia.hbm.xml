@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 16 dic 2021 19:31:13 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17 dic 2021 15:51:06 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="euskalmet" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelos.Provincia" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="provincia">
+    <class catalog="euskalmet" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.Provincia" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="provincia">
         <id name="codProvincia" type="int">
             <column name="CodProvincia"/>
             <generator class="assigned"/>
@@ -13,7 +13,7 @@
             <key on-delete="noaction">
                 <column name="CodProvincia" not-null="true"/>
             </key>
-            <one-to-many class="modelos.Municipios" embed-xml="true" not-found="exception"/>
+            <one-to-many class="modelo.Municipios" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>

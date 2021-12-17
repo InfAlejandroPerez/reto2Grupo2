@@ -1,6 +1,7 @@
-package modelos;
-// Generated 16 dic 2021 19:31:13 by Hibernate Tools 5.5.7.Final
+package modelo;
+// Generated 17 dic 2021 15:51:05 by Hibernate Tools 5.5.7.Final
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,21 +12,22 @@ public class Estaciones implements java.io.Serializable {
 
 	private int codEstacion;
 	private Municipios municipios;
-	private double coordenadaX;
-	private double coordenadaY;
+	private BigDecimal coordenadaX;
+	private BigDecimal coordenadaY;
 	private Set datoses = new HashSet(0);
 
 	public Estaciones() {
 	}
 
-	public Estaciones(int codEstacion, Municipios municipios, double coordenadaX, double coordenadaY) {
+	public Estaciones(int codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY) {
 		this.codEstacion = codEstacion;
 		this.municipios = municipios;
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 	}
 
-	public Estaciones(int codEstacion, Municipios municipios, double coordenadaX, double coordenadaY, Set datoses) {
+	public Estaciones(int codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY,
+			Set datoses) {
 		this.codEstacion = codEstacion;
 		this.municipios = municipios;
 		this.coordenadaX = coordenadaX;
@@ -49,19 +51,19 @@ public class Estaciones implements java.io.Serializable {
 		this.municipios = municipios;
 	}
 
-	public double getCoordenadaX() {
+	public BigDecimal getCoordenadaX() {
 		return this.coordenadaX;
 	}
 
-	public void setCoordenadaX(double coordenadaX) {
+	public void setCoordenadaX(BigDecimal coordenadaX) {
 		this.coordenadaX = coordenadaX;
 	}
 
-	public double getCoordenadaY() {
+	public BigDecimal getCoordenadaY() {
 		return this.coordenadaY;
 	}
 
-	public void setCoordenadaY(double coordenadaY) {
+	public void setCoordenadaY(BigDecimal coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
 
