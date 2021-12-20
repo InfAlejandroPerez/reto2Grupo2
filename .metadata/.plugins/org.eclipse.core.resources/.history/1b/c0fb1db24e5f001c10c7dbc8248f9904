@@ -1,0 +1,5 @@
+package operacionesBD;
+
+public class HibernateUtil {
+
+}

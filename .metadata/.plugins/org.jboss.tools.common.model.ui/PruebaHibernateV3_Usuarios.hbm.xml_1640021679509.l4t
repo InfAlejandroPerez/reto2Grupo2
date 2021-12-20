@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout resource="/PruebaHibernateV3/src/modelo/Usuarios.hbm.xml">
+ <TreeFormPage>
+  <Memento type="FileHibernate3">
+   <Memento collapsed="false" type="File Hibernate 3.0"/>
+   <Memento collapsed="false" type="Advanced"/>
+   <Memento collapsed="false" type="Meta"/>
+   <Memento collapsed="false" type="Types"/>
+   <Memento collapsed="false" type="Imports"/>
+   <Memento collapsed="false" type="Classes"/>
+   <Memento collapsed="false" type="Queries"/>
+   <Memento collapsed="false" type="Filters"/>
+  </Memento>
+  <Memento type="Hibernate3Property">
+   <Memento type="Property"/>
+   <Memento type="Columns"/>
+   <Memento type="Formulas"/>
+   <Memento type="Meta"/>
+   <Memento type="Advanced"/>
+  </Memento>
+ </TreeFormPage>
+</Layout>

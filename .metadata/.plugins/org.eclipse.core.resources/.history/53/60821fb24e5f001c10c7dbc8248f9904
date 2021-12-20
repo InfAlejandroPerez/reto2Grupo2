@@ -1,0 +1,10 @@
+package operacionesBD;
+
+public class operaciones {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

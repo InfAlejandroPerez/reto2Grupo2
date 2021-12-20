@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/Users/in2dam-b/eclipse/java-2021-09/eclipse/
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jdk-12.0.1/lib/jrt-fs.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/Program Files/Java/jdk-12.0.1/lib/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=C\:/Users/in2dam-b/.p2/pool/plugins/org.junit_4.13.0.v20200204-1500.jar
+org.eclipse.jdt.core.classpathVariable.M2_REPO=C\:/Users/in2dam-b/.m2/repository
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
+org.eclipse.jdt.core.compiler.release=disabled
+org.eclipse.jdt.core.userLibrary.Hibernate=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/activation-1.1.1.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/antlr-2.7.7.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/classmate-1.3.0.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/dom4j-1.6.1.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/geronimo-jta_1.1_spec-1.1.1.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/hibernate-commons-annotations-5.0.1.Final.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/hibernate-core-5.1.0.Final.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/istack-commons-runtime-4.0.0-M3.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/javassist-3.20.0-GA.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/jaxb-api-2.3.1.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/jaxb-impl-2.3.1.jar"/>\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/jboss-logging-3.3.0.Final.jar"/>\r\n</userlibrary>\r\n
+org.eclipse.jdt.core.userLibrary.MySQL=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Users/in2dam-b/Desktop/daniel/LibReferencia/mysql-connector-java-5.1.49-bin.jar"/>\r\n</userlibrary>\r\n
