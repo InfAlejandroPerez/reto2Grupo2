@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2021 a las 18:43:02
+-- Tiempo de generación: 20-12-2021 a las 19:21:55
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -33,9 +33,14 @@ CREATE TABLE `datos` (
   `CodEstacion` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha` date NOT NULL,
   `Hora` time NOT NULL,
-  `Precipitaciones` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Temperatura` decimal(10,2) DEFAULT NULL,
-  `Velocidad viento` decimal(10,4) DEFAULT NULL
+  `COmgm3` decimal(4,2) NOT NULL,
+  `CO8hmgm3` decimal(4,2) NOT NULL,
+  `NOgm3` decimal(4,2) NOT NULL,
+  `NO2gm3` decimal(4,2) NOT NULL,
+  `NOXgm3` decimal(4,2) NOT NULL,
+  `PM10gm3` decimal(4,2) NOT NULL,
+  `PM25gm3` decimal(4,2) NOT NULL,
+  `SO2gm3` decimal(4,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
