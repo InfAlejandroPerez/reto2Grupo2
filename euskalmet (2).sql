@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2021 a las 19:21:55
+-- Tiempo de generación: 10-01-2022 a las 18:44:10
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `euskalmet`
 --
-CREATE DATABASE IF NOT EXISTS `euskalmet` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `euskalmet`;
 
 -- --------------------------------------------------------
 
@@ -93,17 +91,6 @@ CREATE TABLE `favoritos_espacios` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `favoritos_municipios`
---
-
-CREATE TABLE `favoritos_municipios` (
-  `CodUsuario` int(11) NOT NULL,
-  `CodMunicipio` varchar(11) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `hashes`
 --
 
@@ -111,6 +98,17 @@ CREATE TABLE `hashes` (
   `CodHash` int(11) NOT NULL,
   `Url` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes_espacios_naturales`
+--
+
+CREATE TABLE `imagenes_espacios_naturales` (
+  `CodEspacio` varchar(11) NOT NULL,
+  `UrlImagen` varchar(70) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -195,13 +193,6 @@ ALTER TABLE `favoritos_espacios`
   ADD KEY `Fk_espacios_favesp` (`CodEspacio`);
 
 --
--- Indices de la tabla `favoritos_municipios`
---
-ALTER TABLE `favoritos_municipios`
-  ADD PRIMARY KEY (`CodUsuario`,`CodMunicipio`),
-  ADD KEY `Fk_municipio_favmun` (`CodMunicipio`);
-
---
 -- Indices de la tabla `hashes`
 --
 ALTER TABLE `hashes`
@@ -255,13 +246,6 @@ ALTER TABLE `esta_en`
 ALTER TABLE `favoritos_espacios`
   ADD CONSTRAINT `Fk_espacios_favesp` FOREIGN KEY (`CodEspacio`) REFERENCES `espacios_naturales` (`CodEspacio`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `Fk_usuario_favesp` FOREIGN KEY (`CodUsuario`) REFERENCES `usuarios` (`CodUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `favoritos_municipios`
---
-ALTER TABLE `favoritos_municipios`
-  ADD CONSTRAINT `Fk_municipio_favmun` FOREIGN KEY (`CodMunicipio`) REFERENCES `municipios` (`CodMunicipio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Fk_usuario_favmun` FOREIGN KEY (`CodUsuario`) REFERENCES `usuarios` (`CodUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipios`
