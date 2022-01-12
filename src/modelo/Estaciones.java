@@ -1,5 +1,5 @@
 package modelo;
-// Generated 17 dic 2021 15:51:05 by Hibernate Tools 5.5.7.Final
+// Generated 20 dic 2021 18:59:34 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Estaciones implements java.io.Serializable {
 
-	private int codEstacion;
+	private String codEstacion;
 	private Municipios municipios;
 	private BigDecimal coordenadaX;
 	private BigDecimal coordenadaY;
@@ -19,14 +19,14 @@ public class Estaciones implements java.io.Serializable {
 	public Estaciones() {
 	}
 
-	public Estaciones(int codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY) {
+	public Estaciones(String codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY) {
 		this.codEstacion = codEstacion;
 		this.municipios = municipios;
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 	}
 
-	public Estaciones(int codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY,
+	public Estaciones(String codEstacion, Municipios municipios, BigDecimal coordenadaX, BigDecimal coordenadaY,
 			Set datoses) {
 		this.codEstacion = codEstacion;
 		this.municipios = municipios;
@@ -35,11 +35,11 @@ public class Estaciones implements java.io.Serializable {
 		this.datoses = datoses;
 	}
 
-	public int getCodEstacion() {
+	public String getCodEstacion() {
 		return this.codEstacion;
 	}
 
-	public void setCodEstacion(int codEstacion) {
+	public void setCodEstacion(String codEstacion) {
 		this.codEstacion = codEstacion;
 	}
 

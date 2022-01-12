@@ -1,5 +1,5 @@
 package modelo;
-// Generated 17 dic 2021 15:51:05 by Hibernate Tools 5.5.7.Final
+// Generated 20 dic 2021 18:59:34 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 
@@ -10,25 +10,30 @@ public class Datos implements java.io.Serializable {
 
 	private DatosId id;
 	private Estaciones estaciones;
-	private String precipitaciones;
-	private BigDecimal temperatura;
-	private BigDecimal velocidadViento;
+	private BigDecimal comgm3;
+	private BigDecimal co8hmgm3;
+	private BigDecimal nogm3;
+	private BigDecimal no2gm3;
+	private BigDecimal noxgm3;
+	private BigDecimal pm10gm3;
+	private BigDecimal pm25gm3;
+	private BigDecimal so2gm3;
 
 	public Datos() {
 	}
 
-	public Datos(DatosId id, Estaciones estaciones) {
+	public Datos(DatosId id, Estaciones estaciones, BigDecimal comgm3, BigDecimal co8hmgm3, BigDecimal nogm3,
+			BigDecimal no2gm3, BigDecimal noxgm3, BigDecimal pm10gm3, BigDecimal pm25gm3, BigDecimal so2gm3) {
 		this.id = id;
 		this.estaciones = estaciones;
-	}
-
-	public Datos(DatosId id, Estaciones estaciones, String precipitaciones, BigDecimal temperatura,
-			BigDecimal velocidadViento) {
-		this.id = id;
-		this.estaciones = estaciones;
-		this.precipitaciones = precipitaciones;
-		this.temperatura = temperatura;
-		this.velocidadViento = velocidadViento;
+		this.comgm3 = comgm3;
+		this.co8hmgm3 = co8hmgm3;
+		this.nogm3 = nogm3;
+		this.no2gm3 = no2gm3;
+		this.noxgm3 = noxgm3;
+		this.pm10gm3 = pm10gm3;
+		this.pm25gm3 = pm25gm3;
+		this.so2gm3 = so2gm3;
 	}
 
 	public DatosId getId() {
@@ -47,28 +52,68 @@ public class Datos implements java.io.Serializable {
 		this.estaciones = estaciones;
 	}
 
-	public String getPrecipitaciones() {
-		return this.precipitaciones;
+	public BigDecimal getComgm3() {
+		return this.comgm3;
 	}
 
-	public void setPrecipitaciones(String precipitaciones) {
-		this.precipitaciones = precipitaciones;
+	public void setComgm3(BigDecimal comgm3) {
+		this.comgm3 = comgm3;
 	}
 
-	public BigDecimal getTemperatura() {
-		return this.temperatura;
+	public BigDecimal getCo8hmgm3() {
+		return this.co8hmgm3;
 	}
 
-	public void setTemperatura(BigDecimal temperatura) {
-		this.temperatura = temperatura;
+	public void setCo8hmgm3(BigDecimal co8hmgm3) {
+		this.co8hmgm3 = co8hmgm3;
 	}
 
-	public BigDecimal getVelocidadViento() {
-		return this.velocidadViento;
+	public BigDecimal getNogm3() {
+		return this.nogm3;
 	}
 
-	public void setVelocidadViento(BigDecimal velocidadViento) {
-		this.velocidadViento = velocidadViento;
+	public void setNogm3(BigDecimal nogm3) {
+		this.nogm3 = nogm3;
+	}
+
+	public BigDecimal getNo2gm3() {
+		return this.no2gm3;
+	}
+
+	public void setNo2gm3(BigDecimal no2gm3) {
+		this.no2gm3 = no2gm3;
+	}
+
+	public BigDecimal getNoxgm3() {
+		return this.noxgm3;
+	}
+
+	public void setNoxgm3(BigDecimal noxgm3) {
+		this.noxgm3 = noxgm3;
+	}
+
+	public BigDecimal getPm10gm3() {
+		return this.pm10gm3;
+	}
+
+	public void setPm10gm3(BigDecimal pm10gm3) {
+		this.pm10gm3 = pm10gm3;
+	}
+
+	public BigDecimal getPm25gm3() {
+		return this.pm25gm3;
+	}
+
+	public void setPm25gm3(BigDecimal pm25gm3) {
+		this.pm25gm3 = pm25gm3;
+	}
+
+	public BigDecimal getSo2gm3() {
+		return this.so2gm3;
+	}
+
+	public void setSo2gm3(BigDecimal so2gm3) {
+		this.so2gm3 = so2gm3;
 	}
 
 }

@@ -1,5 +1,5 @@
 package modelo;
-// Generated 17 dic 2021 15:51:05 by Hibernate Tools 5.5.7.Final
+// Generated 20 dic 2021 18:59:34 by Hibernate Tools 5.5.7.Final
 
 import java.util.Date;
 
@@ -8,24 +8,24 @@ import java.util.Date;
  */
 public class DatosId implements java.io.Serializable {
 
-	private int codEstacion;
+	private String codEstacion;
 	private Date fecha;
 	private Date hora;
 
 	public DatosId() {
 	}
 
-	public DatosId(int codEstacion, Date fecha, Date hora) {
+	public DatosId(String codEstacion, Date fecha, Date hora) {
 		this.codEstacion = codEstacion;
 		this.fecha = fecha;
 		this.hora = hora;
 	}
 
-	public int getCodEstacion() {
+	public String getCodEstacion() {
 		return this.codEstacion;
 	}
 
-	public void setCodEstacion(int codEstacion) {
+	public void setCodEstacion(String codEstacion) {
 		this.codEstacion = codEstacion;
 	}
 
@@ -54,7 +54,8 @@ public class DatosId implements java.io.Serializable {
 			return false;
 		DatosId castOther = (DatosId) other;
 
-		return (this.getCodEstacion() == castOther.getCodEstacion())
+		return ((this.getCodEstacion() == castOther.getCodEstacion()) || (this.getCodEstacion() != null
+				&& castOther.getCodEstacion() != null && this.getCodEstacion().equals(castOther.getCodEstacion())))
 				&& ((this.getFecha() == castOther.getFecha()) || (this.getFecha() != null
 						&& castOther.getFecha() != null && this.getFecha().equals(castOther.getFecha())))
 				&& ((this.getHora() == castOther.getHora()) || (this.getHora() != null && castOther.getHora() != null
@@ -64,7 +65,7 @@ public class DatosId implements java.io.Serializable {
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + this.getCodEstacion();
+		result = 37 * result + (getCodEstacion() == null ? 0 : this.getCodEstacion().hashCode());
 		result = 37 * result + (getFecha() == null ? 0 : this.getFecha().hashCode());
 		result = 37 * result + (getHora() == null ? 0 : this.getHora().hashCode());
 		return result;
