@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 ene 2022 15:27:48 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="euskalmet" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.EstaEn" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="esta_en">
+        <composite-id class="modelo.EstaEnId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="codMunicipio" type="string">
+                <column length="11" name="CodMunicipio"/>
+            </key-property>
+            <key-property name="codEspacio" type="string">
+                <column length="11" name="CodEspacio"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

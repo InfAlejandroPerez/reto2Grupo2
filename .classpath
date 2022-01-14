@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gsonlib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jsonlib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
