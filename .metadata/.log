@@ -1,0 +1,2117 @@
+!SESSION 2021-12-16 18:47:36.202 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\markel-workspace\reto2Grupo2 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2021-12-16 18:47:42.308
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-12-16 18:47:42.308
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3794b7b1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3225d950,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-16 18:47:50.887
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:19:49.789
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:19:49.790
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:19:49.790
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:21:58.243
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:21:58.244
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:21:58.244
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:26:53.075
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:26:53.075
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:26:53.076
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:29:36.176
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:29:36.176
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:29:36.177
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:30:20.849
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:20.850
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:20.850
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:30:23.851
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:23.851
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:23.852
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-16 19:30:36.976
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:36.977
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-16 19:30:36.977
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2021-12-17 15:16:43.726 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2021-12-17 15:17:27.859
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-12-17 15:17:27.859
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@29d81c22,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18d396eb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-17 15:17:42.611
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2021-12-17 15:28:40.458
+!MESSAGE 
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "list" is null
+	at org.hibernate.eclipse.mapper.model.DOMReverseEngineeringDefinition.getTypeMappingsList(DOMReverseEngineeringDefinition.java:228)
+	at org.hibernate.eclipse.mapper.model.DOMReverseEngineeringDefinition.getTypeMappings(DOMReverseEngineeringDefinition.java:222)
+	at org.hibernate.eclipse.console.wizards.TypeMappingContentProvider.getElements(TypeMappingContentProvider.java:40)
+	at org.eclipse.jface.viewers.StructuredViewer.getRawChildren(StructuredViewer.java:947)
+	at org.eclipse.jface.viewers.ColumnViewer.getRawChildren(ColumnViewer.java:704)
+	at org.eclipse.jface.viewers.AbstractTableViewer.getRawChildren(AbstractTableViewer.java:1038)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:850)
+	at org.eclipse.jface.viewers.StructuredViewer.getSortedChildren(StructuredViewer.java:1031)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalRefreshAll(AbstractTableViewer.java:670)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalRefresh(AbstractTableViewer.java:618)
+	at org.eclipse.jface.viewers.AbstractTableViewer.internalRefresh(AbstractTableViewer.java:610)
+	at org.eclipse.jface.viewers.AbstractTableViewer.lambda$0(AbstractTableViewer.java:572)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1398)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1359)
+	at org.eclipse.jface.viewers.AbstractTableViewer.inputChanged(AbstractTableViewer.java:572)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1632)
+	at org.hibernate.eclipse.mapper.editors.reveng.TypeMappingView.setModel(TypeMappingView.java:66)
+	at org.hibernate.eclipse.mapper.editors.reveng.TypeMappingFormPart.setFormInput(TypeMappingFormPart.java:78)
+	at org.hibernate.eclipse.mapper.editors.reveng.RevEngSectionPart.setFormInput(RevEngSectionPart.java:70)
+	at org.eclipse.ui.forms.ManagedForm.setInput(ManagedForm.java:203)
+	at org.hibernate.eclipse.mapper.editors.reveng.RevEngTypeMappingPage.createFormContent(RevEngTypeMappingPage.java:50)
+	at org.eclipse.ui.forms.editor.FormPage.lambda$0(FormPage.java:166)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.forms.editor.FormPage.createPartControl(FormPage.java:166)
+	at org.hibernate.eclipse.mapper.editors.reveng.RevEngFormEditorPart.createPartControl(RevEngFormEditorPart.java:42)
+	at org.eclipse.ui.forms.editor.FormEditor.pageChange(FormEditor.java:480)
+	at org.hibernate.eclipse.mapper.editors.ReverseEngineeringEditor.pageChange(ReverseEngineeringEditor.java:164)
+	at org.eclipse.ui.part.MultiPageEditorPart.setActivePage(MultiPageEditorPart.java:1030)
+	at org.eclipse.ui.forms.editor.FormEditor.setActivePage(FormEditor.java:612)
+	at org.hibernate.eclipse.mapper.editors.ReverseEngineeringEditor.addFormPages(ReverseEngineeringEditor.java:127)
+	at org.hibernate.eclipse.mapper.editors.ReverseEngineeringEditor.addPages(ReverseEngineeringEditor.java:88)
+	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:143)
+	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:333)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:158)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor.createPartControl(CompatibilityEditor.java:96)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:365)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:995)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:960)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalInject(InjectorImpl.java:140)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:403)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:330)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:202)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:91)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:60)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:42)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:132)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:994)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:658)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:762)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:727)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:711)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.lambda$0(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:236)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4770)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:228)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElementGen(ElementContainerImpl.java:170)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:188)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1380)
+	at org.eclipse.ui.internal.WorkbenchPage.hidePart(WorkbenchPage.java:1547)
+	at org.eclipse.ui.internal.WorkbenchPage.hidePart(WorkbenchPage.java:1499)
+	at org.eclipse.ui.internal.WorkbenchPage.closeEditors(WorkbenchPage.java:1469)
+	at org.eclipse.ui.internal.WorkbenchPage.closeEditor(WorkbenchPage.java:1593)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.lambda$3(AbstractTextEditor.java:4278)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4029)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3629)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:166)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:368)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:324)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:636)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:148)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteWizard$DeleteInputPage.performFinish(DeleteWizard.java:176)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:710)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:450)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:468)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:84)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4237)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1060)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4054)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:823)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.lambda$0(RefactoringWizardOpenOperation.java:190)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:209)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:126)
+	at org.eclipse.jdt.internal.ui.refactoring.actions.RefactoringStarter.activate(RefactoringStarter.java:41)
+	at org.eclipse.jdt.internal.ui.refactoring.UserInterfaceStarter.activate(UserInterfaceStarter.java:65)
+	at org.eclipse.jdt.internal.corext.refactoring.RefactoringExecutionStarter.startDeleteRefactoring(RefactoringExecutionStarter.java:290)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteAction.run(DeleteAction.java:204)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:274)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:252)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:414)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4237)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1060)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4054)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3626)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1041)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:42:52.987
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:42:52.987
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:42:52.987
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:43:21.837
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:43:21.837
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:43:21.837
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:44:03.599
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:44:03.599
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\retoEuskalmet\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:44:03.599
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:48:09.023
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:48:09.023
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:48:09.023
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:48:53.764
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:48:53.764
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:48:53.764
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:49:30.163
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column Fecha already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:49:30.163
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column Fecha already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:49:30.163
+!MESSAGE org.hibernate.MappingException: Column Fecha already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column Fecha already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:50:20.488
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodMunicipio already exists in table TableIdentifier(euskalmet.esta_en)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:50:20.488
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodMunicipio already exists in table TableIdentifier(euskalmet.esta_en)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:50:20.488
+!MESSAGE org.hibernate.MappingException: Column CodMunicipio already exists in table TableIdentifier(euskalmet.esta_en)
+!STACK 0
+org.hibernate.MappingException: Column CodMunicipio already exists in table TableIdentifier(euskalmet.esta_en)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-17 15:50:38.907
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodUsuario already exists in table TableIdentifier(euskalmet.favoritos_espacios)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:50:38.908
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\markel-workspace\reto2Grupo2\PruebaHibernateV3\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodUsuario already exists in table TableIdentifier(euskalmet.favoritos_espacios)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-17 15:50:38.908
+!MESSAGE org.hibernate.MappingException: Column CodUsuario already exists in table TableIdentifier(euskalmet.favoritos_espacios)
+!STACK 0
+org.hibernate.MappingException: Column CodUsuario already exists in table TableIdentifier(euskalmet.favoritos_espacios)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jboss.tools.common.model 4 0 2021-12-17 15:56:36.330
+!MESSAGE Exception caught in FolderImpl.update()
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:981)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: The project description file (.project) for 'PruebaHibernateV3' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+java.lang.Exception: The project description file (.project) for 'PruebaHibernateV3' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.Project.updateDescription(Project.java:1346)
+	at org.eclipse.core.internal.resources.File.updateMetadataFiles(File.java:376)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:291)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:119)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:978)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2021-12-17 15:56:36.332
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2021-12-17 15:56:36.332
+!MESSAGE The project description file (.project) for 'PruebaHibernateV3' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for 'PruebaHibernateV3' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.Project.updateDescription(Project.java:1346)
+	at org.eclipse.core.internal.resources.File.updateMetadataFiles(File.java:376)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:291)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:119)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:978)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.jboss.tools.common.model 4 0 2021-12-17 15:56:37.365
+!MESSAGE Exception caught in FolderImpl.update()
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:981)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Contains: The project description file (.project) for 'retoEuskalmet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+java.lang.Exception: The project description file (.project) for 'retoEuskalmet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.Project.updateDescription(Project.java:1346)
+	at org.eclipse.core.internal.resources.File.updateMetadataFiles(File.java:376)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:291)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:119)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:978)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2021-12-17 15:56:37.365
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2021-12-17 15:56:37.365
+!MESSAGE The project description file (.project) for 'retoEuskalmet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for 'retoEuskalmet' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.Project.updateDescription(Project.java:1346)
+	at org.eclipse.core.internal.resources.File.updateMetadataFiles(File.java:376)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:291)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:119)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:978)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:961)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1562)
+	at org.jboss.tools.common.model.filesystems.impl.FolderImpl.update(FolderImpl.java:362)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemFolderLoader.update(FileSystemFolderLoader.java:28)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsLoader.update(FileSystemsLoader.java:74)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.doUpdate(FileSystemsImpl.java:367)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl.access$4(FileSystemsImpl.java:361)
+	at org.jboss.tools.common.model.filesystems.impl.FileSystemsImpl$UpdateRunnable.run(FileSystemsImpl.java:350)
+	at org.jboss.tools.common.model.XJob.runInWorkspace(XJob.java:190)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui 4 0 2021-12-17 15:57:28.285
+!MESSAGE Cannot create or restore 'hibernate.cfg.xml' because it already exists.
+!STACK 0
+org.eclipse.core.commands.ExecutionException: Cannot create or restore 'hibernate.cfg.xml' because it already exists.
+	at org.eclipse.ltk.internal.core.refactoring.UndoableOperation2ChangeAdapter.undo(UndoableOperation2ChangeAdapter.java:212)
+	at org.eclipse.core.commands.operations.TriggeredOperations.undo(TriggeredOperations.java:214)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.doUndo(DefaultOperationHistory.java:407)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.undo(DefaultOperationHistory.java:1149)
+	at org.eclipse.ui.operations.UndoActionHandler.runCommand(UndoActionHandler.java:86)
+	at org.eclipse.ui.operations.OperationHistoryActionHandler.lambda$0(OperationHistoryActionHandler.java:288)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:434)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:352)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:468)
+	at org.eclipse.ui.internal.operations.TimeTriggeredProgressMonitorDialog.access$1(TimeTriggeredProgressMonitorDialog.java:1)
+	at org.eclipse.ui.internal.operations.TimeTriggeredProgressMonitorDialog.lambda$0(TimeTriggeredProgressMonitorDialog.java:155)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.internal.operations.TimeTriggeredProgressMonitorDialog.run(TimeTriggeredProgressMonitorDialog.java:167)
+	at org.eclipse.ui.operations.OperationHistoryActionHandler.run(OperationHistoryActionHandler.java:301)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:317)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:251)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:647)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1270)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1059)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1084)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1069)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1111)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1107)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1536)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4875)
+	at org.eclipse.swt.widgets.Tree.WM_CHAR(Tree.java:5984)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4753)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:5979)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4958)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3624)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1041)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+Caused by: Java Model Exception: Core Exception [code 0] Cannot create or restore 'hibernate.cfg.xml' because it already exists.
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:52)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2338)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5917)
+	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:106)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.access$0(DynamicValidationStateChange.java:1)
+	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.lambda$0(DynamicValidationStateChange.java:105)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:41)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2338)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5917)
+	at org.eclipse.jdt.internal.corext.refactoring.changes.DynamicValidationStateChange.perform(DynamicValidationStateChange.java:106)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:281)
+	at org.eclipse.ltk.internal.core.refactoring.UndoableOperation2ChangeAdapter.lambda$0(UndoableOperation2ChangeAdapter.java:329)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2333)
+	at org.eclipse.ltk.internal.core.refactoring.UndoableOperation2ChangeAdapter.executeChange(UndoableOperation2ChangeAdapter.java:351)
+	at org.eclipse.ltk.internal.core.refactoring.UndoableOperation2ChangeAdapter.undo(UndoableOperation2ChangeAdapter.java:196)
+	... 69 more
+!SESSION 2021-12-20 17:00:35.983 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2021-12-20 17:01:05.633
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-12-20 17:01:05.633
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@483fe83a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16120270,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-20 17:01:22.738
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.hibernate.eclipse 4 666 2021-12-20 18:59:04.091
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\Users\in2dam-b\git\reto2Grupo2\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\Users\in2dam-b\git\reto2Grupo2\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-20 18:59:04.091
+!MESSAGE org.hibernate.MappingException: Could not configure overrides from file: C:\Users\in2dam-b\git\reto2Grupo2\src\hibernate.reveng.xml
+!STACK 0
+org.hibernate.MappingException: Could not configure overrides from file: C:\Users\in2dam-b\git\reto2Grupo2\src\hibernate.reveng.xml
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	... 18 more
+!SUBENTRY 1 org.hibernate.eclipse 4 666 2021-12-20 18:59:04.091
+!MESSAGE org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+!STACK 0
+org.hibernate.MappingException: Column CodEstacion already exists in table TableIdentifier(euskalmet.datos)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindColumns(OverrideBinder.java:127)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindTables(OverrideBinder.java:84)
+	at org.hibernate.cfg.reveng.OverrideBinder.bindRoot(OverrideBinder.java:30)
+	at org.hibernate.cfg.reveng.OverrideRepository.add(OverrideRepository.java:173)
+	at org.hibernate.cfg.reveng.OverrideRepository.addInputStream(OverrideRepository.java:151)
+	at org.hibernate.cfg.reveng.OverrideRepository.addFile(OverrideRepository.java:114)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.jboss.tools.hibernate.runtime.common.Util.invokeMethod(Util.java:43)
+	at org.jboss.tools.hibernate.runtime.common.AbstractOverrideRepositoryFacade.addFile(AbstractOverrideRepositoryFacade.java:21)
+	at org.hibernate.eclipse.console.common.ConsoleExtension$2.execute(ConsoleExtension.java:283)
+	at org.hibernate.console.execution.DefaultExecutionContext.execute(DefaultExecutionContext.java:63)
+	at org.hibernate.console.ConsoleConfiguration.execute(ConsoleConfiguration.java:107)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.buildConfiguration(ConsoleExtension.java:266)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.runExporters(ConsoleExtension.java:174)
+	at org.hibernate.eclipse.console.common.ConsoleExtension.launchExporters(ConsoleExtension.java:110)
+	at org.hibernate.eclipse.launch.CodeGenerationLaunchDelegate.launch(CodeGenerationLaunchDelegate.java:266)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2022-01-10 16:55:06.284 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-01-10 16:56:04.723
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-01-10 16:56:04.723
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@28e24663,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2ee5c08d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-01-10 16:56:15.231
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-01-10 19:25:38.084 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-01-10 19:25:48.579
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-01-10 19:25:48.579
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7135e8cd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3efb863c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-01-10 19:25:56.750
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-01-11 15:46:00.692 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-01-11 15:46:23.335
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-01-11 15:46:23.335
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@483fe83a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16120270,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-01-11 15:46:36.555
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2022-01-12 15:08:11.518 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-01-12 15:09:12.560
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-01-12 15:09:12.560
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5527dbb0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@483fe83a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-01-12 15:09:26.002
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui.navigator 2 0 2022-01-12 15:36:19.938
+!MESSAGE Can't find Navigator Content Descriptor with id: org.eclipse.jst.servlet.ui.EnhancedJavaRendering
+!SESSION 2022-01-12 15:39:55.130 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-01-12 15:40:24.324
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-01-12 15:40:24.325
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5c70c771,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@346690d6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui.navigator 2 0 2022-01-12 15:40:31.149
+!MESSAGE Can't find Navigator Content Descriptor with id: org.eclipse.jst.servlet.ui.EnhancedJavaRendering
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-01-12 15:40:31.228
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\in2dam-b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

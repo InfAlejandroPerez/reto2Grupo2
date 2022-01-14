@@ -1,0 +1,37 @@
+package Servidor;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Servidor {
+	
+	private final int puerto= 5000;
+	
+	public void iniciar() {
+		ServerSocket servidor= null;
+		
+		Socket  cliente = null ;
+		
+		
+		try {
+			servidor= new ServerSocket(puerto);
+			System.out.println("servidor iniciado");
+			cliente= servidor.accept();
+			System.out.println("cliente conectado");
+			//EnviarThread e = new EnviarThread();
+			
+			
+			
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public static void  main (String[] args) {
+		Servidor s = new Servidor();
+		s.iniciar();
+	}
+}

@@ -31,7 +31,11 @@ public class Servidor {
 			
 			
 			String linea = (String) entrada.readObject();
+<<<<<<< HEAD
 			System.out.println("recibo: "+ linea);
+=======
+			System.out.println("recibido mike"+ linea);
+>>>>>>> 01255611924fa01f3ac7906a3c66ac7de6bce716
 			salida.writeObject("bienvenido cliente");
 		
 			
