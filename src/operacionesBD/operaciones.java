@@ -4,14 +4,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.exception.ConstraintViolationException;
 
-import modelo.Provincia;
 import modelo.Usuarios;
 
 public class operaciones {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	/*
+	 public static void main(String[] args) {
 		Provincia pVizcaya=new Provincia();
 		
 		pVizcaya.setCodProvincia("20");
@@ -39,9 +39,10 @@ public class operaciones {
 		s.close();
 		
 	}
+	*/
 	
-	public static boolean validarLogin(String usuario, String pass) {
-		boolean res = false;
+	public static String validarLogin(String usuario, String pass) {
+		String res = "";
 		
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -51,9 +52,40 @@ public class operaciones {
 		Usuarios user = (Usuarios) q.uniqueResult();
 		
 		if(user != null) {
-			if(user.getPassword().equals(pass)) res = true;
+			if(user.getPassword().equals(pass)) 
+				res = "Login OK";
+			else 
+				res = "Credenciales inválidas";
+		}
+		else
+			res = "Usuario no encontrado";
+		
+		session.close();
+		
+		return res;
+		
+	}
+	
+	public static String validarRegister(String usuario, String pass) {
+		String res = null;
+		
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		Usuarios user = new Usuarios();
+		user.setNombre(usuario);
+		user.setPassword(pass);
+		
+		try {
+			session.save(user);
+			tx.commit();
+			res = "Register OK";
+		} catch (ConstraintViolationException e) {
+		    res = "Usuario ya existe";
 		}
 		
+		session.close();
 		
 		return res;
 		

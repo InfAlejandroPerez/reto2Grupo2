@@ -10,9 +10,10 @@ import operacionesBD.operaciones;
 public class Servidor {
 
 	public void iniciar() {
-		
+
 		final String LOGIN = "LOGIN";
-		
+		final String REGISTER = "REGISTER";
+
 		ServerSocket servidor = null;
 		int puerto = 4444;
 		Socket cliente = null;
@@ -24,37 +25,40 @@ public class Servidor {
 		String[] params = null;
 
 		try {
-			
+
 			servidor = new ServerSocket(puerto);
 			System.out.println("Servidor iniciado");
-			cliente = servidor.accept();
 
-			entrada = new ObjectInputStream(cliente.getInputStream());
-			salida = new ObjectOutputStream(cliente.getOutputStream());
-			System.out.println("Cliente conectado");
+			while (!servidor.isClosed()) {
 
-			message = (String) entrada.readObject();
-			
-			cmd = message.split(" ")[0];
-			params = message.split(" ")[1].split(",");
-			
-			switch (cmd.toUpperCase()) {
-			case LOGIN:
-				if (operaciones.validarLogin(params[0], params[1]))
-					salida.writeObject("OK");
-				else
-					salida.writeObject("ERROR");
+				cliente = servidor.accept();
 
-				break;
+				entrada = new ObjectInputStream(cliente.getInputStream());
+				salida = new ObjectOutputStream(cliente.getOutputStream());
+				System.out.println("Cliente conectado");
+
+				message = (String) entrada.readObject();
+
+				cmd = message.split(" ")[0];
+				params = message.split(" ")[1].split(",");
+
+				switch (cmd.toUpperCase()) {
+				case LOGIN:
+					salida.writeObject(operaciones.validarLogin(params[0], params[1]));
+					break;
+				case REGISTER:
+					salida.writeObject(operaciones.validarRegister(params[0], params[1]));
+					break;
+				}
+
+				entrada.close();
+				salida.close();
+				cliente.close();
+
 			}
-			
-			entrada.close();
-			salida.close();
-			cliente.close();
-
 		} catch (IOException e) {
 			e.printStackTrace();
-		}  catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			System.out.println("Error: " + e.getMessage());
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -76,9 +80,9 @@ public class Servidor {
 	}
 
 	public static void main(String[] args) {
-		
-		  Servidor s = new Servidor(); 
-		  s.iniciar();
-		 
+
+		Servidor s = new Servidor();
+		s.iniciar();
+
 	}
 }
