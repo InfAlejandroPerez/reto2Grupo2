@@ -6,10 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class vRegister extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -35,8 +43,47 @@ public class vRegister extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(175, 63, 119, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(175, 107, 119, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(175, 150, 119, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblReUser = new JLabel("User Name");
+		lblReUser.setBounds(83, 66, 63, 14);
+		contentPane.add(lblReUser);
+		
+		JLabel lblRePass = new JLabel("Password");
+		lblRePass.setBounds(97, 110, 46, 14);
+		contentPane.add(lblRePass);
+		
+		JLabel lblConfirmPassword = new JLabel("Confirm Password");
+		lblConfirmPassword.setBounds(66, 153, 94, 14);
+		contentPane.add(lblConfirmPassword);
+		
+		JButton btnConfirmReg = new JButton("Register");
+		btnConfirmReg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vLogin log =new vLogin();
+				log.setVisible(true);
+				dispose();
+			}
+		});
+		btnConfirmReg.setBounds(175, 196, 89, 23);
+		contentPane.add(btnConfirmReg);
+	
 	}
 
 }

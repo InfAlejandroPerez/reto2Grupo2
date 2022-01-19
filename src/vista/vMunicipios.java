@@ -2,18 +2,23 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextPane;
+import java.awt.GridLayout;
+import java.awt.Font;
 
 public class vMunicipios extends JFrame {
 
 	private JPanel contentPane;
-
+	static JList list;
 	/**
 	 * Launch the application.
 	 */
@@ -22,7 +27,9 @@ public class vMunicipios extends JFrame {
 			public void run() {
 				try {
 					vMunicipios frame = new vMunicipios();
+					rellenarLista();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,11 +49,27 @@ public class vMunicipios extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel LblTitleMunicipios = new JLabel("Municipios");
-		LblTitleMunicipios.setBounds(180, 11, 54, 20);
+		LblTitleMunicipios.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		LblTitleMunicipios.setBounds(182, 31, 70, 29);
 		contentPane.add(LblTitleMunicipios);
 		
-		JList list = new JList();
-		list.setBounds(302, 66, -193, 147);
+		 list = new JList();
+		list.setBounds(88, 71, 253, 127);
 		contentPane.add(list);
+		
+	}
+	public static void rellenarLista() {
+		DefaultListModel listModel = new DefaultListModel();
+		 ArrayList<String> listaMunicipios = new ArrayList<String>();
+		listaMunicipios.add("hola");
+		listaMunicipios.add("adios");
+	
+		for(int i=0; i<listaMunicipios.size(); i++) {
+
+		    listModel.add(i, listaMunicipios.get(i).toString());
+		    
+		}
+	
+		list.setModel(listModel);
 	}
 }
