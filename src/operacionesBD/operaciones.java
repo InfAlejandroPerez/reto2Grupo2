@@ -8,8 +8,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
-
+import modelo.Municipios;
 import modelo.Usuarios;
 
 public class operaciones {
@@ -65,19 +67,24 @@ public class operaciones {
 	}
 	
 	public static String getAllMunicipios() {
-		JsonElement payload = 
-		
+		Gson gson = new Gson();
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 		
 		String hql = "from Municipios";
 		Query q = session.createQuery(hql);
-		Iterator iterator = q.iterate();
+		Iterator<?> iterator = q.iterate();
+		
+		String payload = "{\"data\": [";
 		
 		while (iterator.hasNext()) {
-			
+			payload += gson.toJson((Municipios)iterator.next());
+		if (iterator.hasNext())
+			payload += ", ";
 		}
 		
+		payload += "]}";
+
 		session.close();
 		
 		return payload;
