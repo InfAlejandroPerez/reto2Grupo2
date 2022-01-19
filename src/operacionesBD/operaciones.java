@@ -1,45 +1,18 @@
 package operacionesBD;
 
+import java.util.Iterator;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
 
+
+
 import modelo.Usuarios;
 
 public class operaciones {
-
-	/*
-	 public static void main(String[] args) {
-		Provincia pVizcaya=new Provincia();
-		
-		pVizcaya.setCodProvincia("20");
-		pVizcaya.setNombre("Guipuzcoa");
-
-		Transaction tx;
-		
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		
-		Session s = sesion.openSession();
-		
-		tx = s.beginTransaction();
-
-		s.save(pVizcaya);
-		tx.commit();
-		
-		Provincia pAlava= new Provincia();
-		
-		pAlava.setCodProvincia("01");
-		pAlava.setNombre("Araba");
-		
-		tx = s.beginTransaction();
-		s.save(pAlava);
-		tx.commit();
-		s.close();
-		
-	}
-	*/
 	
 	public static String validarLogin(String usuario, String pass) {
 		String res = "";
@@ -92,27 +65,22 @@ public class operaciones {
 	}
 	
 	public static String getAllMunicipios() {
-		String res = "";
+		JsonElement payload = 
 		
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 		
 		String hql = "from Municipios";
 		Query q = session.createQuery(hql);
-		Usuarios user = (Municipios) q.();
+		Iterator iterator = q.iterate();
 		
-		if(user != null) {
-			if(user.getPassword().equals(pass)) 
-				res = "Login OK";
-			else 
-				res = "Credenciales inválidas";
+		while (iterator.hasNext()) {
+			
 		}
-		else
-			res = "Usuario no encontrado";
 		
 		session.close();
 		
-		return res;
+		return payload;
 	}
 
 }

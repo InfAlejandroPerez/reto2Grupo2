@@ -10,5 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/gsonlib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jsonlib"/>
+	<classpathentry kind="lib" path="lib/gson-2.6.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
