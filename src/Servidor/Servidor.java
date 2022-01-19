@@ -13,6 +13,7 @@ public class Servidor {
 
 		final String LOGIN = "LOGIN";
 		final String REGISTER = "REGISTER";
+		final String MUNICIPIOS = "MUNICIPIOS";
 
 		ServerSocket servidor = null;
 		int puerto = 4444;
@@ -48,6 +49,9 @@ public class Servidor {
 					break;
 				case REGISTER:
 					salida.writeObject(operaciones.validarRegister(params[0], params[1]));
+					break;
+				case MUNICIPIOS:
+					salida.writeObject(operaciones.getAllMunicipios());
 					break;
 				}
 
