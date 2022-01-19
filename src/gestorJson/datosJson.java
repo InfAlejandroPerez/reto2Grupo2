@@ -66,44 +66,64 @@ public class datosJson {
 					System.out.println(atributo.getKey() + " > "
 							+ ((JsonElement) atributo.getValue()).getAsJsonPrimitive().getAsString());
 					if (atributo.getKey().equals("documentName")) {
+						String v = atributo.getValue().toString().replace("\"", "");
 
-						municipios.setNombre(atributo.getValue().toString());
+						municipios.setNombre(v);
+						
+						//municipios.setNombre(atributo.getValue().toString());
 
 					} else if (atributo.getKey().equals("municipalitycode")) {
 
 						if (atributo.getValue().toString().length() < 3) {
+							
+							String v = atributo.getValue().toString().replace("\"", "");
 
-							municipios.setCodMunicipio(atributo.getValue().toString());
+							municipios.setCodMunicipio(v);
+							
+							//municipios.setCodMunicipio(atributo.getValue().toString());
 
 						} else {
-
+							
 							String codMun = atributo.getValue().toString().substring(0, 4);
-							municipios.setCodMunicipio(codMun);
+							String codMuni=codMun.replace("\"", "");
+							municipios.setCodMunicipio(codMuni);
 
 						}
 					} else if (atributo.getKey().equals("turismDescription")) {
 
 						if (atributo.getValue().toString().length() < 490) {
+							String v = atributo.getValue().toString().replace("\"", "");
 
-							municipios.setDescripcion(atributo.getValue().toString());
+							municipios.setDescripcion(v);
+							
+							//municipios.setDescripcion(atributo.getValue().toString());
 
 						} else {
 
 							String desc = atributo.getValue().toString().substring(0, 450);
-							municipios.setDescripcion(desc);
+							String descrip=desc.replace("\"", "");
+							municipios.setDescripcion(descrip);
+							
+							//municipios.setDescripcion(desc);
 
 						}
 
 					} else if (atributo.getKey().equals("territorycode")) {
 
 						if (atributo.getValue().toString().length() < 3) {
+							String v = atributo.getValue().toString().replace("\"", "");
 
-							municipios.setCodProvincia(atributo.getValue().toString());
+							municipios.setCodProvincia(v);
+							
+							//municipios.setCodProvincia(atributo.getValue().toString());
 
 						} else {
 
 							String codProv = atributo.getValue().toString().substring(0, 3);
-							municipios.setCodProvincia(codProv);
+							String codProvi=codProv.replace("\"", "");
+							municipios.setDescripcion(codProvi);
+							
+							//municipios.setCodProvincia(codProv);
 
 						}
 
