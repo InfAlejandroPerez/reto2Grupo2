@@ -1,30 +1,23 @@
 package gestorJson;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import modelo.Datoshorarios;
 
-
-
-public class gestorHorarios {
+public class gestorDiario {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.setProperty("javax.net.ssl.trustStore", "NUL");
 		System.setProperty("javax.net.ssl.trustStoreType", "Windows-ROOT");
 
-		JsonElement json = readJSON(
+		JsonElement json = gestorHorarios.readJSON(
 				"https://opendata.euskadi.eus/contenidos/ds_informes_estudios/calidad_aire_2021/es_def/adjuntos/index.json");
 
 		Iterator<Entry<String, JsonElement>> atributos = json.getAsJsonObject().entrySet().iterator();
@@ -49,13 +42,13 @@ public class gestorHorarios {
 						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 
-						if (!name.equalsIgnoreCase("3_DE_MARZO") && url.contains("datos_horarios")) {
+						if (!name.equalsIgnoreCase("3_DE_MARZO") && url.contains("datos_diarios")) {
 
 							System.out.println("\r-------------------------");
 							System.out.println(name);
 							System.out.println("-------------------------\r");
 
-							JsonElement jsonDatosHorarios = readJSON(url);
+							JsonElement jsonDatosHorarios =gestorHorarios.readJSON(url);
 							Iterator<JsonElement> jsonDatosHorariosIterator = jsonDatosHorarios.getAsJsonArray()
 									.iterator();
 
@@ -143,33 +136,4 @@ public class gestorHorarios {
 		}
 	}
 
-	public static JsonElement readJSON(String urlStr) {
-		JsonParser parser = new JsonParser();
-		InputStream is = null;
-
-		try {
-			is = new URL(urlStr).openStream();
-		} catch (MalformedURLException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
-		String datos = null;
-
-		try {
-			datos = new String(is.readAllBytes());
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
-		if (datos.charAt(0) != '[' && datos.charAt(0) != '{') {
-			if (datos.contains("jsonCallback(")) {
-				datos = datos.replace("jsonCallback(", "");
-				datos = datos.substring(0, datos.length() - 2);
-			}
-		}
-
-		return parser.parse(datos);
-	}
 }

@@ -66,31 +66,47 @@ public class gestorEspacios {
 					System.out.println(atributo.getKey() + " > "
 							+ ((JsonElement) atributo.getValue()).getAsJsonPrimitive().getAsString());
 					if (atributo.getKey().equals("documentName")) {
+						String v = atributo.getValue().toString().replace("\"", "");
 
-						espaciosNat.setNombre(atributo.getValue().toString());
+						espaciosNat.setNombre(v);
+
+						// espaciosNat.setNombre(atributo.getValue().toString());
 
 					} else if (atributo.getKey().equals("municipalitycode")) {
 
 						if (atributo.getValue().toString().length() < 3) {
 
-							espaciosNat.setCodMunicipio(atributo.getValue().toString());
+							String v = atributo.getValue().toString().replace("\"", "");
+
+							espaciosNat.setCodMunicipio(v);
+
+							// espaciosNat.setCodMunicipio(atributo.getValue().toString());
 
 						} else {
 
 							String codMun = atributo.getValue().toString().substring(0, 4);
-							espaciosNat.setCodMunicipio(codMun);
+							String v = codMun.replace("\"", "");
+
+							espaciosNat.setDescripcion(v);
+
+							//espaciosNat.setCodMunicipio(codMun);
 
 						}
 					} else if (atributo.getKey().equals("turismDescription")) {
 
 						if (atributo.getValue().toString().length() < 490) {
+							String v = atributo.getValue().toString().replace("\"", "");
 
-							espaciosNat.setDescripcion(atributo.getValue().toString());
+							espaciosNat.setDescripcion(v);
+
+							//espaciosNat.setDescripcion(atributo.getValue().toString());
 
 						} else {
 
 							String desc = atributo.getValue().toString().substring(0, 450);
-							espaciosNat.setDescripcion(desc);
+							String descrip=desc.replace("\"", "");
+							espaciosNat.setDescripcion(descrip);
+							//espaciosNat.setDescripcion(desc);
 
 						}
 
