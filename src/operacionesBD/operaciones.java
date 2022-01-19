@@ -15,79 +15,87 @@ import modelo.Municipios;
 import modelo.Usuarios;
 
 public class operaciones {
-	
+
 	public static String validarLogin(String usuario, String pass) {
 		String res = "";
-		
+
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
+
 		String hql = "from Usuarios as user where user.nombre = '" + usuario + "'";
 		Query q = session.createQuery(hql);
 		Usuarios user = (Usuarios) q.uniqueResult();
-		
-		if(user != null) {
-			if(user.getPassword().equals(pass)) 
+
+		if (user != null) {
+			if (user.getPassword().equals(pass))
 				res = "Login OK";
-			else 
+			else
 				res = "Credenciales inválidas";
-		}
-		else
+		} else
 			res = "Usuario no encontrado";
-		
+
 		session.close();
-		
+
 		return res;
-		
+
 	}
-	
+
 	public static String validarRegister(String usuario, String pass) {
 		String res = null;
-		
+
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 		Transaction tx = session.beginTransaction();
-		
+
 		Usuarios user = new Usuarios();
 		user.setNombre(usuario);
 		user.setPassword(pass);
-		
+
 		try {
 			session.save(user);
 			tx.commit();
 			res = "Register OK";
 		} catch (ConstraintViolationException e) {
-		    res = "Usuario ya existe";
+			res = "Usuario ya existe";
 		}
-		
+
 		session.close();
-		
+
 		return res;
-		
+
 	}
-	
+
 	public static String getAllMunicipios() {
-		Gson gson = new Gson();
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
+
 		String hql = "from Municipios";
 		Query q = session.createQuery(hql);
 		Iterator<?> iterator = q.iterate();
-		
-		String payload = "{\"data\": [";
-		
+
+		String payload = "{\"data\":[";
+
 		while (iterator.hasNext()) {
-			payload += gson.toJson((Municipios)iterator.next());
-		if (iterator.hasNext())
-			payload += ", ";
+			Municipios muni = (Municipios) iterator.next();
+			
+			payload += "{";
+			payload += "\"codMunicipio\":\"" + muni.getCodMunicipio() + "\",";
+			payload += "\"nombre\":\"" + muni.getNombre() + "\"";
+			payload += "}";
+			
+			if (iterator.hasNext())
+				payload += ",";
 		}
-		
+
 		payload += "]}";
 
 		session.close();
-		
+
 		return payload;
+	}
+
+	public static void main(String[] args) {
+		getAllMunicipios();
 	}
 
 }
