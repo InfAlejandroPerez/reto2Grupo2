@@ -90,5 +90,29 @@ public class operaciones {
 		return res;
 		
 	}
+	
+	public static String getAllMunicipios() {
+		String res = "";
+		
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+		
+		String hql = "from Municipios";
+		Query q = session.createQuery(hql);
+		Usuarios user = (Municipios) q.();
+		
+		if(user != null) {
+			if(user.getPassword().equals(pass)) 
+				res = "Login OK";
+			else 
+				res = "Credenciales inválidas";
+		}
+		else
+			res = "Usuario no encontrado";
+		
+		session.close();
+		
+		return res;
+	}
 
 }
