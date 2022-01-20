@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import operacionesBD.operaciones;
+import operacionesBD.Operaciones;
 
 public class Servidor {
 
@@ -45,13 +45,13 @@ public class Servidor {
 
 				switch (cmd.toUpperCase()) {
 				case LOGIN:
-					salida.writeObject(operaciones.validarLogin(params[0], params[1]));
+					salida.writeObject(Operaciones.validarLogin(params[0], params[1]));
 					break;
 				case REGISTER:
-					salida.writeObject(operaciones.validarRegister(params[0], params[1]));
+					salida.writeObject(Operaciones.validarRegister(params[0], params[1]));
 					break;
 				case MUNICIPIOS:
-					salida.writeObject(operaciones.getAllMunicipios());
+					salida.writeObject(Operaciones.getAllMunicipios());
 					break;
 				}
 
