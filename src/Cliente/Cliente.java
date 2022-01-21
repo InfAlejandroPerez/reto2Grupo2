@@ -25,22 +25,13 @@ public class Cliente {
 			String linea = (String) entrada.readObject();
 			System.out.println("recibido mike"+ linea);
 			
-			
-			
 		}catch(Exception e){
 			e.printStackTrace();
 			
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Cliente c = new Cliente();
 		c.iniciar();
 	}
