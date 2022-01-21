@@ -80,7 +80,9 @@ public class JSONHandler {
 
 					}
 
-				} else if (campo.equals("territorycode")) {
+				}
+				
+				if (campo.equals("territorycode")) {
 
 					if (valor.length() < 3) {
 
@@ -88,19 +90,22 @@ public class JSONHandler {
 
 					} else {
 
-						municipio.setDescripcion(cleanString(valor.substring(0, 3)));
+						municipio.setCodProvincia(cleanString(valor.substring(0, 3)));
 
 					}
 
 				}
-
-			}
-
-			if (municipio != null) {
-				if (municipio.getCodProvincia().length() > 0) {
-					municipios.add(municipio);
+				
+				if (!atributos.hasNext()) {
+					if (municipio.getCodProvincia().length() > 0) {
+						municipios.add(municipio);
+						municipio = new Municipios();
+					}
 				}
+
 			}
+
+			
 
 		}
 
@@ -161,12 +166,14 @@ public class JSONHandler {
 					}
 
 				}
-
-				if (espacio != null) {
+				
+				if (!atributos.hasNext()) {
 					if (espacio.getCodMunicipio().length() > 0) {
 						espacios.add(espacio);
+						espacio = new EspaciosNaturales();
 					}
 				}
+
 			}
 		}
 
@@ -222,13 +229,16 @@ public class JSONHandler {
 
 					estacion.setNomMunicipio(cleanString(valor));
 				}
-			}
-
-			if (estacion != null) {
-				if (estacion.getNomMunicipio().length() > 0) {
-					estaciones.add(estacion);
+				
+				if (!atributos.hasNext()) {
+					if (estacion.getNomMunicipio().length() > 0) {
+						estaciones.add(estacion);
+						
+						estacion = new Estaciones();
+					}
 				}
 			}
+			
 		}
 
 		return estaciones;
@@ -258,10 +268,13 @@ public class JSONHandler {
 
 					while (atributosRutas.hasNext()) {
 
+						String format = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
-
-						JsonElement jsonComprobarEstacion = readJSON(Operaciones.getCodEstacionByName(name));
+						
+						JsonParser parser = new JsonParser();
+						JsonElement jsonComprobarEstacion = parser.parse(Operaciones.getCodEstacionByName(name));
+						
 						boolean estacionExiste = jsonComprobarEstacion.getAsJsonObject().get("exists").getAsBoolean();
 
 						if (estacionExiste) {
@@ -340,16 +353,17 @@ public class JSONHandler {
 											diario.setS2gm3(parseBigDecimal(cleanString(valor)));
 										}
 
-									}
-									
-									// Si es del 31/12/2021 lo añadimos
-									if (isDateOk) {
-										if (diario != null) {
-											if (diario.getCodEstacion().length() > 0) {
-												diarios.add(diario);
+										// Si es del 31/12/2021 lo añadimos
+										if (isDateOk) {
+											if (!atributosDatos.hasNext()) {
+												if (diario.getCodEstacion().length() > 0) {
+													diarios.add(diario);
+												}
 											}
 										}
+										
 									}
+
 								}
 
 							}
@@ -386,6 +400,7 @@ public class JSONHandler {
 
 					while (atributosRutas.hasNext()) {
 
+						String format = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 
@@ -472,17 +487,18 @@ public class JSONHandler {
 
 											horario.setSo2gm3(parseBigDecimal(cleanString(valor)));
 										}
-
-									}
-									
-									// Si es del 31/12/2021 lo añadimos
-									if (isDateOk) {
-										if (horario != null) {
-											if (horario.getCodEstacion().length() > 0) {
-												horarios.add(horario);
+										
+										// Si es del 31/12/2021 lo añadimos
+										if (isDateOk) {
+											if (!atributosDatos.hasNext()) {
+												if (horario.getCodEstacion().length() > 0) {
+													horarios.add(horario);
+												}
 											}
 										}
+
 									}
+
 								}
 
 							}

@@ -23,16 +23,16 @@ public class Operaciones {
 		cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
-		cargarArrayList(JSONHandler.readEspacios());
+		//cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		cargarArrayList(JSONHandler.readEstaciones());
+		//cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
-		cargarArrayList(JSONHandler.readDatosDiarios());
+		//cargarArrayList(JSONHandler.readDatosDiarios());
 
 		// Horarios
-		cargarArrayList(JSONHandler.readDatosHorarios());
+		//cargarArrayList(JSONHandler.readDatosHorarios());
 
 	}
 
@@ -46,14 +46,14 @@ public class Operaciones {
 			try {
 
 				session.save(item);
-				tx.commit();
 
 			} catch (ConstraintViolationException e) {
 				System.out.println("El objeto " + item.getClass() + " en la posición " + items.indexOf(item)
 						+ " se ha saltado (Ya existe en la BBDD!)");
 			}
 		});
-
+		
+		tx.commit();
 		session.close();
 
 	}
@@ -167,7 +167,7 @@ public class Operaciones {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
-		String hql = "from Estaciones WHERE Nombre = '" + name + "'";
+		String hql = "from Estaciones WHERE NombreEstacion = '" + name + "'";
 		Query q = session.createQuery(hql);
 		Estaciones estacion = (Estaciones) q.uniqueResult();
 
