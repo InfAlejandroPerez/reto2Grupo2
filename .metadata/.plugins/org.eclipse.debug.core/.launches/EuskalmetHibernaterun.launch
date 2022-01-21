@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.hibernate.eclipse.launch.CodeGenerationLaunchConfigurationType">
     <stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${workspace}"/>
-    <stringAttribute key="org.hibernate.tools.configurationname" value="PruebaHibernateV1"/>
+    <stringAttribute key="org.hibernate.tools.configurationname" value="EuskalmetConsole"/>
     <booleanAttribute key="org.hibernate.tools.ejb3" value="false"/>
     <listAttribute key="org.hibernate.tools.exporters">
         <listEntry value="org.hibernate.tools.hbm2java"/>

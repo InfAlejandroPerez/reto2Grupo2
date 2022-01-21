@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 14 ene 2022 15:27:48 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21 ene 2022 15:37:18 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="euskalmet" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.ImagenesEspaciosnaturales" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="imagenes_espaciosnaturales">
         <composite-id class="modelo.ImagenesEspaciosnaturalesId" mapped="false" name="id" unsaved-value="undefined">
             <key-property name="codEspacio" type="string">
                 <column length="11" name="codEspacio"/>
             </key-property>
-            <key-property name="nombreImagen" type="string">
-                <column length="50" name="nombreImagen"/>
+            <key-property name="imagen" type="binary">
+                <column name="imagen"/>
             </key-property>
         </composite-id>
     </class>
