@@ -1,5 +1,5 @@
 package modelo;
-// Generated 14 ene 2022 15:27:48 by Hibernate Tools 5.5.7.Final
+// Generated 21 ene 2022 15:37:18 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 
@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  */
 public class Estaciones implements java.io.Serializable {
 
-	private String codEstacion;
+	private Integer codEstacion;
 	private String nombreEstacion;
 	private BigDecimal coordenadaX;
 	private BigDecimal coordenadaY;
@@ -17,20 +17,18 @@ public class Estaciones implements java.io.Serializable {
 	public Estaciones() {
 	}
 
-	public Estaciones(String codEstacion, String nombreEstacion, BigDecimal coordenadaX, BigDecimal coordenadaY,
-			String nomMunicipio) {
-		this.codEstacion = codEstacion;
+	public Estaciones(String nombreEstacion, BigDecimal coordenadaX, BigDecimal coordenadaY, String nomMunicipio) {
 		this.nombreEstacion = nombreEstacion;
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 		this.nomMunicipio = nomMunicipio;
 	}
 
-	public String getCodEstacion() {
+	public Integer getCodEstacion() {
 		return this.codEstacion;
 	}
 
-	public void setCodEstacion(String codEstacion) {
+	public void setCodEstacion(Integer codEstacion) {
 		this.codEstacion = codEstacion;
 	}
 
