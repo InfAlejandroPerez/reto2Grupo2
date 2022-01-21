@@ -360,6 +360,29 @@ public class vLogin extends JFrame {
 		return panelMunicipios;
 
 	}
+	public JPanel panelProvincias() {
+		JPanel panelProvincias = new JPanel();
+
+		panelProvincias.setBounds(this.getBounds());
+		panelProvincias.setLayout(null);
+		panelProvincias.setBackground(new Color(153, 204, 204));
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(52, 63, 315, 173);
+		panelProvincias.add(scrollPane);
+
+		JList list = new JList();
+		scrollPane.setViewportView(list);
+
+		JLabel tituloProvincias = new JLabel("Provincias");
+		tituloProvincias.setForeground(new Color(255, 255, 255));
+		tituloProvincias.setFont(new Font("Tahoma", Font.BOLD, 17));
+		tituloProvincias.setBounds(157, 22, 172, 21);
+		panelProvincias.add(tituloProvincias);
+		return panelProvincias;
+
+	}
+
 
 	public JPanel panelInfoMunicipios() {
 		JPanel panelInfoMunicipios = new JPanel();
