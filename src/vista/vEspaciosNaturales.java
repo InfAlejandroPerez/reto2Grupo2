@@ -8,6 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JButton;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
 
 public class vEspaciosNaturales extends JFrame {
 
@@ -41,19 +45,23 @@ public class vEspaciosNaturales extends JFrame {
 		contentPane.setLayout(null);
 		
 		JList list = new JList();
-		list.setBounds(64, 209, 277, -164);
+		list.setBounds(38, 46, 325, 148);
 		contentPane.add(list);
 		
-		JButton btnFavoritos = new JButton("Favoritos");
-		btnFavoritos.setBounds(159, 209, 99, 23);
-		contentPane.add(btnFavoritos);
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(24, 216, 89, 23);
+		contentPane.add(btnBack);
+		
+		JButton b = new JButton("Favorites");
+		b.setBounds(161, 216, 100, 23);
+		contentPane.add(b);
 		
 		JButton btnTopRanking = new JButton("Top Ranking");
-		btnTopRanking.setBounds(295, 209, 99, 23);
+		btnTopRanking.setBounds(302, 216, 106, 23);
 		contentPane.add(btnTopRanking);
 		
-		JButton btnAtras = new JButton("Atras");
-		btnAtras.setBounds(23, 209, 89, 23);
-		contentPane.add(btnAtras);
+		JLabel lblTitleEspacios = new JLabel("Espacios Naturales");
+		lblTitleEspacios.setBounds(161, 11, 100, 24);
+		contentPane.add(lblTitleEspacios);
 	}
 }

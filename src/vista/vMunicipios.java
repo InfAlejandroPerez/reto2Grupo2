@@ -50,11 +50,11 @@ public class vMunicipios extends JFrame {
 		
 		JLabel LblTitleMunicipios = new JLabel("Municipios");
 		LblTitleMunicipios.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		LblTitleMunicipios.setBounds(182, 31, 70, 29);
+		LblTitleMunicipios.setBounds(167, 24, 70, 29);
 		contentPane.add(LblTitleMunicipios);
 		
 		 list = new JList();
-		list.setBounds(88, 71, 253, 127);
+		list.setBounds(33, 71, 351, 164);
 		contentPane.add(list);
 		
 	}
@@ -68,6 +68,9 @@ public class vMunicipios extends JFrame {
 
 		    listModel.add(i, listaMunicipios.get(i).toString());
 		    
+		    
+		    
+		   
 		}
 	
 		list.setModel(listModel);
