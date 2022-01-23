@@ -1,6 +1,5 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Color;
 import java.awt.Font;
@@ -17,7 +16,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.awt.event.ActionEvent;
@@ -25,12 +23,15 @@ import java.awt.CardLayout;
 
 public class vLogin extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tfUser;
-	private JTextField tfPassword;
 	private CardLayout cardlayout;
 	private final int PUERTO = 4444;
-	private final String IP = "127.0.0.1";
+	private final String IP = "192.168.1.73";
 	private Socket cliente = null;
 	private ObjectInputStream entrada = null;
 	private ObjectOutputStream salida = null;
@@ -61,15 +62,11 @@ public class vLogin extends JFrame {
 		contentPane = new JPanel(cardlayout);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.add(mPanelSelected(1), "login");// , "login"
+		contentPane.add(mPanelSelected(1), "login");
 
 	}
 
 	public JPanel mPanelSelected(int panel) {
-
-		/*
-		 * if(contentPane.getComponentCount() > 1) { contentPane.remove(0); }
-		 */
 
 		JPanel panelSeleccionado = null;
 
@@ -87,6 +84,8 @@ public class vLogin extends JFrame {
 		case 4:
 			panelSeleccionado = panelInfoMunicipios();
 			break;
+		case 5:
+			panelSeleccionado = panelProvincias();
 		}
 
 		return panelSeleccionado;
@@ -137,16 +136,16 @@ public class vLogin extends JFrame {
 				try {
 
 					String usuario = tfUser.getText().toString();
-					String pass = tfPass.getText().toString();
+					String valorPass = new String(tfPass.getPassword());
 
-					if (usuario.equals("") || pass.equals("")) {
+					if (usuario.equals("") || valorPass.equals("")) {
 						JOptionPane.showMessageDialog(null, "Usuario no encontrado", "Mensaje",
 								JOptionPane.WARNING_MESSAGE);
 					} else {
 
 						iniciar();
-						
-						String mensaje = "login " + usuario + "," + pass;
+
+						String mensaje = "login " + usuario + "," + valorPass;
 						System.out.println(mensaje);
 
 						salida.writeObject(mensaje);
@@ -154,18 +153,18 @@ public class vLogin extends JFrame {
 
 						Object response = null;
 						response = entrada.readObject();
-						
+
 						cliente.close();
-						
+
 						if (response.equals("Login OK")) {
 
 							if (!(contentPane.getComponentCount() == 1)) {
 								contentPane.remove(0);
 							}
-							
+
 							contentPane.add(mPanelSelected(3), "municipios");
 							cardlayout.show(contentPane, "municipios");
-							
+
 						} else {
 
 							JOptionPane.showMessageDialog(null, response, "Mensaje", JOptionPane.WARNING_MESSAGE);
@@ -196,7 +195,7 @@ public class vLogin extends JFrame {
 				if (!(contentPane.getComponentCount() == 1)) {
 					contentPane.remove(0);
 				}
-				
+
 				contentPane.add(mPanelSelected(2), "register");
 				cardlayout.show(contentPane, "register");
 
@@ -268,17 +267,24 @@ public class vLogin extends JFrame {
 				try {
 
 					String usuario = textFieldUserRegis.getText().toString();
-					String pass = textFieldPass.getText().toString();
-					String passRepe = textFieldPassRepeat.getText().toString();
+					String valorPass = new String(textFieldPass.getPassword());
+					String valorPassRrepe = new String(textFieldPassRepeat.getPassword());
 
-					if (usuario.equals("") || pass.equals("") || passRepe.equals("")) {
+					if (usuario.equals("") || valorPass.equals("") || valorPassRrepe.equals("")) {
 						JOptionPane.showMessageDialog(null, "Los campos no pueden estar vacios", "Mensaje",
 								JOptionPane.WARNING_MESSAGE);
-					} else {
+						
+						
+					} else if(!valorPass.equals(valorPassRrepe) ) {
+						
+						JOptionPane.showMessageDialog(null, "Los campos deben coincidir", "Mensaje",
+								JOptionPane.WARNING_MESSAGE);
+						
+					}	else {
 
 						iniciar();
-						
-						String mensaje = "register " + usuario + "," + pass;
+
+						String mensaje = "register " + usuario + "," + valorPass;
 						System.out.println(mensaje);
 
 						salida.writeObject(mensaje);
@@ -286,14 +292,15 @@ public class vLogin extends JFrame {
 
 						Object response = null;
 						response = entrada.readObject();
-						
+
 						cliente.close();
-						
+
 						if (response.equals("Register OK")) {
 
 							if (!(contentPane.getComponentCount() == 1)) {
 								contentPane.remove(0);
 							}
+							
 							contentPane.add(mPanelSelected(1), "login");
 							cardlayout.show(contentPane, "login");
 
@@ -339,6 +346,8 @@ public class vLogin extends JFrame {
 	}
 
 	public JPanel panelMunicipios() {
+
+		
 		JPanel panelMunicipios = new JPanel();
 
 		panelMunicipios.setBounds(this.getBounds());
@@ -360,29 +369,54 @@ public class vLogin extends JFrame {
 		return panelMunicipios;
 
 	}
+
 	public JPanel panelProvincias() {
+		
+		try {
+
+			iniciar();
+
+			String mensaje = "provincia ";
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			Object response = null;
+			response = entrada.readObject();
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		JPanel panelProvincias = new JPanel();
 
 		panelProvincias.setBounds(this.getBounds());
 		panelProvincias.setLayout(null);
 		panelProvincias.setBackground(new Color(153, 204, 204));
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 63, 315, 173);
-		panelProvincias.add(scrollPane);
+		JScrollPane scrollPaneProv = new JScrollPane();
+		scrollPaneProv.setBounds(52, 63, 315, 173);
+		panelProvincias.add(scrollPaneProv);
 
-		JList list = new JList();
-		scrollPane.setViewportView(list);
+		JList listProv = new JList();
+		scrollPaneProv.setViewportView(listProv);
 
 		JLabel tituloProvincias = new JLabel("Provincias");
 		tituloProvincias.setForeground(new Color(255, 255, 255));
 		tituloProvincias.setFont(new Font("Tahoma", Font.BOLD, 17));
 		tituloProvincias.setBounds(157, 22, 172, 21);
 		panelProvincias.add(tituloProvincias);
+		
 		return panelProvincias;
 
 	}
-
 
 	public JPanel panelInfoMunicipios() {
 		JPanel panelInfoMunicipios = new JPanel();
@@ -531,14 +565,14 @@ public class vLogin extends JFrame {
 	public void iniciar() {
 
 		try {
-			// necesitamos una IP y un PUERTO para establecer la comunicacion
+
 			cliente = new Socket(IP, PUERTO);
 			System.out.println("Conexión establecida con el servidor");
 			salida = new ObjectOutputStream(cliente.getOutputStream());
 			entrada = new ObjectInputStream(cliente.getInputStream());
 
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 
 	}
