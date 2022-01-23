@@ -14,6 +14,9 @@ import javax.swing.JList;
 import javax.swing.JTextPane;
 import java.awt.GridLayout;
 import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class vMunicipios extends JFrame {
 
@@ -54,12 +57,21 @@ public class vMunicipios extends JFrame {
 		contentPane.add(LblTitleMunicipios);
 		
 		 list = new JList();
-		list.setBounds(33, 71, 351, 164);
+		 list.addMouseListener(new MouseAdapter() {
+		 	@Override
+		 	public void mouseClicked(MouseEvent e) {
+		 	}
+		 });
+		list.setBounds(61, 64, 291, 145);
 		contentPane.add(list);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(10, 220, 70, 30);
+		contentPane.add(btnBack);
 		
 	}
 	public static void rellenarLista() {
-		DefaultListModel listModel = new DefaultListModel();
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		 ArrayList<String> listaMunicipios = new ArrayList<String>();
 		listaMunicipios.add("hola");
 		listaMunicipios.add("adios");

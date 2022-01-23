@@ -14,6 +14,9 @@ public class Servidor {
 		final String LOGIN = "LOGIN";
 		final String REGISTER = "REGISTER";
 		final String MUNICIPIOS = "MUNICIPIOS";
+		final String PROVINCIA = "PROVINCIA";
+		final String MUNICIPIOCODPROV = "MUNICIPIOCODPROV";
+		final String ESTACIONESCODMUN = "ESTACIONESCODMUN";
 
 		ServerSocket servidor = null;
 		int puerto = 4444;
@@ -41,7 +44,11 @@ public class Servidor {
 				message = (String) entrada.readObject();
 
 				cmd = message.split(" ")[0];
-				params = message.split(" ")[1].split(",");
+				
+				if(message.split(" ").length > 1) {
+					params = message.split(" ")[1].split(",");
+				}
+				
 
 				switch (cmd.toUpperCase()) {
 				case LOGIN:
@@ -52,6 +59,15 @@ public class Servidor {
 					break;
 				case MUNICIPIOS:
 					salida.writeObject(Operaciones.getAllMunicipios());
+					break;
+				case PROVINCIA:
+					salida.writeObject(Operaciones.getAllProvincias());
+					break;
+				case MUNICIPIOCODPROV:
+					salida.writeObject(Operaciones.getMunicipiosByCodProvincia(params[0]));
+					break;
+				case ESTACIONESCODMUN:
+					salida.writeObject(Operaciones.getEstacionesByNomMunicipio(params[0]));
 					break;
 				}
 

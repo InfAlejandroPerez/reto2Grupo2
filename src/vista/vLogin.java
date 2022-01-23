@@ -8,16 +8,26 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
+import modelo.Datosdiarios;
+import modelo.Estaciones;
+import modelo.Municipios;
+import modelo.Provincia;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
 
@@ -27,12 +37,19 @@ public class vLogin extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String provSelec = null; 
+	private String munSelec = null;
+	private String estSelec;
 	private JPanel contentPane;
 	private JTextField tfUser;
 	private CardLayout cardlayout;
 	private final int PUERTO = 4444;
 	private final String IP = "192.168.1.73";
 	private Socket cliente = null;
+	private ArrayList<Provincia> listaProv = new ArrayList<>();
+	private ArrayList<Datosdiarios> listaDatosDiarios = new ArrayList<>();
+	private ArrayList<Municipios> listaMun = new ArrayList<>();
+	private ArrayList<Estaciones> listaEst = new ArrayList<>();
 	private ObjectInputStream entrada = null;
 	private ObjectOutputStream salida = null;
 
@@ -82,10 +99,14 @@ public class vLogin extends JFrame {
 			panelSeleccionado = panelMunicipios();
 			break;
 		case 4:
-			panelSeleccionado = panelInfoMunicipios();
+			panelSeleccionado = panelInfoEstacion();
 			break;
 		case 5:
 			panelSeleccionado = panelProvincias();
+			break;
+		case 6:
+			panelSeleccionado = panelEstaciones();
+			break;
 		}
 
 		return panelSeleccionado;
@@ -162,8 +183,8 @@ public class vLogin extends JFrame {
 								contentPane.remove(0);
 							}
 
-							contentPane.add(mPanelSelected(3), "municipios");
-							cardlayout.show(contentPane, "municipios");
+							contentPane.add(mPanelSelected(5), "provincias");
+							cardlayout.show(contentPane, "provincias");
 
 						} else {
 
@@ -347,6 +368,32 @@ public class vLogin extends JFrame {
 
 	public JPanel panelMunicipios() {
 
+
+		try {
+
+			iniciar();
+
+			String mensaje = "MUNICIPIOCODPROV " + provSelec;
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			Object response = null;
+			response = entrada.readObject();
+			
+			listaMun.clear();
+			listaMun = (ArrayList<Municipios>) response;
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		JPanel panelMunicipios = new JPanel();
 
@@ -355,17 +402,56 @@ public class vLogin extends JFrame {
 		panelMunicipios.setBackground(new Color(153, 204, 204));
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 63, 315, 173);
+		scrollPane.setBounds(61, 64, 291, 145);
 		panelMunicipios.add(scrollPane);
 
-		JList list = new JList();
-		scrollPane.setViewportView(list);
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		JList<String> listMun = new JList<String>();
+		listMun.addMouseListener(new MouseAdapter() {
+		 	@Override
+		 	public void mouseClicked(MouseEvent e) { 		
+		 		 
+		 		munSelec = listaMun.get(listMun.getSelectedIndex()).getNombre();
+		 		
+		 		if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(6), "estaciones");
+				cardlayout.show(contentPane, "estacioones");
+
+		 	}
+		 });
+		scrollPane.setViewportView(listMun);
+		
+		for(int i=0; i < listaMun.size(); i++) {
+
+		    listModel.add(i, listaMun.get(i).getNombre().toString());    
+		   
+		}
+		
+		listMun.setModel(listModel);
 
 		JLabel lblNewLabel = new JLabel("Municipios");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setBounds(157, 22, 172, 21);
 		panelMunicipios.add(lblNewLabel);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(10, 220, 70, 30);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(5), "provincias");
+				cardlayout.show(contentPane, "provincias");
+
+			}
+		});
+		panelMunicipios.add(btnBack);
+		
 		return panelMunicipios;
 
 	}
@@ -376,7 +462,7 @@ public class vLogin extends JFrame {
 
 			iniciar();
 
-			String mensaje = "provincia ";
+			String mensaje = "Provincia ";
 			System.out.println(mensaje);
 
 			salida.writeObject(mensaje);
@@ -384,6 +470,9 @@ public class vLogin extends JFrame {
 
 			Object response = null;
 			response = entrada.readObject();
+			
+			listaProv.clear();
+			listaProv = (ArrayList<Provincia>) response;
 
 			cliente.close();
 
@@ -405,8 +494,31 @@ public class vLogin extends JFrame {
 		scrollPaneProv.setBounds(52, 63, 315, 173);
 		panelProvincias.add(scrollPaneProv);
 
-		JList listProv = new JList();
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		JList<String> listProv = new JList<String>();
+		listProv.addMouseListener(new MouseAdapter() {
+		 	@Override
+		 	public void mouseClicked(MouseEvent e) { 		
+		 		 
+		 		provSelec = listaProv.get(listProv.getSelectedIndex()).getCodProvincia();
+		 		
+		 		if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(3), "municipios");
+				cardlayout.show(contentPane, "municipios");
+
+		 	}
+		 });
 		scrollPaneProv.setViewportView(listProv);
+		
+		for(int i=0; i < listaProv.size(); i++) {
+
+		    listModel.add(i, listaProv.get(i).getNombre().toString());    
+		   
+		}
+		
+		listProv.setModel(listModel);
 
 		JLabel tituloProvincias = new JLabel("Provincias");
 		tituloProvincias.setForeground(new Color(255, 255, 255));
@@ -418,7 +530,34 @@ public class vLogin extends JFrame {
 
 	}
 
-	public JPanel panelInfoMunicipios() {
+	public JPanel panelInfoEstacion() {
+		
+		try {
+
+			iniciar();
+
+			String mensaje = "DatosEstacioon " + estSelec;
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			Object response = null;
+			response = entrada.readObject();
+			
+			listaDatosDiarios.clear();
+			listaDatosDiarios = (ArrayList<Datosdiarios>) response;
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		JPanel panelInfoMunicipios = new JPanel();
 
 		panelInfoMunicipios.setBounds(this.getBounds());
@@ -495,7 +634,7 @@ public class vLogin extends JFrame {
 		lblFecha.setBounds(249, 22, 46, 14);
 		panelInfoMunicipios.add(lblFecha);
 
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(281, 22, 78, 14);
@@ -560,6 +699,105 @@ public class vLogin extends JFrame {
 		panelInfoMunicipios.add(btnBackMunicipios);
 
 		return panelInfoMunicipios;
+	}
+	
+	public JPanel panelEstaciones() {
+
+
+		try {
+
+			iniciar();
+
+			String mensaje = "EstacionesCodMun " + munSelec;
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			Object response = null;
+			response = entrada.readObject();
+			
+			listaEst.clear();
+			listaEst = (ArrayList<Estaciones>) response;
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		JPanel panelEstaciones = new JPanel();
+
+		panelEstaciones.setBounds(this.getBounds());
+		panelEstaciones.setLayout(null);
+		panelEstaciones.setBackground(new Color(153, 204, 204));
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(61, 64, 291, 145);
+		panelEstaciones.add(scrollPane);
+
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		JList<String> listEstaciones = new JList<String>();
+		listEstaciones.addMouseListener(new MouseAdapter() {
+		 	@Override
+		 	public void mouseClicked(MouseEvent e) { 		
+		 		 
+		 		estSelec = listaEst.get(listEstaciones.getSelectedIndex()).getCodEstacion().toString();
+		 		
+		 		if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(4), "estacionesinfo");
+				cardlayout.show(contentPane, "estacionesinfo");
+
+		 	}
+		 });
+		scrollPane.setViewportView(listEstaciones);
+		
+		if(!listaEst.isEmpty()) {
+			
+			for(int i=0; i < listaEst.size(); i++) {
+
+			    listModel.add(i, listaEst.get(i).getNombreEstacion().toString());    
+			   
+			}
+			
+		}else {
+			
+			JOptionPane.showMessageDialog(null, "Este Municipio no tiene estacion", "Mensaje",
+					JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+
+		listEstaciones.setModel(listModel);
+
+		JLabel lblEst = new JLabel("Estaciones");
+		lblEst.setForeground(new Color(255, 255, 255));
+		lblEst.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblEst.setBounds(157, 22, 172, 21);
+		panelEstaciones.add(lblEst);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(10, 220, 70, 30);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(3), "municipios");
+				cardlayout.show(contentPane, "municipios");
+
+			}
+		});
+		panelEstaciones.add(btnBack);
+		
+		return panelEstaciones;
+
 	}
 
 	public void iniciar() {
