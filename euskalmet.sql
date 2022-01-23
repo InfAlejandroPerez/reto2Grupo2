@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-01-2022 a las 17:01:20
+-- Tiempo de generación: 23-01-2022 a las 20:33:38
 -- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.0.13
+-- Versión de PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,15 +32,32 @@ USE `euskalmet`;
 CREATE TABLE `datosdiarios` (
   `CodEstacion` varchar(50) NOT NULL,
   `Date` varchar(50) NOT NULL,
-  `COmgm3` decimal(4,2) DEFAULT NULL,
-  `Co8hmgm3` decimal(4,2) DEFAULT NULL,
-  `NOgm3` decimal(4,2) DEFAULT NULL,
-  `NO2gm3` decimal(4,2) DEFAULT NULL,
-  `NOXgm3` decimal(4,2) DEFAULT NULL,
-  `PM10gm3` decimal(4,2) DEFAULT NULL,
-  `PM25gm3` decimal(4,2) DEFAULT NULL,
-  `S2gm3` decimal(4,2) DEFAULT NULL
+  `COmgm3` decimal(10,2) DEFAULT NULL,
+  `Co8hmgm3` decimal(10,2) DEFAULT NULL,
+  `NOgm3` decimal(10,2) DEFAULT NULL,
+  `NO2gm3` decimal(10,2) DEFAULT NULL,
+  `NOXgm3` decimal(10,2) DEFAULT NULL,
+  `PM10gm3` decimal(10,2) DEFAULT NULL,
+  `PM25gm3` decimal(10,2) DEFAULT NULL,
+  `S2gm3` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `datosdiarios`
+--
+
+INSERT INTO `datosdiarios` (`CodEstacion`, `Date`, `COmgm3`, `Co8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `S2gm3`) VALUES
+('11', '31/12/2021', NULL, NULL, '31.00', '33.00', '80.00', '18.00', NULL, NULL),
+('14', '31/12/2021', '0.17', '0.17', '1.00', '12.00', '14.00', '9.00', '6.00', NULL),
+('15', '31/12/2021', NULL, NULL, '1.00', '14.00', '16.00', '7.00', NULL, NULL),
+('16', '31/12/2021', '0.41', '0.46', '29.00', '30.00', '74.00', '20.00', '12.00', NULL),
+('18', '31/12/2021', NULL, NULL, '2.00', '6.00', '9.00', '5.00', NULL, NULL),
+('19', '31/12/2021', NULL, NULL, '6.00', '25.00', '35.00', '8.00', '4.00', NULL),
+('2', '31/12/2021', NULL, NULL, '1.00', '4.00', '6.00', '5.00', NULL, NULL),
+('3', '31/12/2021', NULL, NULL, '11.00', '20.00', '37.00', '10.00', '8.00', NULL),
+('5', '31/12/2021', NULL, NULL, '1.00', '4.00', '5.00', '5.00', NULL, NULL),
+('6', '31/12/2021', NULL, NULL, '6.00', '25.00', '34.00', '8.00', '6.00', NULL),
+('8', '31/12/2021', '0.77', '0.74', '31.00', '39.00', '87.00', '22.00', '12.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,15 +69,32 @@ CREATE TABLE `datoshorarios` (
   `CodEstacion` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `COmgm3` decimal(4,2) DEFAULT NULL,
-  `CO8hmgm3` decimal(4,2) DEFAULT NULL,
-  `NOgm3` decimal(4,2) DEFAULT NULL,
-  `NO2gm3` decimal(4,2) DEFAULT NULL,
-  `NOXgm3` decimal(4,2) DEFAULT NULL,
-  `PM10gm3` decimal(4,2) DEFAULT NULL,
-  `PM25gm3` decimal(4,2) DEFAULT NULL,
-  `SO2gm3` decimal(4,2) DEFAULT NULL
+  `COmgm3` decimal(10,2) DEFAULT NULL,
+  `CO8hmgm3` decimal(10,2) DEFAULT NULL,
+  `NOgm3` decimal(10,2) DEFAULT NULL,
+  `NO2gm3` decimal(10,2) DEFAULT NULL,
+  `NOXgm3` decimal(10,2) DEFAULT NULL,
+  `PM10gm3` decimal(10,2) DEFAULT NULL,
+  `PM25gm3` decimal(10,2) DEFAULT NULL,
+  `SO2gm3` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `datoshorarios`
+--
+
+INSERT INTO `datoshorarios` (`CodEstacion`, `Fecha`, `Hora`, `COmgm3`, `CO8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `SO2gm3`) VALUES
+('11', '31/12/2021', '24:00', NULL, NULL, '16.00', '32.00', '57.00', '24.00', NULL, NULL),
+('14', '31/12/2021', '24:00', '0.17', '0.17', '0.00', '5.00', '6.00', '33.00', '27.00', '12.00'),
+('15', '31/12/2021', '24:00', NULL, NULL, '0.00', '13.00', '13.00', '17.00', NULL, '6.00'),
+('16', '31/12/2021', '24:00', '0.22', '0.35', '6.00', '24.00', '33.00', '26.00', '10.00', '4.00'),
+('18', '31/12/2021', '24:00', NULL, NULL, '2.00', '2.00', '5.00', '6.00', NULL, NULL),
+('19', '31/12/2021', '24:00', NULL, NULL, '7.00', '26.00', '36.00', '19.00', '14.00', '3.00'),
+('2', '31/12/2021', '24:00', NULL, NULL, '1.00', '0.00', '2.00', '10.00', NULL, '2.00'),
+('3', '31/12/2021', '24:00', NULL, NULL, '1.00', '6.00', '8.00', '11.00', '4.00', NULL),
+('5', '31/12/2021', '24:00', NULL, NULL, '1.00', '1.00', '3.00', '6.00', NULL, NULL),
+('6', '31/12/2021', '24:00', NULL, NULL, '0.00', '9.00', '10.00', '8.00', '7.00', '7.00'),
+('8', '31/12/2021', '24:00', '0.90', '0.96', '29.00', '46.00', '90.00', '88.00', '35.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -72,17 +106,17 @@ CREATE TABLE `datosindice` (
   `CodEstacion` varchar(11) NOT NULL,
   `Date` varchar(50) NOT NULL,
   `HourGMT` varchar(50) NOT NULL,
-  `COmgm3` decimal(4,2) NOT NULL,
-  `CO8hmgm3` decimal(4,2) NOT NULL,
-  `NOgm3` decimal(4,2) NOT NULL,
-  `NO2` decimal(4,2) NOT NULL,
+  `COmgm3` decimal(10,2) NOT NULL,
+  `CO8hmgm3` decimal(10,2) NOT NULL,
+  `NOgm3` decimal(10,2) NOT NULL,
+  `NO2` decimal(10,2) NOT NULL,
   `NO2ICA` varchar(50) NOT NULL,
-  `NOXgm3` decimal(4,2) NOT NULL,
-  `PM10` decimal(4,2) NOT NULL,
+  `NOXgm3` decimal(10,2) NOT NULL,
+  `PM10` decimal(10,2) NOT NULL,
   `PM10ICA` varchar(50) NOT NULL,
-  `PM25` decimal(4,2) NOT NULL,
+  `PM25` decimal(10,2) NOT NULL,
   `PM25ICA` varchar(50) NOT NULL,
-  `SO2` decimal(4,2) NOT NULL,
+  `SO2` decimal(10,2) NOT NULL,
   `SO2ICA` varchar(50) NOT NULL,
   `ICAEstacion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -94,9 +128,11 @@ CREATE TABLE `datosindice` (
 --
 
 CREATE TABLE `espacios_naturales` (
-  `CodEspacio` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  `CodEspacio` int(11) NOT NULL,
   `Nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Descripcion` varchar(500) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `latitud` decimal(15,10) DEFAULT NULL,
+  `longitud` decimal(15,10) DEFAULT NULL,
   `codMunicipio` varchar(11) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -104,22 +140,22 @@ CREATE TABLE `espacios_naturales` (
 -- Volcado de datos para la tabla `espacios_naturales`
 --
 
-INSERT INTO `espacios_naturales` (`CodEspacio`, `Nombre`, `Descripcion`, `codMunicipio`) VALUES
-('1', '\"Piscinas fluviales de Espejo\"', '\"<p>Las piscinas fluviales de Espejo se hallan en el territorio hist&oacute rico de &Aacute lava, en el municipio de Valdegov&iacute a, dentro de la Cuadrilla de A&ntilde ana.    Este bello entorno, emplazado en el r&iacute o Omecillo, se convierte en lugar de descanso para muchos lugare&ntilde os y visitantes durante los meses de verano.    Cuenta con amplios aparcamientos a ambos lados del r&iacute o, una zona de ba&ntilde o y un &aacute rea de', '\"055'),
-('10', '\"Playa de Laidatxu\"', '\"<p>La playa de Laidatxu se halla en el municipio vizca&iacute no de <a href=\\\"https://turismo.euskadi.eus/es/localidades/mundaka/aa30-12375/es/\\\" target=\\\"_blank\\\">Mundaka</a>, muy cerca del <strong>casco urbano</strong>.    De dimensiones peque&ntilde as y <strong>arena fina y dorada</strong>, la calidad de sus aguas es muy buena, por lo que es muy recomendable para familias con ni&ntilde os.    </p><p>&nbsp </p><p>Considerada como u<strong>na ', '\"068'),
-('11', '\"Playa de Las Arenas\"', '\"<p>La playa de Las Arenas se encuentra en el municipio vizca&iacute no de <a href=\\\"https://turismo.euskadi.eus/es/localidades/getxo/aa30-12375/es/\\\" target=\\\"_blank\\\">Getxo</a>, en el Abra de Bilbao, junto al muelle de Churruca y muy pr&oacute xima al <a href=\\\"https://turismo.euskadi.eus/es/top10/patrimonio-cultural/puente-colgante-de-bizkaia/aa30-12376/es/\\\" target=\\\"_blank\\\">Puente de Bizkaia</a>, monumento declarado Patrimonio de la Humanid', '\"044'),
-('12', '\"Playa de Ondarreta\"', '\"<p>Situada en el extremo oeste de la capital donostiarra, al abrigo del monte Igeldo y frente a la isla de Santa Clara, esta playa de fina arena dorada es una de las m&aacute s elegantes de Gipuzkoa.    Ondarreta, con sus 600 metros de longitud, dispone de una variada oferta deportiva. Durante los meses de verano, se organizan cursos de nataci&oacute n y voleibol. Asimismo, es posible practicar numerosas actividades acu&aacute ticas y posee, ade', '\"069'),
-('13', '\"Playa de Zarautz\"', '\"<p>La playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/zarautz/aa30-12375/es/\\\">Zarautz</a> llama especialmente la atenci&oacute n por su extensa longitud, con 2.500 metros de fina arena dorada.</p><p>&nbsp </p><p>Este hermoso arenal, con sus llamativos toldos, cuenta con un <strong>animado paseo mar&iacute timo</strong> repleto de bares, cafeter&iacute as y restaurantes. La playa est&aacute  abierta al mar y es muy conocida por las', '\"079'),
-('14', '\"Playa de la Zurriola\"', '\"<p>La playa de la Zurriola se halla en el barrio donostiarra de Gros, bajo la atenta mirada del Palacio de Congresos y Auditorio Kursaal. Antiguamente, estuvo formada por grandes arenales ubicados entre la desembocadura del r&iacute o Urumea y el monte Ul&iacute a. En la d&eacute cada de los 90, comenzaron los trabajos de rehabilitaci&oacute n y se procedi&oacute  a la construcci&oacute n de la actual playa, de <strong>fina arena dorada y fuerte', '\"069'),
-('15', '\"Zierbena-Puerto\"', '\"<p>Situada en la costa occidental de Bizkaia, esta playa artificial de tan s&oacute lo 100 metros de longitud se encuentra en el propio puerto pesquero de Zierbena.    Esta peque&ntilde a playa se asoma en bajamar. Sus aguas tranquilas son seguras para los ba&ntilde istas y sobre todo, para los m&aacute s peque&ntilde os. En verano, dispone de varios servicios, como duchas, hondartzainas, socorristas...    El lugar mantiene su encanto y cierto s', '\"913'),
-('2', '\"Playa de Arrigunaga\"', '\"<p>La playa de Arrigunaga se encuentra en el municipio de Getxo, en Bizkaia. Ubicada bajo los acantilados de La Galea, ofrece hermosas vistas al Abra y al Molino de Aixerrota.    Adem&aacute s de poder tomar el sol y un agradable ba&ntilde o, la playa de Arrigunaga ofrece al visitante la posibilidad de realizar numerosas actividades como el <strong>surf </strong>o el skate. Aunque es de f&aacute cil acceso, resulta algo peligrosa, ya que su fond', '\"044'),
-('3', '\"Playa de Barinatxe\"', '\"<p>Enclavada entre los municipios vizca&iacute nos de Sopela y Getxo, la playa de Barinatxe est&aacute  compuesta por tres elementos vitales de la naturaleza: agua de una inmensa bravura, fina arena y un aire vol&aacute til que emana una pureza solamente propia de enclaves tan caracter&iacute sticos como este. Precisamente gracias a su innato e impredecible ecosistema, Barinatxe se ha ganado el nombre de &ldquo La Salvaje&rdquor .    Se trata de', '\"044'),
-('4', '\"Playa de Ereaga\"', '\"<p>La playa de Ereaga se encuentra en el municipio de Getxo, entre el puerto viejo de Algorta y el espig&oacute n de Arriluze. Con sus m&aacute s de <strong>800 metros de fina arena</strong>, este hermoso arenal est&aacute  muy bien equipado de cara a la &eacute poca estival.    Por otro lado, son muchos los deportes que se practican en esta playa: surf, pirag&uuml ismo, voleibol y vela, entre otros. Pero, sin duda, Ereaga es muy conocida por lo', '\"044'),
-('5', '\"Playa de Gorrondatxe (Azkorri)\"', '\"<p><strong>Gorrondatxe</strong> es la cuarta playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/getxo/aa30-12375/es/\\\">Getxo</a>&nbsp y&nbsp quiz&aacute  la menos accesible, pero la m&aacute s limpia. Conocido tambi&eacute n por el nombre de <strong>Azkorri</strong>, este arenal se encuentra alejado del casco urbano del municipio al que pertenece, pero pr&oacute ximo a la vecina localidad de Berango.</p><p>&nbsp </p><p>La playa est&aa', '\"044'),
-('6', '\"Playa de Hondarribia\"', '\"<p>La playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/hondarribia/aa30-12375/es/\\\">Hondarribia</a> est&aacute  ubicada en el extremo oriental del litoral guipuzcoano, concretamente en la hermosa <a href=\\\"https://turismo.euskadi.eus/es/espacios-naturales/bahia-de-txingudi-y-hondarribia/aa30-12375/es/\\\">bah&iacute a de Txingudi</a>, junto a la desembocadura del r&iacute o Bidasoa.</p><p>&nbsp </p><p>Este hermoso arenal de <strong>fi', '\"036'),
-('7', '\"Playa de Hondartzape\"', '\"<p>La playa de Hondartzape est&aacute  ubicada en el municipio vizca&iacute no de Mundaka, a 36 km de Bilbao. La principal caracter&iacute stica de esta playa son sus rocas y su arena negra, formando as&iacute , en bajamar, una <strong>peque&ntilde a y bonita cala</strong>.    La playa cuenta en sus inmediaciones con unas <strong>espectaculares vistas</strong>, dado que se encuentra dentro de la Reserva de la Biosfera de Urdaibai, espacio natura', '\"068'),
-('8', '\"Playa de La Arena\"', '\"<p>Situada entre Muskiz y Zierbena, la hermosa playa de La Arena tiene 966 metros de longitud y es<strong> uno de los rincones preferidos de los surfistas</strong> de la Margen Izquierda del Gran Bilbao.    Es la &uacute ltima playa de Euskadi en su l&iacute mite oeste. Tiene fundamentalmente tres olas principales: la izquierda de Pobe&ntilde a, en la zona oeste de la playa, el Centro y la derecha del Vivero, en la zona este de la playa. Es en e', '\"913'),
-('9', '\"Playa de La Concha\"', '\"<p>La incomparable <strong>playa de La Concha</strong> es una de las se&ntilde as de identidad de <a href=\\\"https://turismo.euskadi.eus/es/top10/localidades/donostia-san-sebastian/aa30-12375/es/\\\">San Sebasti&aacute n</a>. Situada en pleno centro de la ciudad, ofrece al visitante la oportunidad de disfrutar de magn&iacute ficas vistas, como la que nos ofrece su hermosa bah&iacute a en forma de concha, con la isla de Santa Clara en el centro, fla', '\"069');
+INSERT INTO `espacios_naturales` (`CodEspacio`, `Nombre`, `Descripcion`, `latitud`, `longitud`, `codMunicipio`) VALUES
+(1, '\"Piscinas fluviales de Espejo\"', '\"<p>Las piscinas fluviales de Espejo se hallan en el territorio hist&oacute rico de &Aacute lava, en el municipio de Valdegov&iacute a, dentro de la Cuadrilla de A&ntilde ana.    Este bello entorno, emplazado en el r&iacute o Omecillo, se convierte en lugar de descanso para muchos lugare&ntilde os y visitantes durante los meses de verano.    Cuenta con amplios aparcamientos a ambos lados del r&iacute o, una zona de ba&ntilde o y un &aacute rea de', NULL, NULL, '\"055'),
+(2, '\"Playa de Arrigunaga\"', '\"<p>La playa de Arrigunaga se encuentra en el municipio de Getxo, en Bizkaia. Ubicada bajo los acantilados de La Galea, ofrece hermosas vistas al Abra y al Molino de Aixerrota.    Adem&aacute s de poder tomar el sol y un agradable ba&ntilde o, la playa de Arrigunaga ofrece al visitante la posibilidad de realizar numerosas actividades como el <strong>surf </strong>o el skate. Aunque es de f&aacute cil acceso, resulta algo peligrosa, ya que su fond', NULL, NULL, '\"044'),
+(3, '\"Playa de Barinatxe\"', '\"<p>Enclavada entre los municipios vizca&iacute nos de Sopela y Getxo, la playa de Barinatxe est&aacute  compuesta por tres elementos vitales de la naturaleza: agua de una inmensa bravura, fina arena y un aire vol&aacute til que emana una pureza solamente propia de enclaves tan caracter&iacute sticos como este. Precisamente gracias a su innato e impredecible ecosistema, Barinatxe se ha ganado el nombre de &ldquo La Salvaje&rdquor .    Se trata de', NULL, NULL, '\"044'),
+(4, '\"Playa de Ereaga\"', '\"<p>La playa de Ereaga se encuentra en el municipio de Getxo, entre el puerto viejo de Algorta y el espig&oacute n de Arriluze. Con sus m&aacute s de <strong>800 metros de fina arena</strong>, este hermoso arenal est&aacute  muy bien equipado de cara a la &eacute poca estival.    Por otro lado, son muchos los deportes que se practican en esta playa: surf, pirag&uuml ismo, voleibol y vela, entre otros. Pero, sin duda, Ereaga es muy conocida por lo', NULL, NULL, '\"044'),
+(5, '\"Playa de Gorrondatxe (Azkorri)\"', '\"<p><strong>Gorrondatxe</strong> es la cuarta playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/getxo/aa30-12375/es/\\\">Getxo</a>&nbsp y&nbsp quiz&aacute  la menos accesible, pero la m&aacute s limpia. Conocido tambi&eacute n por el nombre de <strong>Azkorri</strong>, este arenal se encuentra alejado del casco urbano del municipio al que pertenece, pero pr&oacute ximo a la vecina localidad de Berango.</p><p>&nbsp </p><p>La playa est&aa', NULL, NULL, '\"044'),
+(6, '\"Playa de Hondarribia\"', '\"<p>La playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/hondarribia/aa30-12375/es/\\\">Hondarribia</a> est&aacute  ubicada en el extremo oriental del litoral guipuzcoano, concretamente en la hermosa <a href=\\\"https://turismo.euskadi.eus/es/espacios-naturales/bahia-de-txingudi-y-hondarribia/aa30-12375/es/\\\">bah&iacute a de Txingudi</a>, junto a la desembocadura del r&iacute o Bidasoa.</p><p>&nbsp </p><p>Este hermoso arenal de <strong>fi', NULL, NULL, '\"036'),
+(7, '\"Playa de Hondartzape\"', '\"<p>La playa de Hondartzape est&aacute  ubicada en el municipio vizca&iacute no de Mundaka, a 36 km de Bilbao. La principal caracter&iacute stica de esta playa son sus rocas y su arena negra, formando as&iacute , en bajamar, una <strong>peque&ntilde a y bonita cala</strong>.    La playa cuenta en sus inmediaciones con unas <strong>espectaculares vistas</strong>, dado que se encuentra dentro de la Reserva de la Biosfera de Urdaibai, espacio natura', NULL, NULL, '\"068'),
+(8, '\"Playa de La Arena\"', '\"<p>Situada entre Muskiz y Zierbena, la hermosa playa de La Arena tiene 966 metros de longitud y es<strong> uno de los rincones preferidos de los surfistas</strong> de la Margen Izquierda del Gran Bilbao.    Es la &uacute ltima playa de Euskadi en su l&iacute mite oeste. Tiene fundamentalmente tres olas principales: la izquierda de Pobe&ntilde a, en la zona oeste de la playa, el Centro y la derecha del Vivero, en la zona este de la playa. Es en e', NULL, NULL, '\"913'),
+(9, '\"Playa de La Concha\"', '\"<p>La incomparable <strong>playa de La Concha</strong> es una de las se&ntilde as de identidad de <a href=\\\"https://turismo.euskadi.eus/es/top10/localidades/donostia-san-sebastian/aa30-12375/es/\\\">San Sebasti&aacute n</a>. Situada en pleno centro de la ciudad, ofrece al visitante la oportunidad de disfrutar de magn&iacute ficas vistas, como la que nos ofrece su hermosa bah&iacute a en forma de concha, con la isla de Santa Clara en el centro, fla', NULL, NULL, '\"069'),
+(10, '\"Playa de Laidatxu\"', '\"<p>La playa de Laidatxu se halla en el municipio vizca&iacute no de <a href=\\\"https://turismo.euskadi.eus/es/localidades/mundaka/aa30-12375/es/\\\" target=\\\"_blank\\\">Mundaka</a>, muy cerca del <strong>casco urbano</strong>.    De dimensiones peque&ntilde as y <strong>arena fina y dorada</strong>, la calidad de sus aguas es muy buena, por lo que es muy recomendable para familias con ni&ntilde os.    </p><p>&nbsp </p><p>Considerada como u<strong>na ', NULL, NULL, '\"068'),
+(11, '\"Playa de Las Arenas\"', '\"<p>La playa de Las Arenas se encuentra en el municipio vizca&iacute no de <a href=\\\"https://turismo.euskadi.eus/es/localidades/getxo/aa30-12375/es/\\\" target=\\\"_blank\\\">Getxo</a>, en el Abra de Bilbao, junto al muelle de Churruca y muy pr&oacute xima al <a href=\\\"https://turismo.euskadi.eus/es/top10/patrimonio-cultural/puente-colgante-de-bizkaia/aa30-12376/es/\\\" target=\\\"_blank\\\">Puente de Bizkaia</a>, monumento declarado Patrimonio de la Humanid', NULL, NULL, '\"044'),
+(12, '\"Playa de Ondarreta\"', '\"<p>Situada en el extremo oeste de la capital donostiarra, al abrigo del monte Igeldo y frente a la isla de Santa Clara, esta playa de fina arena dorada es una de las m&aacute s elegantes de Gipuzkoa.    Ondarreta, con sus 600 metros de longitud, dispone de una variada oferta deportiva. Durante los meses de verano, se organizan cursos de nataci&oacute n y voleibol. Asimismo, es posible practicar numerosas actividades acu&aacute ticas y posee, ade', NULL, NULL, '\"069'),
+(13, '\"Playa de Zarautz\"', '\"<p>La playa de <a href=\\\"https://turismo.euskadi.eus/es/localidades/zarautz/aa30-12375/es/\\\">Zarautz</a> llama especialmente la atenci&oacute n por su extensa longitud, con 2.500 metros de fina arena dorada.</p><p>&nbsp </p><p>Este hermoso arenal, con sus llamativos toldos, cuenta con un <strong>animado paseo mar&iacute timo</strong> repleto de bares, cafeter&iacute as y restaurantes. La playa est&aacute  abierta al mar y es muy conocida por las', NULL, NULL, '\"079'),
+(14, '\"Playa de la Zurriola\"', '\"<p>La playa de la Zurriola se halla en el barrio donostiarra de Gros, bajo la atenta mirada del Palacio de Congresos y Auditorio Kursaal. Antiguamente, estuvo formada por grandes arenales ubicados entre la desembocadura del r&iacute o Urumea y el monte Ul&iacute a. En la d&eacute cada de los 90, comenzaron los trabajos de rehabilitaci&oacute n y se procedi&oacute  a la construcci&oacute n de la actual playa, de <strong>fina arena dorada y fuerte', NULL, NULL, '\"069'),
+(15, '\"Zierbena-Puerto\"', '\"<p>Situada en la costa occidental de Bizkaia, esta playa artificial de tan s&oacute lo 100 metros de longitud se encuentra en el propio puerto pesquero de Zierbena.    Esta peque&ntilde a playa se asoma en bajamar. Sus aguas tranquilas son seguras para los ba&ntilde istas y sobre todo, para los m&aacute s peque&ntilde os. En verano, dispone de varios servicios, como duchas, hondartzainas, socorristas...    El lugar mantiene su encanto y cierto s', NULL, NULL, '\"913');
 
 -- --------------------------------------------------------
 
@@ -128,7 +164,7 @@ INSERT INTO `espacios_naturales` (`CodEspacio`, `Nombre`, `Descripcion`, `codMun
 --
 
 CREATE TABLE `estaciones` (
-  `CodEstacion` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  `CodEstacion` int(11) NOT NULL,
   `NombreEstacion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `CoordenadaX` decimal(13,10) NOT NULL,
   `CoordenadaY` decimal(13,10) NOT NULL,
@@ -140,65 +176,65 @@ CREATE TABLE `estaciones` (
 --
 
 INSERT INTO `estaciones` (`CodEstacion`, `NombreEstacion`, `CoordenadaX`, `CoordenadaY`, `NomMunicipio`) VALUES
-('1', '3 DE MARZO', '-2.6677849293', '42.8560485840', 'Vitoria-Gasteiz'),
-('10', 'AVDA. TOLOSA', '-2.0109384060', '43.3094139099', 'Donostia / San SebastiÃ¡n'),
-('11', 'AZPEITIA', '-2.2682104111', '43.1803703308', 'Azpeitia'),
-('12', 'AÃ‘ORGA', '-1.9957411289', '43.2905311584', 'Donostia / San SebastiÃ¡n'),
-('13', 'BANDERAS (meteo)', '-2.9532783031', '43.2809906006', 'Bilbao'),
-('14', 'BARAKALDO', '-2.9871330261', '43.2983779907', 'Barakaldo'),
-('15', 'BASAURI', '-2.8837609291', '43.2411308289', 'Basauri'),
-('16', 'BEASAIN', '-2.1913802624', '43.0480957031', 'Beasain'),
-('17', 'BOROA METEO', '-2.7506873608', '43.2359046936', 'Amorebieta-Etxano'),
-('18', 'CASTREJANA', '-2.9734566212', '43.2580795288', 'Barakaldo'),
-('19', 'DURANGO', '-2.6379580498', '43.1682853699', 'Durango'),
-('2', 'ABANTO', '-3.0741560459', '43.3204727173', 'Abanto y CiÃ©rvana-Abanto Zierbena'),
-('20', 'EASO', '-1.9809008837', '43.3121528625', 'Donostia / San SebastiÃ¡n'),
-('21', 'ELCIEGO', '-2.6194751263', '42.5182495117', 'Elciego'),
-('22', 'ERANDIO', '-2.9772400856', '43.3026542664', 'Erandio'),
-('23', 'EUROPA', '-2.9023761749', '43.2549095154', 'Bilbao'),
-('24', 'FARMACIA', '-2.6725630760', '42.8400993347', 'Vitoria-Gasteiz'),
-('25', 'FERIA (meteo)', '-2.9475440979', '43.2652206421', 'Bilbao'),
-('26', 'HERNANI', '-1.9777156115', '43.2674331665', 'Hernani'),
-('27', 'JAIZKIBEL', '-1.8594129086', '43.3427734375', 'Hondarribia'),
-('28', 'LARRABETZU', '-2.7993991375', '43.2612266541', 'Larrabetzu'),
-('29', 'LAS CARRERAS', '-3.0973975658', '43.3196029663', 'Abanto y CiÃ©rvana-Abanto Zierbena'),
-('3', 'AGURAIN', '-2.3937034607', '42.8490142822', 'Agurain/Salvatierra'),
-('30', 'LASARTE-ORIA', '-2.0191292763', '43.2686996460', 'Lasarte-Oria'),
-('31', 'LEZO', '-1.9001311064', '43.3215217590', 'Lezo'),
-('32', 'LLODIO', '-2.9633853436', '43.1440277100', 'Laudio/Llodio'),
-('33', 'LOS HERRAN', '-2.6612305641', '42.8437042236', 'Vitoria-Gasteiz'),
-('34', 'MAZARREDO', '-2.9351880550', '43.2675056458', 'Bilbao'),
-('35', 'MONDRAGON', '-2.4903967381', '43.0641212463', 'Arrasate/MondragÃ³n'),
-('36', 'MONTORRA', '-2.7165884972', '43.2090148926', 'Amorebieta-Etxano'),
-('37', 'MUNDAKA', '-2.7031593323', '43.4058876038', 'Mundaka'),
-('38', 'MUNOA', '-2.9786961079', '43.2855873108', 'Barakaldo'),
-('39', 'MUSKIZ', '-3.1127161980', '43.3207130432', 'Muskiz'),
-('4', 'ALGORTA (BBIZI2)', '-3.0227823257', '43.3620567322', 'Getxo'),
-('40', 'MÂª DIAZ HARO', '-2.9456567764', '43.2588043213', 'Bilbao'),
-('41', 'NAUTICA', '-3.0233333111', '43.3269462585', 'Portugalete'),
-('42', 'PAGOETA', '-2.1548874378', '43.2506065369', 'Aia'),
-('43', 'PUYO', '-1.9840112925', '43.3027763367', 'Donostia / San SebastiÃ¡n'),
-('44', 'SAN JULIAN', '-3.1129946709', '43.3326492310', 'Muskiz'),
-('45', 'SAN MIGUEL', '-2.8865089417', '43.2212219238', 'Basauri'),
-('46', 'SANGRONIZ', '-2.9303858280', '43.2984199524', 'Sondika'),
-('47', 'SANTURCE', '-3.0425601006', '43.3330116272', 'Santurtzi'),
-('48', 'SERANTES', '-3.0629906654', '43.3344383240', 'Santurtzi'),
-('49', 'SESTAO', '-2.9959495068', '43.3077278137', 'Sestao'),
-('5', 'ALONSOTEGI', '-2.9880239964', '43.2475662231', 'Alonsotegi'),
-('50', 'TOLOSA', '-2.0780022144', '43.1307792664', 'Tolosa'),
-('51', 'URKIOLA', '-2.6508700848', '43.1004409790', 'AbadiÃ±o'),
-('52', 'USURBIL', '-2.0505111217', '43.2737808228', 'Usurbil'),
-('53', 'VALDEREJO', '-3.2317326069', '42.8751678467', 'ValdegovÃ­a/Gaubea'),
-('54', 'ZALLA', '-3.1344611645', '43.2128562927', 'Zalla'),
-('55', 'ZELAIETA PARQUE', '-2.7344970703', '43.2189064026', 'Amorebieta-Etxano'),
-('56', 'ZIERBENA (Puerto)', '-3.0809881687', '43.3530540466', 'Zierbena'),
-('57', 'ZUBIETA', '-2.0313508511', '43.2720603943', 'Donostia / San SebastiÃ¡n'),
-('58', 'ZUBIETA METEO', '-2.0317165852', '43.2559738159', 'Donostia / San SebastiÃ¡n'),
-('59', 'ZUMARRAGA', '-2.3162288666', '43.0850753784', 'Zumarraga'),
-('6', 'ANDOAIN', '-2.0233252048', '43.2213783264', 'Andoain'),
-('7', 'ARRAIZ (Monte)', '-2.9604759216', '43.2455520630', 'Bilbao'),
-('8', 'ATEGORRIETA', '-1.9606505632', '43.3219909668', 'Donostia / San SebastiÃ¡n'),
-('9', 'AV. GASTEIZ', '-2.6807098389', '42.8547821045', 'Vitoria-Gasteiz');
+(1181, '3 DE MARZO', '-2.6600000858', '42.8499984741', 'Vitoria-Gasteiz'),
+(1182, 'ABANTO', '-3.0699999332', '43.3199996948', 'Abanto y CiÃ©rvana-Abanto Zierbena'),
+(1183, 'AGURAIN', '-2.3900001049', '42.8400001526', 'Agurain/Salvatierra'),
+(1184, 'ALGORTA (BBIZI2)', '-3.0199999809', '43.3600006104', 'Getxo'),
+(1185, 'ALONSOTEGI', '-2.9800000191', '43.2400016785', 'Alonsotegi'),
+(1186, 'ANDOAIN', '-2.0199999809', '43.2200012207', 'Andoain'),
+(1187, 'ARRAIZ (Monte)', '-2.9600000381', '43.2400016785', 'Bilbao'),
+(1188, 'ATEGORRIETA', '-1.9600000381', '43.3199996948', 'Donostia / San SebastiÃ¡n'),
+(1189, 'AV. GASTEIZ', '-2.6800000668', '42.8499984741', 'Vitoria-Gasteiz'),
+(1190, 'AVDA. TOLOSA', '-2.0099999905', '43.2999992371', 'Donostia / San SebastiÃ¡n'),
+(1191, 'AZPEITIA', '-2.2599999905', '43.1800003052', 'Azpeitia'),
+(1192, 'AÃ‘ORGA', '-1.9900000095', '43.2900009155', 'Donostia / San SebastiÃ¡n'),
+(1193, 'BANDERAS (meteo)', '-2.9500000477', '43.2799987793', 'Bilbao'),
+(1194, 'BARAKALDO', '-2.9800000191', '43.2900009155', 'Barakaldo'),
+(1195, 'BASAURI', '-2.8800001144', '43.2400016785', 'Basauri'),
+(1196, 'BEASAIN', '-2.1900000572', '43.0400009155', 'Beasain'),
+(1197, 'BOROA METEO', '-2.7500000000', '43.2299995422', 'Amorebieta-Etxano'),
+(1198, 'CASTREJANA', '-2.9700000286', '43.2500000000', 'Barakaldo'),
+(1199, 'DURANGO', '-2.6300001144', '43.1599998474', 'Durango'),
+(1200, 'EASO', '-1.9800000191', '43.3100013733', 'Donostia / San SebastiÃ¡n'),
+(1201, 'ELCIEGO', '-2.6099998951', '42.5099983215', 'Elciego'),
+(1202, 'ERANDIO', '-2.9700000286', '43.2999992371', 'Erandio'),
+(1203, 'EUROPA', '-2.9000000954', '43.2500000000', 'Bilbao'),
+(1204, 'FARMACIA', '-2.6700000763', '42.8400001526', 'Vitoria-Gasteiz'),
+(1205, 'FERIA (meteo)', '-2.9400000572', '43.2599983215', 'Bilbao'),
+(1206, 'HERNANI', '-1.9700000286', '43.2599983215', 'Hernani'),
+(1207, 'JAIZKIBEL', '-1.8500000238', '43.3400001526', 'Hondarribia'),
+(1208, 'LARRABETZU', '-2.7899999619', '43.2599983215', 'Larrabetzu'),
+(1209, 'LAS CARRERAS', '-3.0899999142', '43.3100013733', 'Abanto y CiÃ©rvana-Abanto Zierbena'),
+(1210, 'LASARTE-ORIA', '-2.0099999905', '43.2599983215', 'Lasarte-Oria'),
+(1211, 'LEZO', '-1.8999999762', '43.3199996948', 'Lezo'),
+(1212, 'LLODIO', '-2.9600000381', '43.1399993896', 'Laudio/Llodio'),
+(1213, 'LOS HERRAN', '-2.6600000858', '42.8400001526', 'Vitoria-Gasteiz'),
+(1214, 'MAZARREDO', '-2.9300000668', '43.2599983215', 'Bilbao'),
+(1215, 'MONDRAGON', '-2.4900000095', '43.0600013733', 'Arrasate/MondragÃ³n'),
+(1216, 'MONTORRA', '-2.7100000381', '43.2000007629', 'Amorebieta-Etxano'),
+(1217, 'MUNDAKA', '-2.7000000477', '43.4000015259', 'Mundaka'),
+(1218, 'MUNOA', '-2.9700000286', '43.2799987793', 'Barakaldo'),
+(1219, 'MUSKIZ', '-3.1099998951', '43.3199996948', 'Muskiz'),
+(1220, 'MÂª DIAZ HARO', '-2.9400000572', '43.2500000000', 'Bilbao'),
+(1221, 'NAUTICA', '-3.0199999809', '43.3199996948', 'Portugalete'),
+(1222, 'PAGOETA', '-2.1500000954', '43.2500000000', 'Aia'),
+(1223, 'PUYO', '-1.9800000191', '43.2999992371', 'Donostia / San SebastiÃ¡n'),
+(1224, 'SAN JULIAN', '-3.1099998951', '43.3300018311', 'Muskiz'),
+(1225, 'SAN MIGUEL', '-2.8800001144', '43.2200012207', 'Basauri'),
+(1226, 'SANGRONIZ', '-2.9300000668', '43.2900009155', 'Sondika'),
+(1227, 'SANTURCE', '-3.0399999619', '43.3300018311', 'Santurtzi'),
+(1228, 'SERANTES', '-3.0599999428', '43.3300018311', 'Santurtzi'),
+(1229, 'SESTAO', '-2.9900000095', '43.2999992371', 'Sestao'),
+(1230, 'TOLOSA', '-2.0699999332', '43.1300010681', 'Tolosa'),
+(1231, 'URKIOLA', '-2.6500000954', '43.0999984741', 'AbadiÃ±o'),
+(1232, 'USURBIL', '-2.0499999523', '43.2700004578', 'Usurbil'),
+(1233, 'VALDEREJO', '-3.2300000191', '42.8699989319', 'ValdegovÃ­a/Gaubea'),
+(1234, 'ZALLA', '-3.1300001144', '43.2099990845', 'Zalla'),
+(1235, 'ZELAIETA PARQUE', '-2.7300000191', '43.2099990845', 'Amorebieta-Etxano'),
+(1236, 'ZIERBENA (Puerto)', '-3.0799999237', '43.3499984741', 'Zierbena'),
+(1237, 'ZUBIETA', '-2.0299999714', '43.2700004578', 'Donostia / San SebastiÃ¡n'),
+(1238, 'ZUBIETA METEO', '-2.0299999714', '43.2500000000', 'Donostia / San SebastiÃ¡n'),
+(1239, 'ZUMARRAGA', '-2.3099999428', '43.0800018311', 'Zumarraga');
 
 -- --------------------------------------------------------
 
@@ -335,19 +371,19 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `datosdiarios`
 --
 ALTER TABLE `datosdiarios`
-  ADD PRIMARY KEY (`CodEstacion`);
+  ADD PRIMARY KEY (`CodEstacion`,`Date`);
 
 --
 -- Indices de la tabla `datoshorarios`
 --
 ALTER TABLE `datoshorarios`
-  ADD PRIMARY KEY (`CodEstacion`);
+  ADD PRIMARY KEY (`CodEstacion`,`Fecha`,`Hora`);
 
 --
 -- Indices de la tabla `datosindice`
 --
 ALTER TABLE `datosindice`
-  ADD PRIMARY KEY (`CodEstacion`);
+  ADD PRIMARY KEY (`CodEstacion`,`Date`,`HourGMT`);
 
 --
 -- Indices de la tabla `espacios_naturales`
@@ -401,6 +437,18 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `espacios_naturales`
+--
+ALTER TABLE `espacios_naturales`
+  MODIFY `CodEspacio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `estaciones`
+--
+ALTER TABLE `estaciones`
+  MODIFY `CodEstacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1240;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

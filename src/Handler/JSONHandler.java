@@ -81,7 +81,7 @@ public class JSONHandler {
 					}
 
 				}
-				
+
 				if (campo.equals("territorycode")) {
 
 					if (valor.length() < 3) {
@@ -95,18 +95,16 @@ public class JSONHandler {
 					}
 
 				}
-				
+
 				if (!atributos.hasNext()) {
 					if (municipio.getCodProvincia().length() > 0) {
-						municipios.add(municipio);
-						municipio = new Municipios();
+						if (!municipios.contains(municipio)) {
+							municipios.add(municipio);
+							municipio = new Municipios();
+						}
 					}
 				}
-
 			}
-
-			
-
 		}
 
 		return municipios;
@@ -128,7 +126,7 @@ public class JSONHandler {
 
 			Iterator<?> atributos = objeto.entrySet().iterator();
 			EspaciosNaturales espacio = new EspaciosNaturales();
-			
+
 			espacio.setCodMunicipio("");
 
 			while (atributos.hasNext()) {
@@ -166,7 +164,7 @@ public class JSONHandler {
 					}
 
 				}
-				
+
 				if (!atributos.hasNext()) {
 					if (espacio.getCodMunicipio().length() > 0) {
 						espacios.add(espacio);
@@ -194,7 +192,7 @@ public class JSONHandler {
 			Iterator<Entry<String, JsonElement>> atributos = objeto.getAsJsonObject().entrySet().iterator();
 
 			Estaciones estacion = new Estaciones();
-			
+
 			estacion.setNomMunicipio("");
 
 			while (atributos.hasNext()) {
@@ -229,16 +227,16 @@ public class JSONHandler {
 
 					estacion.setNomMunicipio(cleanString(valor));
 				}
-				
+
 				if (!atributos.hasNext()) {
 					if (estacion.getNomMunicipio().length() > 0) {
 						estaciones.add(estacion);
-						
+
 						estacion = new Estaciones();
 					}
 				}
 			}
-			
+
 		}
 
 		return estaciones;
@@ -271,24 +269,25 @@ public class JSONHandler {
 						String format = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
-						
-						JsonParser parser = new JsonParser();
-						JsonElement jsonComprobarEstacion = parser.parse(Operaciones.getCodEstacionByName(name));
-						
-						boolean estacionExiste = jsonComprobarEstacion.getAsJsonObject().get("exists").getAsBoolean();
 
-						if (estacionExiste) {
+						Estaciones estacion = Operaciones.getCodEstacionByName(name);
 
-							String codEstacion = jsonComprobarEstacion.getAsJsonObject().get("codEstacion")
-									.getAsString();
+						if (estacion != null) {
+
+							String codEstacion = String.valueOf(estacion.getCodEstacion());
 
 							if (url.contains("datos_diarios")) {
 
 								JsonElement jsonDatos = readJSON(url);
+								
+								if (jsonDatos == null) {
+									continue;
+								}
+								
 								Iterator<JsonElement> jsonDatosIterator = jsonDatos.getAsJsonArray().iterator();
 
 								while (jsonDatosIterator.hasNext()) {
-									
+
 									JsonObject datos = jsonDatosIterator.next().getAsJsonObject();
 									Iterator<Entry<String, JsonElement>> atributosDatos = datos.getAsJsonObject()
 											.entrySet().iterator();
@@ -301,56 +300,56 @@ public class JSONHandler {
 									while (atributosDatos.hasNext() && isDateOk) {
 										Entry<?, ?> atributoDatos = (Entry<?, ?>) atributosDatos.next();
 										String campo = atributoDatos.getKey().toString();
-										String valor = atributoDatos.getValue().toString();
+										String valor = cleanString(atributoDatos.getValue().toString());
 
 										if (campo.equalsIgnoreCase("Date")) {
-											
+
 											// Si no es de esta fecha se salta el objeto
-											if (!valor.equals("31/12/2021")) 
+											if (!valor.equals("31/12/2021"))
 												isDateOk = false;
-												
-											diario.setDate(cleanString(valor));
-											
+
+											diario.setDate(valor);
+
 										}
 
 										if (campo.equalsIgnoreCase("COmgm3")) {
 
-											diario.setComgm3(parseBigDecimal(cleanString(valor)));
+											diario.setComgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("Co8hmgm3")) {
 
-											diario.setCo8hmgm3(parseBigDecimal(cleanString(valor)));
+											diario.setCo8hmgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NOgm3")) {
 
-											diario.setNogm3(parseBigDecimal(cleanString(valor)));
+											diario.setNogm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NO2gm3")) {
 
-											diario.setNo2gm3(parseBigDecimal(cleanString(valor)));
+											diario.setNo2gm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NOXgm3")) {
-
-											diario.setNoxgm3(parseBigDecimal(cleanString(valor)));
+											System.out.println(valor);
+											diario.setNoxgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("PM10gm3")) {
 
-											diario.setPm10gm3(parseBigDecimal(cleanString(valor)));
+											diario.setPm10gm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("PM25gm3")) {
 
-											diario.setPm25gm3(parseBigDecimal(cleanString(valor)));
+											diario.setPm25gm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("S2gm3")) {
 
-											diario.setS2gm3(parseBigDecimal(cleanString(valor)));
+											diario.setS2gm3(parseBigDecimal(valor));
 										}
 
 										// Si es del 31/12/2021 lo añadimos
@@ -361,7 +360,7 @@ public class JSONHandler {
 												}
 											}
 										}
-										
+
 									}
 
 								}
@@ -372,7 +371,7 @@ public class JSONHandler {
 				}
 			}
 		}
-		
+
 		return diarios;
 	}
 
@@ -404,21 +403,24 @@ public class JSONHandler {
 						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
 
-						JsonElement jsonComprobarEstacion = readJSON(Operaciones.getCodEstacionByName(name));
-						boolean estacionExiste = jsonComprobarEstacion.getAsJsonObject().get("exists").getAsBoolean();
+						Estaciones estacion = Operaciones.getCodEstacionByName(name);
 
-						if (estacionExiste) {
+						if (estacion != null) {
 
-							String codEstacion = jsonComprobarEstacion.getAsJsonObject().get("codEstacion")
-									.getAsString();
+							String codEstacion = String.valueOf(estacion.getCodEstacion());
 
 							if (url.contains("datos_horarios")) {
 
 								JsonElement jsonDatos = readJSON(url);
+								
+								if (jsonDatos == null) {
+									continue;
+								}
+								
 								Iterator<JsonElement> jsonDatosIterator = jsonDatos.getAsJsonArray().iterator();
 
 								while (jsonDatosIterator.hasNext()) {
-									
+
 									JsonObject datos = jsonDatosIterator.next().getAsJsonObject();
 									Iterator<Entry<String, JsonElement>> atributosDatos = datos.getAsJsonObject()
 											.entrySet().iterator();
@@ -431,63 +433,63 @@ public class JSONHandler {
 									while (atributosDatos.hasNext() && isDateOk) {
 										Entry<?, ?> atributoDatos = (Entry<?, ?>) atributosDatos.next();
 										String campo = atributoDatos.getKey().toString();
-										String valor = atributoDatos.getValue().toString();
+										String valor = cleanString(atributoDatos.getValue().toString());
 
 										if (campo.equalsIgnoreCase("Date")) {
-											
+
 											// Si no es de esta fecha se salta el objeto
-											if (!valor.equals("31/12/2021")) 
+											if (!valor.equals("31/12/2021"))
 												isDateOk = false;
-												
-											horario.setFecha(cleanString(valor));
-											
+
+											horario.setFecha(valor);
+
 										}
 
 										if (campo.equalsIgnoreCase("HourGMT")) {
 
-											horario.setHora(cleanString(valor));
+											horario.setHora(valor);
 										}
 
 										if (campo.equalsIgnoreCase("COmgm3")) {
 
-											horario.setComgm3(parseBigDecimal(cleanString(valor)));
+											horario.setComgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("CO8hmgm3")) {
 
-											horario.setCo8hmgm3(parseBigDecimal(cleanString(valor)));
+											horario.setCo8hmgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NOgm3")) {
 
-											horario.setNogm3(parseBigDecimal(cleanString(valor)));
+											horario.setNogm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NO2gm3")) {
 
-											horario.setNo2gm3(parseBigDecimal(cleanString(valor)));
+											horario.setNo2gm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("NOXgm3")) {
 
-											horario.setNoxgm3(parseBigDecimal(cleanString(valor)));
+											horario.setNoxgm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("PM10gm3")) {
 
-											horario.setPm10gm3(parseBigDecimal(cleanString(valor)));
+											horario.setPm10gm3(parseBigDecimal(valor));
 										}
 
 										if (campo.equalsIgnoreCase("PM25gm3")) {
 
-											horario.setPm25gm3(parseBigDecimal(cleanString(valor)));
+											horario.setPm25gm3(parseBigDecimal(valor));
 										}
-										
+
 										if (campo.equalsIgnoreCase("SO2gm3")) {
 
-											horario.setSo2gm3(parseBigDecimal(cleanString(valor)));
+											horario.setSo2gm3(parseBigDecimal(valor));
 										}
-										
+
 										// Si es del 31/12/2021 lo añadimos
 										if (isDateOk) {
 											if (!atributosDatos.hasNext()) {
@@ -507,11 +509,10 @@ public class JSONHandler {
 				}
 			}
 		}
-		
+
 		return horarios;
 	}
 
-	
 	private static JsonElement readJSON(String urlStr) {
 		System.setProperty("javax.net.ssl.trustStore", "NUL");
 		System.setProperty("javax.net.ssl.trustStoreType", "Windows-ROOT");
@@ -519,33 +520,33 @@ public class JSONHandler {
 		JsonParser parser = new JsonParser();
 		InputStream is = null;
 		
+		String datos = "";
+
 		boolean isLocalFile = false;
 
 		try {
 			is = new URL(urlStr).openStream();
 		} catch (MalformedURLException e) {
-			
+
 			if (e.getMessage().contains("no protocol")) {
 				isLocalFile = true;
 			} else {
 				System.out.println(e.getMessage());
 			}
-			
+
 		} catch (IOException e) {
-			System.out.println("Error de E/S");
+			return null;
 		}
 
-		String datos = null;
-
 		try {
-			
+
 			if (isLocalFile) {
 				File file = new File(urlStr);
 				datos = new String(Files.readAllBytes(file.toPath()));
 			} else {
 				datos = new String(is.readAllBytes());
 			}
-			
+
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
@@ -566,7 +567,11 @@ public class JSONHandler {
 	}
 
 	public static BigDecimal parseBigDecimal(String n) {
-
-		return BigDecimal.valueOf(Float.valueOf(n.replace("\"", "").replace(",", ".")));
+		n = n.replace("\"", "").replace(",", ".");
+		
+		if (n.length() > 5)
+			n = n.substring(0,5);
+		
+		return BigDecimal.valueOf(Float.valueOf(n));
 	}
 }

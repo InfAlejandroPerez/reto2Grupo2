@@ -9,7 +9,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
 import Handler.JSONHandler;
+import modelo.Datosdiarios;
 import modelo.Estaciones;
 import modelo.Municipios;
 import modelo.Provincia;
@@ -20,13 +23,13 @@ public class Operaciones {
 	public static void cargarDatos() {
 
 		// Municipio
-		cargarArrayList(JSONHandler.readMunicipios());
+		//cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
 		//cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		//cargarArrayList(JSONHandler.readEstaciones());
+		cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
 		//cargarArrayList(JSONHandler.readDatosDiarios());
@@ -40,20 +43,28 @@ public class Operaciones {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		Transaction tx = session.beginTransaction();
-
-		items.forEach(item -> {
-			try {
-
-				session.save(item);
-
-			} catch (ConstraintViolationException e) {
-				System.out.println("El objeto " + item.getClass() + " en la posición " + items.indexOf(item)
-						+ " se ha saltado (Ya existe en la BBDD!)");
-			}
-		});
 		
-		tx.commit();
+
+		for (Object item : items) {
+			try {
+				
+				Transaction tx = session.beginTransaction();
+				session.save(item);
+				tx.commit();
+				
+			} catch (Exception e) {
+				/*if (e.getCause().toString().contains("MySQLIntegrityConstraintViolationException")) {
+					System.out.println("Registro duplicado con PK duplicada en el indice: " + items.indexOf(item) + " se ha saltado");
+				}
+				else {
+					System.out.println(e.getMessage());
+				}*/
+				
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		
 		session.close();
 
 	}
@@ -135,14 +146,90 @@ public class Operaciones {
 
 		return payload;
 	}
+	
+	public static ArrayList<Provincia> getAllProvincias() {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
 
-	public static String getCodProvinciaByName(String name) {
+		String hql = "from Provincia";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		ArrayList<Provincia> provincias = new ArrayList<>();
+
+		while (iterator.hasNext()) {
+			provincias.add((Provincia) iterator.next());
+
+		}
+		session.close();
+
+		return provincias;
+	}
+	
+	public static ArrayList<Municipios> getMunicipiosByCodProvincia(String codProvincia) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Municipios WHERE CodProvincia = '" + codProvincia + "'";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		ArrayList<Municipios> municipios = new ArrayList<>();
+
+		while (iterator.hasNext()) {
+			municipios.add((Municipios) iterator.next());
+
+		}
+		session.close();
+
+		return municipios;
+	}
+	
+	public static ArrayList<Estaciones> getEstacionesByNomMunicipio(String nombreMunicipio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Estaciones WHERE NomMunicipio = '" + nombreMunicipio + "'";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		ArrayList<Estaciones> estaciones = new ArrayList<>();
+
+		while (iterator.hasNext()) {
+			estaciones.add((Estaciones) iterator.next());
+
+		}
+		session.close();
+
+		return estaciones;
+	}
+	
+	public static ArrayList<Datosdiarios> getDatosdiariosByCodEstacion(String codEstacion) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Datosdiarios WHERE CodEstacion = '" + codEstacion + "'";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		ArrayList<Datosdiarios> datosdiarios = new ArrayList<>();
+
+		while (iterator.hasNext()) {
+			datosdiarios.add((Datosdiarios) iterator.next());
+
+		}
+		session.close();
+
+		return datosdiarios;
+	}
+
+	/*public static String getCodProvinciaByName(String name) {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
 		String hql = "from Estaciones WHERE Nombre = '" + name + "'";
-		Query q = session.createQuery(hql);
+		Query q = session.createQuery(hql).setMaxResults(1);
 		Provincia provincia = (Provincia) q.uniqueResult();
 
 		String payload = "{";
@@ -160,37 +247,29 @@ public class Operaciones {
 		session.close();
 
 		return payload;
-	}
+	}*/
 	
-	public static String getCodEstacionByName(String name) {
+	public static Estaciones getCodEstacionByName(String name) {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
-		String hql = "from Estaciones WHERE NombreEstacion = '" + name + "'";
-		Query q = session.createQuery(hql);
+		String hql = "from Estaciones WHERE NombreEstacion = '" + name + "' ORDER BY CodEstacion";
+		Query q = session.createQuery(hql).setMaxResults(1);
 		Estaciones estacion = (Estaciones) q.uniqueResult();
 
-		String payload = "{";
-		
-		if (estacion != null) {
-			
-			payload += "\"exists\":\"true\",";
-			payload += "\"codEstacion\":\"" + estacion.getCodEstacion() + "\"";
-		} else {
-			payload += "\"exists\":\"false\"";
-		}
-		
-		payload += "}";
 
 		session.close();
 
-		return payload;
+		return estacion;
 	}
 
 	public static void main(String[] args) {
 		// Test
 		cargarDatos();
+		
+		//String n = ""
+		
 	}
 
 }
