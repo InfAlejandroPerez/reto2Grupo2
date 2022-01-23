@@ -1,5 +1,5 @@
 package modelo;
-// Generated 21 ene 2022 15:37:18 by Hibernate Tools 5.5.7.Final
+// Generated 23 ene 2022 21:24:19 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 
@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  */
 public class Datosindice implements java.io.Serializable {
 
+	private Integer idDatosindice;
 	private String codEstacion;
 	private String date;
 	private String hourGmt;
@@ -47,6 +48,14 @@ public class Datosindice implements java.io.Serializable {
 		this.so2 = so2;
 		this.so2ica = so2ica;
 		this.icaestacion = icaestacion;
+	}
+
+	public Integer getIdDatosindice() {
+		return this.idDatosindice;
+	}
+
+	public void setIdDatosindice(Integer idDatosindice) {
+		this.idDatosindice = idDatosindice;
 	}
 
 	public String getCodEstacion() {

@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 21 ene 2022 15:37:18 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23 ene 2022 21:24:19 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="euskalmet" dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.Datosdiarios" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="datosdiarios">
-        <id name="codEstacion" type="string">
-            <column length="50" name="CodEstacion"/>
-            <generator class="assigned"/>
+        <id name="idDatosdiarios" type="java.lang.Integer">
+            <column name="idDatosdiarios"/>
+            <generator class="identity"/>
         </id>
+        <property generated="never" lazy="false" name="codEstacion" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CodEstacion" not-null="true"/>
+        </property>
         <property generated="never" lazy="false" name="date" optimistic-lock="true" type="string" unique="false">
             <column length="50" name="Date" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="comgm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="COmgm3" precision="4"/>
+            <column name="COmgm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="co8hmgm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="Co8hmgm3" precision="4"/>
+            <column name="Co8hmgm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="nogm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="NOgm3" precision="4"/>
+            <column name="NOgm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="no2gm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="NO2gm3" precision="4"/>
+            <column name="NO2gm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="noxgm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="NOXgm3" precision="4"/>
+            <column name="NOXgm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="pm10gm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="PM10gm3" precision="4"/>
+            <column name="PM10gm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="pm25gm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="PM25gm3" precision="4"/>
+            <column name="PM25gm3" precision="10"/>
         </property>
         <property generated="never" lazy="false" name="s2gm3" optimistic-lock="true" type="big_decimal" unique="false">
-            <column name="S2gm3" precision="4"/>
+            <column name="S2gm3" precision="10"/>
         </property>
     </class>
 </hibernate-mapping>

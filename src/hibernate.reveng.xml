@@ -32,53 +32,58 @@
 	<table-filter match-catalog="euskalmet" match-name="provincia" />
 	<table-filter match-catalog="euskalmet" match-name="usuarios" />
 	<table catalog="euskalmet" name="datosdiarios">
-		<column name="CodEstacion"></column>
-		<column name="Date"></column>
+		<column name="idDatosdiarios"></column>
 		<column name="NOgm3"></column>
-		<column name="S2gm3"></column>
-		<column name="PM10gm3"></column>
-		<column name="PM25gm3"></column>
 		<column name="NOXgm3"></column>
-		<column name="COmgm3"></column>
+		<column name="PM10gm3"></column>
 		<column name="Co8hmgm3"></column>
+		<column name="Date"></column>
+		<column name="S2gm3"></column>
+		<column name="COmgm3"></column>
+		<column name="PM25gm3"></column>
+		<column name="CodEstacion"></column>
 		<column name="NO2gm3"></column>
 	</table>
 	<table catalog="euskalmet" name="datoshorarios">
-		<column name="CodEstacion"></column>
+		<column name="idDatoshorarios"></column>
 		<column name="NO2gm3"></column>
-		<column name="NOgm3"></column>
 		<column name="NOXgm3"></column>
-		<column name="PM25gm3"></column>
-		<column name="CO8hmgm3"></column>
-		<column name="Hora"></column>
 		<column name="SO2gm3"></column>
-		<column name="Fecha"></column>
 		<column name="COmgm3"></column>
+		<column name="CO8hmgm3"></column>
+		<column name="PM25gm3"></column>
 		<column name="PM10gm3"></column>
+		<column name="CodEstacion"></column>
+		<column name="NOgm3"></column>
+		<column name="Hora"></column>
+		<column name="Fecha"></column>
 	</table>
 	<table catalog="euskalmet" name="datosindice">
+		<column name="idDatosindice"></column>
 		<column name="CodEstacion"></column>
-		<column name="PM10"></column>
 		<column name="PM25ICA"></column>
-		<column name="Date"></column>
+		<column name="SO2"></column>
+		<column name="CO8hmgm3"></column>
+		<column name="ICAEstacion"></column>
 		<column name="NOgm3"></column>
 		<column name="NO2"></column>
-		<column name="HourGMT"></column>
-		<column name="SO2"></column>
-		<column name="PM25"></column>
-		<column name="NO2ICA"></column>
-		<column name="ICAEstacion"></column>
-		<column name="NOXgm3"></column>
 		<column name="COmgm3"></column>
-		<column name="CO8hmgm3"></column>
-		<column name="PM10ICA"></column>
 		<column name="SO2ICA"></column>
+		<column name="Date"></column>
+		<column name="PM10"></column>
+		<column name="HourGMT"></column>
+		<column name="NO2ICA"></column>
+		<column name="NOXgm3"></column>
+		<column name="PM25"></column>
+		<column name="PM10ICA"></column>
 	</table>
 	<table catalog="euskalmet" name="espacios_naturales">
 		<column name="CodEspacio"></column>
-		<column name="Nombre"></column>
+		<column name="latitud"></column>
 		<column name="codMunicipio"></column>
+		<column name="Nombre"></column>
 		<column name="Descripcion"></column>
+		<column name="longitud"></column>
 	</table>
 <table catalog="euskalmet" name="esta_en">
 	<column name="CodMunicipio"></column>
@@ -86,10 +91,10 @@
 </table>
 <table catalog="euskalmet" name="estaciones">
 		<column name="CodEstacion"></column>
-		<column name="CoordenadaX"></column>
 		<column name="NombreEstacion"></column>
 		<column name="CoordenadaY"></column>
 		<column name="NomMunicipio"></column>
+		<column name="CoordenadaX"></column>
 	</table>
 <table catalog="euskalmet" name="favoritos_espacios">
 	<column name="CodUsuario"></column>
@@ -100,13 +105,13 @@
 		<column name="Url"></column>
 	</table>
 	<table catalog="euskalmet" name="imagenes_espaciosnaturales">
-		<column name="imagen"></column>
 		<column name="codEspacio"></column>
+		<column name="imagen"></column>
 	</table>
 	<table catalog="euskalmet" name="municipios">
 		<column name="CodMunicipio"></column>
-		<column name="CodProvincia"></column>
 		<column name="Descripcion"></column>
+		<column name="CodProvincia"></column>
 		<column name="Nombre"></column>
 	</table>
 	<table catalog="euskalmet" name="provincia">
@@ -115,7 +120,7 @@
 	</table>
 	<table catalog="euskalmet" name="usuarios">
 		<column name="CodUsuario"></column>
-		<column name="Nombre"></column>
 		<column name="Password"></column>
+		<column name="Nombre"></column>
 	</table>
 </hibernate-reverse-engineering>
