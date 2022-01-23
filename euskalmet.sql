@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2022 a las 20:33:38
+-- Tiempo de generación: 23-01-2022 a las 20:57:00
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -30,6 +30,7 @@ USE `euskalmet`;
 --
 
 CREATE TABLE `datosdiarios` (
+  `idDatosdiarios` int(11) NOT NULL,
   `CodEstacion` varchar(50) NOT NULL,
   `Date` varchar(50) NOT NULL,
   `COmgm3` decimal(10,2) DEFAULT NULL,
@@ -46,18 +47,18 @@ CREATE TABLE `datosdiarios` (
 -- Volcado de datos para la tabla `datosdiarios`
 --
 
-INSERT INTO `datosdiarios` (`CodEstacion`, `Date`, `COmgm3`, `Co8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `S2gm3`) VALUES
-('11', '31/12/2021', NULL, NULL, '31.00', '33.00', '80.00', '18.00', NULL, NULL),
-('14', '31/12/2021', '0.17', '0.17', '1.00', '12.00', '14.00', '9.00', '6.00', NULL),
-('15', '31/12/2021', NULL, NULL, '1.00', '14.00', '16.00', '7.00', NULL, NULL),
-('16', '31/12/2021', '0.41', '0.46', '29.00', '30.00', '74.00', '20.00', '12.00', NULL),
-('18', '31/12/2021', NULL, NULL, '2.00', '6.00', '9.00', '5.00', NULL, NULL),
-('19', '31/12/2021', NULL, NULL, '6.00', '25.00', '35.00', '8.00', '4.00', NULL),
-('2', '31/12/2021', NULL, NULL, '1.00', '4.00', '6.00', '5.00', NULL, NULL),
-('3', '31/12/2021', NULL, NULL, '11.00', '20.00', '37.00', '10.00', '8.00', NULL),
-('5', '31/12/2021', NULL, NULL, '1.00', '4.00', '5.00', '5.00', NULL, NULL),
-('6', '31/12/2021', NULL, NULL, '6.00', '25.00', '34.00', '8.00', '6.00', NULL),
-('8', '31/12/2021', '0.77', '0.74', '31.00', '39.00', '87.00', '22.00', '12.00', NULL);
+INSERT INTO `datosdiarios` (`idDatosdiarios`, `CodEstacion`, `Date`, `COmgm3`, `Co8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `S2gm3`) VALUES
+(1, '11', '31/12/2021', NULL, NULL, '31.00', '33.00', '80.00', '18.00', NULL, NULL),
+(2, '14', '31/12/2021', '0.17', '0.17', '1.00', '12.00', '14.00', '9.00', '6.00', NULL),
+(3, '15', '31/12/2021', NULL, NULL, '1.00', '14.00', '16.00', '7.00', NULL, NULL),
+(4, '16', '31/12/2021', '0.41', '0.46', '29.00', '30.00', '74.00', '20.00', '12.00', NULL),
+(5, '18', '31/12/2021', NULL, NULL, '2.00', '6.00', '9.00', '5.00', NULL, NULL),
+(6, '19', '31/12/2021', NULL, NULL, '6.00', '25.00', '35.00', '8.00', '4.00', NULL),
+(7, '2', '31/12/2021', NULL, NULL, '1.00', '4.00', '6.00', '5.00', NULL, NULL),
+(8, '3', '31/12/2021', NULL, NULL, '11.00', '20.00', '37.00', '10.00', '8.00', NULL),
+(9, '5', '31/12/2021', NULL, NULL, '1.00', '4.00', '5.00', '5.00', NULL, NULL),
+(10, '6', '31/12/2021', NULL, NULL, '6.00', '25.00', '34.00', '8.00', '6.00', NULL),
+(11, '8', '31/12/2021', '0.77', '0.74', '31.00', '39.00', '87.00', '22.00', '12.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -66,6 +67,7 @@ INSERT INTO `datosdiarios` (`CodEstacion`, `Date`, `COmgm3`, `Co8hmgm3`, `NOgm3`
 --
 
 CREATE TABLE `datoshorarios` (
+  `idDatoshorarios` int(11) NOT NULL,
   `CodEstacion` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -83,18 +85,18 @@ CREATE TABLE `datoshorarios` (
 -- Volcado de datos para la tabla `datoshorarios`
 --
 
-INSERT INTO `datoshorarios` (`CodEstacion`, `Fecha`, `Hora`, `COmgm3`, `CO8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `SO2gm3`) VALUES
-('11', '31/12/2021', '24:00', NULL, NULL, '16.00', '32.00', '57.00', '24.00', NULL, NULL),
-('14', '31/12/2021', '24:00', '0.17', '0.17', '0.00', '5.00', '6.00', '33.00', '27.00', '12.00'),
-('15', '31/12/2021', '24:00', NULL, NULL, '0.00', '13.00', '13.00', '17.00', NULL, '6.00'),
-('16', '31/12/2021', '24:00', '0.22', '0.35', '6.00', '24.00', '33.00', '26.00', '10.00', '4.00'),
-('18', '31/12/2021', '24:00', NULL, NULL, '2.00', '2.00', '5.00', '6.00', NULL, NULL),
-('19', '31/12/2021', '24:00', NULL, NULL, '7.00', '26.00', '36.00', '19.00', '14.00', '3.00'),
-('2', '31/12/2021', '24:00', NULL, NULL, '1.00', '0.00', '2.00', '10.00', NULL, '2.00'),
-('3', '31/12/2021', '24:00', NULL, NULL, '1.00', '6.00', '8.00', '11.00', '4.00', NULL),
-('5', '31/12/2021', '24:00', NULL, NULL, '1.00', '1.00', '3.00', '6.00', NULL, NULL),
-('6', '31/12/2021', '24:00', NULL, NULL, '0.00', '9.00', '10.00', '8.00', '7.00', '7.00'),
-('8', '31/12/2021', '24:00', '0.90', '0.96', '29.00', '46.00', '90.00', '88.00', '35.00', NULL);
+INSERT INTO `datoshorarios` (`idDatoshorarios`, `CodEstacion`, `Fecha`, `Hora`, `COmgm3`, `CO8hmgm3`, `NOgm3`, `NO2gm3`, `NOXgm3`, `PM10gm3`, `PM25gm3`, `SO2gm3`) VALUES
+(1, '11', '31/12/2021', '24:00', NULL, NULL, '16.00', '32.00', '57.00', '24.00', NULL, NULL),
+(2, '14', '31/12/2021', '24:00', '0.17', '0.17', '0.00', '5.00', '6.00', '33.00', '27.00', '12.00'),
+(3, '15', '31/12/2021', '24:00', NULL, NULL, '0.00', '13.00', '13.00', '17.00', NULL, '6.00'),
+(4, '16', '31/12/2021', '24:00', '0.22', '0.35', '6.00', '24.00', '33.00', '26.00', '10.00', '4.00'),
+(5, '18', '31/12/2021', '24:00', NULL, NULL, '2.00', '2.00', '5.00', '6.00', NULL, NULL),
+(6, '19', '31/12/2021', '24:00', NULL, NULL, '7.00', '26.00', '36.00', '19.00', '14.00', '3.00'),
+(7, '2', '31/12/2021', '24:00', NULL, NULL, '1.00', '0.00', '2.00', '10.00', NULL, '2.00'),
+(8, '3', '31/12/2021', '24:00', NULL, NULL, '1.00', '6.00', '8.00', '11.00', '4.00', NULL),
+(9, '5', '31/12/2021', '24:00', NULL, NULL, '1.00', '1.00', '3.00', '6.00', NULL, NULL),
+(10, '6', '31/12/2021', '24:00', NULL, NULL, '0.00', '9.00', '10.00', '8.00', '7.00', '7.00'),
+(11, '8', '31/12/2021', '24:00', '0.90', '0.96', '29.00', '46.00', '90.00', '88.00', '35.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,7 @@ INSERT INTO `datoshorarios` (`CodEstacion`, `Fecha`, `Hora`, `COmgm3`, `CO8hmgm3
 --
 
 CREATE TABLE `datosindice` (
+  `idDatosindice` int(11) NOT NULL,
   `CodEstacion` varchar(11) NOT NULL,
   `Date` varchar(50) NOT NULL,
   `HourGMT` varchar(50) NOT NULL,
@@ -371,19 +374,19 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `datosdiarios`
 --
 ALTER TABLE `datosdiarios`
-  ADD PRIMARY KEY (`CodEstacion`,`Date`);
+  ADD PRIMARY KEY (`idDatosdiarios`);
 
 --
 -- Indices de la tabla `datoshorarios`
 --
 ALTER TABLE `datoshorarios`
-  ADD PRIMARY KEY (`CodEstacion`,`Fecha`,`Hora`);
+  ADD PRIMARY KEY (`idDatoshorarios`);
 
 --
 -- Indices de la tabla `datosindice`
 --
 ALTER TABLE `datosindice`
-  ADD PRIMARY KEY (`CodEstacion`,`Date`,`HourGMT`);
+  ADD PRIMARY KEY (`idDatosindice`);
 
 --
 -- Indices de la tabla `espacios_naturales`
@@ -437,6 +440,24 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `datosdiarios`
+--
+ALTER TABLE `datosdiarios`
+  MODIFY `idDatosdiarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `datoshorarios`
+--
+ALTER TABLE `datoshorarios`
+  MODIFY `idDatoshorarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `datosindice`
+--
+ALTER TABLE `datosindice`
+  MODIFY `idDatosindice` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `espacios_naturales`
