@@ -158,7 +158,13 @@ public class Operaciones {
 		ArrayList<Provincia> provincias = new ArrayList<>();
 
 		while (iterator.hasNext()) {
-			provincias.add((Provincia) iterator.next());
+			Provincia obj = (Provincia) iterator.next();
+			Provincia provincia = new Provincia();
+			
+			provincia.setCodProvincia(obj.getCodProvincia());
+			provincia.setNombre(obj.getNombre());
+			
+			provincias.add(provincia);
 
 		}
 		session.close();
@@ -177,7 +183,16 @@ public class Operaciones {
 		ArrayList<Municipios> municipios = new ArrayList<>();
 
 		while (iterator.hasNext()) {
-			municipios.add((Municipios) iterator.next());
+			Municipios obj = (Municipios) iterator.next();
+			Municipios municipio = new Municipios();
+			
+			municipio.setCodMunicipio(obj.getCodMunicipio());
+			municipio.setCodProvincia(obj.getCodProvincia());
+			municipio.setDescripcion(obj.getDescripcion());
+			municipio.setNombre(obj.getNombre());
+			municipio.setCodMunicipio(obj.getCodMunicipio());
+			
+			municipios.add(municipio);
 
 		}
 		session.close();
@@ -196,8 +211,16 @@ public class Operaciones {
 		ArrayList<Estaciones> estaciones = new ArrayList<>();
 
 		while (iterator.hasNext()) {
-			estaciones.add((Estaciones) iterator.next());
-
+			Estaciones obj = (Estaciones) iterator.next();
+			Estaciones estacion = new Estaciones();
+			
+			estacion.setCodEstacion(obj.getCodEstacion());
+			estacion.setCoordenadaX(obj.getCoordenadaX());
+			estacion.setCoordenadaY(obj.getCoordenadaY());
+			estacion.setNombreEstacion(obj.getNombreEstacion());
+			estacion.setNomMunicipio(obj.getNomMunicipio());
+			
+			estaciones.add(estacion);
 		}
 		session.close();
 
@@ -215,7 +238,21 @@ public class Operaciones {
 		ArrayList<Datosdiarios> datosdiarios = new ArrayList<>();
 
 		while (iterator.hasNext()) {
-			datosdiarios.add((Datosdiarios) iterator.next());
+			Datosdiarios obj = (Datosdiarios) iterator.next();
+			Datosdiarios datosdiario = new Datosdiarios();
+			
+			datosdiario.setCo8hmgm3(obj.getCo8hmgm3());
+			datosdiario.setCodEstacion(obj.getCodEstacion());
+			datosdiario.setComgm3(obj.getCo8hmgm3());
+			datosdiario.setDate(obj.getDate());
+			datosdiario.setNo2gm3(obj.getNo2gm3());
+			datosdiario.setNogm3(obj.getNogm3());
+			datosdiario.setNoxgm3(obj.getNoxgm3());
+			datosdiario.setPm10gm3(obj.getPm10gm3());
+			datosdiario.setPm25gm3(obj.getPm25gm3());
+			datosdiario.setS2gm3(obj.getS2gm3());
+			
+			datosdiarios.add(datosdiario);
 
 		}
 		session.close();
@@ -256,7 +293,15 @@ public class Operaciones {
 
 		String hql = "from Estaciones WHERE NombreEstacion = '" + name + "' ORDER BY CodEstacion";
 		Query q = session.createQuery(hql).setMaxResults(1);
-		Estaciones estacion = (Estaciones) q.uniqueResult();
+		Estaciones obj = (Estaciones) q.uniqueResult();
+		
+		Estaciones estacion = new Estaciones();
+		
+		estacion.setCodEstacion(obj.getCodEstacion());
+		estacion.setCoordenadaX(obj.getCoordenadaX());
+		estacion.setCoordenadaY(obj.getCoordenadaY());
+		estacion.setNombreEstacion(obj.getNombreEstacion());
+		estacion.setNomMunicipio(obj.getNomMunicipio());
 
 
 		session.close();
@@ -266,10 +311,7 @@ public class Operaciones {
 
 	public static void main(String[] args) {
 		// Test
-		cargarDatos();
-		
-		//String n = ""
-		
+		//cargarDatos();
 	}
 
 }
