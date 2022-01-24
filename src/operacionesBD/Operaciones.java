@@ -29,7 +29,7 @@ public class Operaciones {
 		//cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		cargarArrayList(JSONHandler.readEstaciones());
+		//cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
 		//cargarArrayList(JSONHandler.readDatosDiarios());
@@ -297,11 +297,14 @@ public class Operaciones {
 		
 		Estaciones estacion = new Estaciones();
 		
-		estacion.setCodEstacion(obj.getCodEstacion());
-		estacion.setCoordenadaX(obj.getCoordenadaX());
-		estacion.setCoordenadaY(obj.getCoordenadaY());
-		estacion.setNombreEstacion(obj.getNombreEstacion());
-		estacion.setNomMunicipio(obj.getNomMunicipio());
+		if (obj != null) {
+			estacion.setCodEstacion(obj.getCodEstacion());
+			estacion.setCoordenadaX(obj.getCoordenadaX());
+			estacion.setCoordenadaY(obj.getCoordenadaY());
+			estacion.setNombreEstacion(obj.getNombreEstacion());
+			estacion.setNomMunicipio(obj.getNomMunicipio());
+		} else 
+			estacion = null;
 
 
 		session.close();
@@ -311,7 +314,7 @@ public class Operaciones {
 
 	public static void main(String[] args) {
 		// Test
-		//cargarDatos();
+		cargarDatos();
 	}
 
 }

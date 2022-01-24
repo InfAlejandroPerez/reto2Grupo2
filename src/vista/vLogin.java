@@ -44,7 +44,7 @@ public class vLogin extends JFrame {
 	private JTextField tfUser;
 	private CardLayout cardlayout;
 	private final int PUERTO = 4444;
-	private final String IP = "192.168.1.73";
+	private final String IP = "127.0.0.1";
 	private Socket cliente = null;
 	private ArrayList<Provincia> listaProv = new ArrayList<>();
 	private ArrayList<Datosdiarios> listaDatosDiarios = new ArrayList<>();
@@ -536,7 +536,7 @@ public class vLogin extends JFrame {
 
 			iniciar();
 
-			String mensaje = "DatosEstacioon " + estSelec;
+			String mensaje = "DatosEstacion " + estSelec;
 			System.out.println(mensaje);
 
 			salida.writeObject(mensaje);
@@ -558,147 +558,152 @@ public class vLogin extends JFrame {
 			e1.printStackTrace();
 		}
 
-		JPanel panelInfoMunicipios = new JPanel();
+		JPanel panelInfoEstaciones = new JPanel();
 
-		panelInfoMunicipios.setBounds(this.getBounds());
-		panelInfoMunicipios.setLayout(null);
-		panelInfoMunicipios.setBackground(new Color(153, 204, 204));
-
-		JLabel lblNombreMunicipio = new JLabel("");
-		lblNombreMunicipio.setBounds(32, 22, 163, 39);
-		lblNombreMunicipio.add(panelInfoMunicipios);
-
+		panelInfoEstaciones.setBounds(this.getBounds());
+		panelInfoEstaciones.setLayout(null);
+		panelInfoEstaciones.setBackground(new Color(153, 204, 204));
+		
+		JLabel lblNombreEstacion = new JLabel("");
+		lblNombreEstacion.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNombreEstacion.setBounds(14, 22, 226, 58);
+		panelInfoEstaciones.add(lblNombreEstacion);
+		
 		JLabel lblCO = new JLabel("COmgm3:");
-		lblCO.setForeground(new Color(255, 255, 255));
-		lblCO.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCO.setBounds(32, 98, 57, 14);
-		panelInfoMunicipios.add(lblCO);
-
+		lblCO.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCO.setBounds(14, 98, 75, 14);
+		panelInfoEstaciones.add(lblCO);
+		
 		JLabel lblCO8 = new JLabel("CO8hmgm3:");
-		lblCO8.setForeground(new Color(255, 255, 255));
-		lblCO8.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCO8.setBounds(34, 137, 69, 14);
-		panelInfoMunicipios.add(lblCO8);
-
+		lblCO8.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCO8.setBounds(14, 137, 75, 14);
+		panelInfoEstaciones.add(lblCO8);
+		
 		JLabel lblNO = new JLabel("NOgm3:");
-		lblNO.setForeground(new Color(255, 255, 255));
-		lblNO.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNO.setBounds(32, 180, 46, 14);
-		panelInfoMunicipios.add(lblNO);
-
+		lblNO.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNO.setBounds(14, 180, 64, 14);
+		panelInfoEstaciones.add(lblNO);
+		
 		JLabel lblNO2 = new JLabel("NO2gm3:");
-		lblNO2.setForeground(new Color(255, 255, 255));
-		lblNO2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNO2.setBounds(149, 98, 46, 14);
-		panelInfoMunicipios.add(lblNO2);
-
+		lblNO2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNO2.setBounds(149, 98, 57, 14);
+		panelInfoEstaciones.add(lblNO2);
+		
 		JLabel lblNOX = new JLabel("NOXgm3:");
-		lblNOX.setForeground(new Color(255, 255, 255));
-		lblNOX.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNOX.setBounds(279, 137, 57, 14);
-		panelInfoMunicipios.add(lblNOX);
-
+		lblNOX.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNOX.setBounds(291, 138, 57, 14);
+		panelInfoEstaciones.add(lblNOX);
+		
 		JLabel lblPM10 = new JLabel("PM10gm3:");
-		lblPM10.setForeground(new Color(255, 255, 255));
-		lblPM10.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblPM10.setBounds(149, 137, 57, 14);
-		panelInfoMunicipios.add(lblPM10);
-
+		lblPM10.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblPM10.setBounds(156, 138, 64, 14);
+		panelInfoEstaciones.add(lblPM10);
+		
 		JLabel lblPM25 = new JLabel("PM25gm3:");
-		lblPM25.setForeground(new Color(255, 255, 255));
-		lblPM25.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblPM25.setBounds(149, 180, 57, 14);
-		panelInfoMunicipios.add(lblPM25);
-
+		lblPM25.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPM25.setBounds(149, 180, 71, 14);
+		panelInfoEstaciones.add(lblPM25);
+		
 		JLabel lblSO = new JLabel("SO2gm3:");
-		lblSO.setForeground(new Color(255, 255, 255));
-		lblSO.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSO.setBounds(279, 98, 46, 14);
-		panelInfoMunicipios.add(lblSO);
-
+		lblSO.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblSO.setBounds(290, 99, 58, 14);
+		panelInfoEstaciones.add(lblSO);
+		
 		JLabel lblHora = new JLabel("Hora:");
-		lblHora.setForeground(new Color(255, 255, 255));
-		lblHora.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblHora.setBounds(249, 47, 46, 14);
-		panelInfoMunicipios.add(lblHora);
-
-		JLabel lblNewLabel = new JLabel("CambiarNombre");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(279, 47, 80, 14);
-		panelInfoMunicipios.add(lblNewLabel);
-
+		lblHora.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblHora.setBounds(250, 66, 64, 14);
+		panelInfoEstaciones.add(lblHora);
+		
+		JLabel lblinfoHora = new JLabel("");
+		lblinfoHora.setBounds(324, 66, 80, 14);
+		panelInfoEstaciones.add(lblinfoHora);
+		
 		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setForeground(new Color(255, 255, 255));
-		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblFecha.setBounds(249, 22, 46, 14);
-		panelInfoMunicipios.add(lblFecha);
-
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(281, 22, 78, 14);
-		panelInfoMunicipios.add(lblNewLabel_1);
-
+		lblFecha.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFecha.setBounds(250, 41, 64, 14);
+		panelInfoEstaciones.add(lblFecha);
+		
+		JLabel lblinfoFecha = new JLabel("");
+		lblinfoFecha.setBounds(324, 41, 78, 14);
+		panelInfoEstaciones.add(lblinfoFecha);
+		
 		JButton btnEspacios = new JButton("Espacios Naturales");
-		btnEspacios.setBounds(279, 215, 125, 23);
-		panelInfoMunicipios.add(btnEspacios);
+		btnEspacios.setBounds(250, 215, 154, 23);
+		panelInfoEstaciones.add(btnEspacios);
+		
+		JLabel infoCO = new JLabel("");
+		infoCO.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		infoCO.setBounds(79, 98, 60, 14);
+		panelInfoEstaciones.add(infoCO);
+		
+		JLabel lblinfoCO8 = new JLabel("");
+		lblinfoCO8.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblinfoCO8.setBounds(93, 137, 57, 14);
+		panelInfoEstaciones.add(lblinfoCO8);
+		
+		JLabel lblinfoNO = new JLabel("");
+		lblinfoNO.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblinfoNO.setBounds(68, 180, 60, 14);
+		panelInfoEstaciones.add(lblinfoNO);
+		
+		JLabel infoNO2 = new JLabel("");
+		infoNO2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		infoNO2.setBounds(216, 98, 64, 14);
+		panelInfoEstaciones.add(infoNO2);
+		
+		JLabel lblinfoPM10 = new JLabel("");
+		lblinfoPM10.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblinfoPM10.setBounds(223, 138, 57, 14);
+		panelInfoEstaciones.add(lblinfoPM10);
+		
+		JLabel lblinfoPM25 = new JLabel("");
+		lblinfoPM25.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblinfoPM25.setBounds(231, 179, 64, 14);
+		panelInfoEstaciones.add(lblinfoPM25);
+		
+		JLabel infoSO2 = new JLabel("");
+		infoSO2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		infoSO2.setBounds(358, 99, 66, 14);
+		panelInfoEstaciones.add(infoSO2);
+		
+		JLabel lblinfoNOX = new JLabel("");
+		lblinfoNOX.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblinfoNOX.setBounds(358, 138, 66, 14);
+		panelInfoEstaciones.add(lblinfoNOX);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(14, 215, 125, 23);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(79, 98, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_2);
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(6), "Estaciones");
+				cardlayout.show(contentPane, "Estaciones");
 
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_3.setBounds(93, 137, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_3);
-
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_4.setBounds(79, 180, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_4);
-
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_5.setBounds(194, 98, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_5);
-
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setForeground(new Color(255, 255, 255));
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_6.setBounds(205, 137, 46, 16);
-		panelInfoMunicipios.add(lblNewLabel_6);
-
-		JLabel lblNewLabel_7 = new JLabel("New label");
-		lblNewLabel_7.setForeground(new Color(255, 255, 255));
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_7.setBounds(205, 180, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_7);
-
-		JLabel lblNewLabel_8 = new JLabel("New label");
-		lblNewLabel_8.setForeground(new Color(255, 255, 255));
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_8.setBounds(325, 98, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_8);
-
-		JLabel lblNewLabel_9 = new JLabel("New label");
-		lblNewLabel_9.setForeground(new Color(255, 255, 255));
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_9.setBounds(325, 137, 46, 14);
-		panelInfoMunicipios.add(lblNewLabel_9);
-
-		JButton btnBackMunicipios = new JButton("Back");
-		lblCO8.setForeground(new Color(255, 255, 255));
-		lblCO8.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnBackMunicipios.setBounds(14, 215, 89, 23);
-		panelInfoMunicipios.add(btnBackMunicipios);
-
-		return panelInfoMunicipios;
+			}
+		});
+		panelInfoEstaciones.add(btnBack);
+		
+		for(int i=0; i<listaDatosDiarios.size();i++) {
+			try {
+			lblinfoNO.setText(listaDatosDiarios.get(i).getNogm3().toString());
+			lblinfoCO8.setText(listaDatosDiarios.get(i).getCo8hmgm3().toString());
+			lblinfoNOX.setText(listaDatosDiarios.get(i).getNoxgm3().toString());
+			lblinfoPM10.setText(listaDatosDiarios.get(i).getPm10gm3().toString());
+			infoNO2.setText(listaDatosDiarios.get(i).getNo2gm3().toString());
+			infoCO.setText(listaDatosDiarios.get(i).getComgm3().toString());
+			infoSO2.setText(listaDatosDiarios.get(i).getS2gm3().toString());
+			lblinfoPM25.setText(listaDatosDiarios.get(i).getPm25gm3().toString());
+			lblinfoFecha.setText(listaDatosDiarios.get(i).getDate().toString());
+			}catch(NullPointerException e) {
+				
+			}
+		}
+		
+		
+		return panelInfoEstaciones;
 	}
 	
 	public JPanel panelEstaciones() {

@@ -17,7 +17,8 @@ public class Servidor {
 		final String PROVINCIA = "PROVINCIA";
 		final String MUNICIPIOCODPROV = "MUNICIPIOCODPROV";
 		final String ESTACIONESCODMUN = "ESTACIONESCODMUN";
-
+		final String DATOSESTACION = "DATOSESTACION";
+		
 		ServerSocket servidor = null;
 		int puerto = 4444;
 		Socket cliente = null;
@@ -68,6 +69,9 @@ public class Servidor {
 					break;
 				case ESTACIONESCODMUN:
 					salida.writeObject(Operaciones.getEstacionesByNomMunicipio(params[0]));
+					break;
+				case DATOSESTACION:
+					salida.writeObject(Operaciones.getDatosdiariosByCodEstacion(params[0]));
 					break;
 				}
 
