@@ -26,7 +26,7 @@ public class Operaciones {
 		//cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
-		//cargarArrayList(JSONHandler.readEspacios());
+		cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
 		//cargarArrayList(JSONHandler.readEstaciones());
@@ -314,7 +314,14 @@ public class Operaciones {
 
 	public static void main(String[] args) {
 		// Test
-		cargarDatos();
+		//cargarDatos();
+		String fecha = "strings";
+		int hash = 7;
+		for (int i = 0; i < fecha.length(); i++) {
+		    hash = hash *  + fecha.charAt(i);
+		}
+		
+		System.out.println(hash);
 	}
 
 }

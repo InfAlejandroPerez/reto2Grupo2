@@ -132,41 +132,58 @@ public class JSONHandler {
 			while (atributos.hasNext()) {
 				Map.Entry<?, ?> atributo = (Entry<?, ?>) atributos.next();
 				String campo = atributo.getKey().toString();
-				String valor = atributo.getValue().toString();
+				String valor = cleanString(atributo.getValue().toString());
 
 				if (campo.equals("documentName")) {
 
-					espacio.setNombre(cleanString(valor));
+					espacio.setNombre(valor);
 
 				}
 
 				if (campo.equals("municipalitycode")) {
 
-					if (valor.length() < 3) {
-
-						espacio.setCodMunicipio(cleanString(valor));
-
+					
+					if (valor.split(" ").length > 1) {
+						espacio.setCodMunicipio(valor.split(" ")[0]);
 					} else {
-
-						espacio.setDescripcion(cleanString(valor.substring(0, 4)));
-
+						espacio.setCodMunicipio(valor);
 					}
-				} else if (campo.equals("turismDescription")) {
+					
+
+				} 
+				
+				if (campo.equals("turismDescription")) {
 
 					if (valor.length() < 490) {
 
-						espacio.setDescripcion(cleanString(valor));
+						espacio.setDescripcion(valor);
 
 					} else {
 
-						espacio.setDescripcion(cleanString(valor.substring(0, 450)));
+						espacio.setDescripcion(valor.substring(0, 450));
 
 					}
 
 				}
+				
+				if (campo.equals("latwgs84")) {
 
+					if (valor.length() > 0) {
+						espacio.setLatitud(parseBigDecimal(valor));
+					}
+
+				}
+
+				if (campo.equals("lonwgs84")) {
+
+					if (valor.length() > 0) {
+						espacio.setLongitud(parseBigDecimal(valor));
+					}
+
+				}
+				
 				if (!atributos.hasNext()) {
-					if (espacio.getCodMunicipio().length() > 0) {
+					if (espacio.getCodMunicipio().length() > 0 && hasCoords(espacio)) {
 						espacios.add(espacio);
 						espacio = new EspaciosNaturales();
 					}
@@ -569,9 +586,10 @@ public class JSONHandler {
 	public static BigDecimal parseBigDecimal(String n) {
 		n = n.replace("\"", "").replace(",", ".");
 		
-		if (n.length() > 5)
-			n = n.substring(0,5);
-		
 		return BigDecimal.valueOf(Float.valueOf(n));
+	}
+	
+	private static boolean hasCoords(EspaciosNaturales espacio) {
+		return espacio.getLatitud() != null && espacio.getLongitud() != null;
 	}
 }
