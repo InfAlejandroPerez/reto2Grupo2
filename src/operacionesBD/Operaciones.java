@@ -23,19 +23,19 @@ public class Operaciones {
 	public static void cargarDatos() {
 
 		// Municipio
-		//cargarArrayList(JSONHandler.readMunicipios());
+		 cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
 		cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		//cargarArrayList(JSONHandler.readEstaciones());
+		 cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
-		//cargarArrayList(JSONHandler.readDatosDiarios());
+		 cargarArrayList(JSONHandler.readDatosDiarios());
 
 		// Horarios
-		//cargarArrayList(JSONHandler.readDatosHorarios());
+		 cargarArrayList(JSONHandler.readDatosHorarios());
 
 	}
 
@@ -43,28 +43,27 @@ public class Operaciones {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
 
 		for (Object item : items) {
 			try {
-				
+
 				Transaction tx = session.beginTransaction();
 				session.save(item);
 				tx.commit();
-				
+
 			} catch (Exception e) {
-				/*if (e.getCause().toString().contains("MySQLIntegrityConstraintViolationException")) {
-					System.out.println("Registro duplicado con PK duplicada en el indice: " + items.indexOf(item) + " se ha saltado");
-				}
-				else {
-					System.out.println(e.getMessage());
-				}*/
-				
+				/*
+				 * if (e.getCause().toString().contains(
+				 * "MySQLIntegrityConstraintViolationException")) {
+				 * System.out.println("Registro duplicado con PK duplicada en el indice: " +
+				 * items.indexOf(item) + " se ha saltado"); } else {
+				 * System.out.println(e.getMessage()); }
+				 */
+
 				System.out.println(e.getMessage());
 			}
 		}
-		
-		
+
 		session.close();
 
 	}
@@ -146,7 +145,37 @@ public class Operaciones {
 
 		return payload;
 	}
-	
+
+	public static String getAllProvinciasJSON() {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Provincia";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Provincia provincia = (Provincia) iterator.next();
+
+			payload += "{";
+			payload += "\"codProvincia\":\"" + provincia.getCodProvincia() + "\",";
+			payload += "\"nombre\":\"" + provincia.getNombre() + "\"";
+			payload += "}";
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+
 	public static ArrayList<Provincia> getAllProvincias() {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -160,10 +189,10 @@ public class Operaciones {
 		while (iterator.hasNext()) {
 			Provincia obj = (Provincia) iterator.next();
 			Provincia provincia = new Provincia();
-			
+
 			provincia.setCodProvincia(obj.getCodProvincia());
 			provincia.setNombre(obj.getNombre());
-			
+
 			provincias.add(provincia);
 
 		}
@@ -171,7 +200,36 @@ public class Operaciones {
 
 		return provincias;
 	}
-	
+
+	public static String getMunicipiosByCodProvinciaJSON(String codProvincia) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Municipios WHERE CodProvincia = '" + codProvincia + "'";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Municipios municipio = (Municipios) iterator.next();
+
+			payload += "{";
+			payload += "\"codMunicipio\":\"" + municipio.getCodMunicipio() + "\",";
+			payload += "\"nombre\":\"" + municipio.getNombre() + "\"";
+			payload += "}";
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+
 	public static ArrayList<Municipios> getMunicipiosByCodProvincia(String codProvincia) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -185,19 +243,60 @@ public class Operaciones {
 		while (iterator.hasNext()) {
 			Municipios obj = (Municipios) iterator.next();
 			Municipios municipio = new Municipios();
-			
+
 			municipio.setCodMunicipio(obj.getCodMunicipio());
 			municipio.setCodProvincia(obj.getCodProvincia());
 			municipio.setDescripcion(obj.getDescripcion());
 			municipio.setNombre(obj.getNombre());
 			municipio.setCodMunicipio(obj.getCodMunicipio());
-			
+
 			municipios.add(municipio);
 
 		}
 		session.close();
 
 		return municipios;
+	}
+
+	public static String getEstacionesByNomMunicipioJSON(String nombreMunicipio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		/*String[] municipioFragments = nombreMunicipio.split("_");
+		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
+		
+		for (String municipioFragment : municipioFragments) {
+			hql += municipioFragment + "%";
+		}
+		
+		hql += "'";*/
+		
+		String hql = "from Estaciones WHERE NomMunicipio = '" + nombreMunicipio + "'";
+		
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Estaciones estacion = (Estaciones) iterator.next();
+
+			payload += "{";
+			payload += "\"codEstacion\":\"" + estacion.getCodEstacion() + "\",";
+			payload += "\"nombre\":\"" + estacion.getNombreEstacion() + "\"";
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
 	}
 	
 	public static ArrayList<Estaciones> getEstacionesByNomMunicipio(String nombreMunicipio) {
@@ -213,18 +312,57 @@ public class Operaciones {
 		while (iterator.hasNext()) {
 			Estaciones obj = (Estaciones) iterator.next();
 			Estaciones estacion = new Estaciones();
-			
+
 			estacion.setCodEstacion(obj.getCodEstacion());
 			estacion.setCoordenadaX(obj.getCoordenadaX());
 			estacion.setCoordenadaY(obj.getCoordenadaY());
 			estacion.setNombreEstacion(obj.getNombreEstacion());
 			estacion.setNomMunicipio(obj.getNomMunicipio());
-			
+
 			estaciones.add(estacion);
 		}
 		session.close();
 
 		return estaciones;
+	}
+
+	public static String getDatosdiariosByCodEstacionJSON(String codEstacion) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "from Datosdiarios WHERE CodEstacion = '" + codEstacion + "'";
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Datosdiarios datosdiario = (Datosdiarios) iterator.next();
+
+			payload += "{";
+			payload += "\"date\":\"" + datosdiario.getDate() + "\",";
+			payload += "\"co8hmgm3\":\"" + datosdiario.getCo8hmgm3() + "\",";
+			payload += "\"comgm3\":\"" + datosdiario.getComgm3() + "\",";
+			payload += "\"no2gm3\":\"" + datosdiario.getNo2gm3() + "\",";
+			payload += "\"nogm3\":\"" + datosdiario.getNogm3() + "\",";
+			payload += "\"noxgm3\":\"" + datosdiario.getNoxgm3() + "\",";
+			payload += "\"pm10gm3\":\"" + datosdiario.getPm10gm3() + "\",";
+			payload += "\"pm25gm3\":\"" + datosdiario.getPm25gm3() + "\",";
+			payload += "\"s2gm3\":\"" + datosdiario.getS2gm3() + "\"";
+			
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
 	}
 	
 	public static ArrayList<Datosdiarios> getDatosdiariosByCodEstacion(String codEstacion) {
@@ -240,7 +378,7 @@ public class Operaciones {
 		while (iterator.hasNext()) {
 			Datosdiarios obj = (Datosdiarios) iterator.next();
 			Datosdiarios datosdiario = new Datosdiarios();
-			
+
 			datosdiario.setCo8hmgm3(obj.getCo8hmgm3());
 			datosdiario.setCodEstacion(obj.getCodEstacion());
 			datosdiario.setComgm3(obj.getCo8hmgm3());
@@ -251,7 +389,7 @@ public class Operaciones {
 			datosdiario.setPm10gm3(obj.getPm10gm3());
 			datosdiario.setPm25gm3(obj.getPm25gm3());
 			datosdiario.setS2gm3(obj.getS2gm3());
-			
+
 			datosdiarios.add(datosdiario);
 
 		}
@@ -260,32 +398,31 @@ public class Operaciones {
 		return datosdiarios;
 	}
 
-	/*public static String getCodProvinciaByName(String name) {
+	/*
+	 * public static String getCodProvinciaByName(String name) {
+	 * 
+	 * SessionFactory sesion = HibernateUtil.getSessionFactory(); Session session =
+	 * sesion.openSession();
+	 * 
+	 * String hql = "from Estaciones WHERE Nombre = '" + name + "'"; Query q =
+	 * session.createQuery(hql).setMaxResults(1); Provincia provincia = (Provincia)
+	 * q.uniqueResult();
+	 * 
+	 * String payload = "{";
+	 * 
+	 * if (provincia != null) {
+	 * 
+	 * payload += "\"exists\":\"true\","; payload += "\"codProvincia\":\"" +
+	 * provincia.getCodProvincia() + "\""; } else { payload +=
+	 * "\"exists\":\"false\""; }
+	 * 
+	 * payload += "}";
+	 * 
+	 * session.close();
+	 * 
+	 * return payload; }
+	 */
 
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-
-		String hql = "from Estaciones WHERE Nombre = '" + name + "'";
-		Query q = session.createQuery(hql).setMaxResults(1);
-		Provincia provincia = (Provincia) q.uniqueResult();
-
-		String payload = "{";
-		
-		if (provincia != null) {
-			
-			payload += "\"exists\":\"true\",";
-			payload += "\"codProvincia\":\"" + provincia.getCodProvincia() + "\"";
-		} else {
-			payload += "\"exists\":\"false\"";
-		}
-		
-		payload += "}";
-
-		session.close();
-
-		return payload;
-	}*/
-	
 	public static Estaciones getCodEstacionByName(String name) {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
@@ -294,18 +431,17 @@ public class Operaciones {
 		String hql = "from Estaciones WHERE NombreEstacion = '" + name + "' ORDER BY CodEstacion";
 		Query q = session.createQuery(hql).setMaxResults(1);
 		Estaciones obj = (Estaciones) q.uniqueResult();
-		
+
 		Estaciones estacion = new Estaciones();
-		
+
 		if (obj != null) {
 			estacion.setCodEstacion(obj.getCodEstacion());
 			estacion.setCoordenadaX(obj.getCoordenadaX());
 			estacion.setCoordenadaY(obj.getCoordenadaY());
 			estacion.setNombreEstacion(obj.getNombreEstacion());
 			estacion.setNomMunicipio(obj.getNomMunicipio());
-		} else 
+		} else
 			estacion = null;
-
 
 		session.close();
 
@@ -313,15 +449,12 @@ public class Operaciones {
 	}
 
 	public static void main(String[] args) {
-		// Test
 		//cargarDatos();
-		String fecha = "strings";
-		int hash = 7;
-		for (int i = 0; i < fecha.length(); i++) {
-		    hash = hash *  + fecha.charAt(i);
-		}
-		
-		System.out.println(hash);
+
+		System.out.println(getAllProvinciasJSON());
+		System.out.println(getMunicipiosByCodProvinciaJSON("01"));
+		System.out.println(getEstacionesByNomMunicipioJSON("Bilbao"));
+		System.out.println(getDatosdiariosByCodEstacionJSON("22"));
 	}
 
 }

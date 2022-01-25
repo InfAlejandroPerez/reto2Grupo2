@@ -350,7 +350,7 @@ public class JSONHandler {
 										}
 
 										if (campo.equalsIgnoreCase("NOXgm3")) {
-											System.out.println(valor);
+
 											diario.setNoxgm3(parseBigDecimal(valor));
 										}
 

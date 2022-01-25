@@ -62,16 +62,16 @@ public class Servidor {
 					salida.writeObject(Operaciones.getAllMunicipios());
 					break;
 				case PROVINCIA:
-					salida.writeObject(Operaciones.getAllProvincias());
+					salida.writeObject(Operaciones.getAllProvinciasJSON());
 					break;
 				case MUNICIPIOCODPROV:
-					salida.writeObject(Operaciones.getMunicipiosByCodProvincia(params[0]));
+					salida.writeObject(Operaciones.getMunicipiosByCodProvinciaJSON(params[0]));
 					break;
 				case ESTACIONESCODMUN:
-					salida.writeObject(Operaciones.getEstacionesByNomMunicipio(params[0]));
+					salida.writeObject(Operaciones.getEstacionesByNomMunicipioJSON(params[0]));
 					break;
 				case DATOSESTACION:
-					salida.writeObject(Operaciones.getDatosdiariosByCodEstacion(params[0]));
+					salida.writeObject(Operaciones.getDatosdiariosByCodEstacionJSON(params[0]));
 					break;
 				}
 
@@ -107,6 +107,8 @@ public class Servidor {
 
 		Servidor s = new Servidor();
 		s.iniciar();
+		
+		// TODO Comprobar Hash
 
 	}
 }
