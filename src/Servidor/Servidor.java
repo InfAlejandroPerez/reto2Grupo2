@@ -18,6 +18,7 @@ public class Servidor {
 		final String MUNICIPIOCODPROV = "MUNICIPIOCODPROV";
 		final String ESTACIONESCODMUN = "ESTACIONESCODMUN";
 		final String DATOSESTACION = "DATOSESTACION";
+		final String INFOMUNICIPIO = "INFOMUNICIPIO";
 		
 		ServerSocket servidor = null;
 		int puerto = 4444;
@@ -72,6 +73,9 @@ public class Servidor {
 					break;
 				case DATOSESTACION:
 					salida.writeObject(Operaciones.getDatosdiariosByCodEstacionJSON(params[0]));
+					break;
+				case INFOMUNICIPIO:
+					salida.writeObject(Operaciones.getInfoMuniByIdMuni(params[0]));
 					break;
 				}
 

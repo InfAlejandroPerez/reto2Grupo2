@@ -26,16 +26,16 @@ public class Operaciones {
 		 cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
-		cargarArrayList(JSONHandler.readEspacios());
+		//cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		 cargarArrayList(JSONHandler.readEstaciones());
+		 //cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
-		 cargarArrayList(JSONHandler.readDatosDiarios());
+		 //cargarArrayList(JSONHandler.readDatosDiarios());
 
 		// Horarios
-		 cargarArrayList(JSONHandler.readDatosHorarios());
+		 //cargarArrayList(JSONHandler.readDatosHorarios());
 
 	}
 
@@ -299,6 +299,48 @@ public class Operaciones {
 		return payload;
 	}
 	
+	public static String getInfoMuniByIdMuni(String idMunicipio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		/*String[] municipioFragments = nombreMunicipio.split("_");
+		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
+		
+		for (String municipioFragment : municipioFragments) {
+			hql += municipioFragment + "%";
+		}
+		
+		hql += "'";*/
+		
+		String hql = "from Municipios WHERE Nombre = '" + idMunicipio + "'";
+		
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Municipios municipio = (Municipios) iterator.next();
+
+			payload += "{";
+			payload += "\"nombre\":\"" + municipio.getNombre() + "\",";
+			payload += "\"descripcion\":\"" + municipio.getDescripcion() + "\"";
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+	
+	
 	public static ArrayList<Estaciones> getEstacionesByNomMunicipio(String nombreMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -451,10 +493,10 @@ public class Operaciones {
 	public static void main(String[] args) {
 		//cargarDatos();
 
-		System.out.println(getAllProvinciasJSON());
+		/*System.out.println(getAllProvinciasJSON());
 		System.out.println(getMunicipiosByCodProvinciaJSON("01"));
 		System.out.println(getEstacionesByNomMunicipioJSON("Bilbao"));
-		System.out.println(getDatosdiariosByCodEstacionJSON("22"));
+		System.out.println(getDatosdiariosByCodEstacionJSON("22"));*/
 	}
 
 }
