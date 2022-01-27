@@ -455,6 +455,79 @@ public class Operaciones {
 		return estacion;
 	}
 
+	public static String getInfoMuniByIdMuni(String idMunicipio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		/*String[] municipioFragments = nombreMunicipio.split("_");
+		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
+		
+		for (String municipioFragment : municipioFragments) {
+			hql += municipioFragment + "%";
+		}
+		
+		hql += "'";*/
+		
+		String hql = "from Municipios WHERE CodMunicipio = '" + idMunicipio + "'" ;
+		
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Municipios municipio = (Municipios) iterator.next();
+
+			payload += "{";
+			payload += "\"nombre\":\"" + municipio.getNombre() + "\",";
+			payload += "\"descripcion\":\"" + municipio.getDescripcion() + "\"";
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+	
+	public static String getEspaciosNaturalesByIdMuni(String idMunicipio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+		
+		String hql = "FROM EspaciosNaturales WHERE codMunicipio = '"+ idMunicipio + "'";
+		
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			EspaciosNaturales espacioNatural = (EspaciosNaturales) iterator.next();
+
+			payload += "{";
+			payload += "\"nombre\":\"" + espacioNatural.getNombre() + "\",";
+			payload += "\"codEspacio\":\"" + espacioNatural.getCodEspacio() + "\"";
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+	
 	public static void main(String[] args) {
 		cargarDatos();
 	}
