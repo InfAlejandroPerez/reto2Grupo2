@@ -13,6 +13,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 
 import Handler.JSONHandler;
 import modelo.Datosdiarios;
+import modelo.EspaciosNaturales;
 import modelo.Estaciones;
 import modelo.Municipios;
 import modelo.Provincia;
@@ -297,39 +298,6 @@ public class Operaciones {
 
 		return payload;
 	}
-	
-	public static String getInfoMuniByIdMuni(String idMunicipio) {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-		
-		String hql = "from Municipios WHERE Nombre = '" + idMunicipio + "'";
-		
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		String payload = "{\"data\":[";
-
-		while (iterator.hasNext()) {
-			Municipios municipio = (Municipios) iterator.next();
-
-			payload += "{";
-			payload += "\"nombre\":\"" + municipio.getNombre() + "\",";
-			payload += "\"descripcion\":\"" + municipio.getDescripcion() + "\"";
-			payload += "}";
-
-
-			if (iterator.hasNext())
-				payload += ",";
-
-		}
-		
-		payload += "]}";
-
-		session.close();
-
-		return payload;
-	}
-	
 	
 	public static ArrayList<Estaciones> getEstacionesByNomMunicipio(String nombreMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
