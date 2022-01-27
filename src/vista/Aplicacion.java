@@ -452,6 +452,19 @@ public class Aplicacion extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setBounds(157, 22, 172, 21);
 		panelMunicipios.add(lblNewLabel);
+		
+		JButton btnInfoMunicipio = new JButton("Mas informaci\u00F3n");
+		btnInfoMunicipio.setBounds(154, 227, 123, 23);
+		
+		btnInfoMunicipio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Municipios municipio = listaMun.get(listMun.getSelectedIndex());
+				String message = "Descripción:\r\r" + ;
+				//JEditorPane jpn = new JEditorPane();
+				//JOptionPane.showMessageDialog(null, municipio.getNombre(), message, JOptionPane.MESSAGE_PROPERTY);
+			}
+		});
+		panelMunicipios.add(btnInfoMunicipio);
 
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(10, 220, 70, 30);
@@ -554,6 +567,7 @@ public class Aplicacion extends JFrame {
 		tituloProvincias.setForeground(new Color(255, 255, 255));
 		tituloProvincias.setFont(new Font("Tahoma", Font.BOLD, 17));
 		tituloProvincias.setBounds(157, 22, 172, 21);
+		
 		panelProvincias.add(tituloProvincias);
 
 		return panelProvincias;

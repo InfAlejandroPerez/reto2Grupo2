@@ -171,7 +171,8 @@ public class Operaciones {
 
 			payload += "{";
 			payload += "\"codMunicipio\":\"" + municipio.getCodMunicipio() + "\",";
-			payload += "\"nombre\":\"" + municipio.getNombre() + "\"";
+			payload += "\"nombre\":\"" + municipio.getNombre() + "\",";
+			payload += "\"descripcion\":\"" + municipio.getDescripcion() + "\"";
 			payload += "}";
 
 			if (iterator.hasNext())
