@@ -20,6 +20,7 @@ public class Servidor {
 		final String DATOSESTACION = "DATOSESTACION";
 		final String INFOMUNICIPIO = "INFOMUNICIPIO";
 		final String ESPACIOSCODMUNI = "ESPACIOSCODMUNI";
+		final String ESPACIOS = "ESPACIOS";
 		
 		ServerSocket servidor = null;
 		int puerto = 4444;
@@ -80,6 +81,9 @@ public class Servidor {
 					break;
 				case ESPACIOSCODMUNI:
 					salida.writeObject(Operaciones.getEspaciosNaturalesByIdMuni(params[0]));
+					break;
+				case ESPACIOS:
+					salida.writeObject(Operaciones.getAllEspaciosNaturales());
 					break;
 				}
 
