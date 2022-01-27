@@ -355,6 +355,40 @@ public class Operaciones {
 		return payload;
 	}
 	
+	public static String getAllEspaciosNaturales() {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+		
+		String hql = "FROM EspaciosNaturales";
+		
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			EspaciosNaturales espacioNatural = (EspaciosNaturales) iterator.next();
+
+			payload += "{";
+			payload += "\"nombre\":\"" + espacioNatural.getNombre() + "\",";
+			payload += "\"codEspacio\":\"" + espacioNatural.getCodEspacio() + "\",";
+			payload += "\"latitud\":\"" + espacioNatural.getLatitud() + "\",";
+			payload += "\"longitud\":\"" + espacioNatural.getLongitud() + "\"";
+			payload += "}";
+
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+	
 	public static void main(String[] args) {
 		cargarDatos();
 	}
