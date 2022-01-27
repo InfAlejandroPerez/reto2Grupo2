@@ -737,19 +737,15 @@ public class Aplicacion extends JFrame {
 		panelInfoEstaciones.add(btnBack);
 
 		for (int i = 0; i < listaDatosDiarios.size(); i++) {
-			try {
-				lblinfoNO.setText(listaDatosDiarios.get(i).getNogm3().toString());
-				lblinfoCO8.setText(listaDatosDiarios.get(i).getCo8hmgm3().toString());
-				lblinfoNOX.setText(listaDatosDiarios.get(i).getNoxgm3().toString());
-				lblinfoPM10.setText(listaDatosDiarios.get(i).getPm10gm3().toString());
-				infoNO2.setText(listaDatosDiarios.get(i).getNo2gm3().toString());
-				infoCO.setText(listaDatosDiarios.get(i).getComgm3().toString());
-				infoSO2.setText(listaDatosDiarios.get(i).getS2gm3().toString());
-				lblinfoPM25.setText(listaDatosDiarios.get(i).getPm25gm3().toString());
-				lblinfoFecha.setText(listaDatosDiarios.get(i).getDate().toString());
-			} catch (NullPointerException e) {
-
-			}
+			lblinfoNO.setText(listaDatosDiarios.get(i).getNogm3().toString());
+			lblinfoCO8.setText(listaDatosDiarios.get(i).getCo8hmgm3().toString());
+			lblinfoNOX.setText(listaDatosDiarios.get(i).getNoxgm3().toString());
+			lblinfoPM10.setText(listaDatosDiarios.get(i).getPm10gm3().toString());
+			infoNO2.setText(listaDatosDiarios.get(i).getNo2gm3().toString());
+			infoCO.setText(listaDatosDiarios.get(i).getComgm3().toString());
+			infoSO2.setText(listaDatosDiarios.get(i).getS2gm3().toString());
+			lblinfoPM25.setText(listaDatosDiarios.get(i).getPm25gm3().toString());
+			lblinfoFecha.setText(listaDatosDiarios.get(i).getDate().toString());
 		}
 
 		return panelInfoEstaciones;
