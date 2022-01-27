@@ -530,7 +530,7 @@ public class JSONHandler {
 		return horarios;
 	}
 
-	private static JsonElement readJSON(String urlStr) {
+	public static JsonElement readJSON(String urlStr) {
 		System.setProperty("javax.net.ssl.trustStore", "NUL");
 		System.setProperty("javax.net.ssl.trustStoreType", "Windows-ROOT");
 
@@ -541,38 +541,42 @@ public class JSONHandler {
 
 		boolean isLocalFile = false;
 
-		try {
-			is = new URL(urlStr).openStream();
-		} catch (MalformedURLException e) {
+		if (!(urlStr.startsWith("{") || urlStr.startsWith("["))) {
+			try {
+				is = new URL(urlStr).openStream();
+			} catch (MalformedURLException e) {
 
-			if (e.getMessage().contains("no protocol")) {
-				isLocalFile = true;
-			} else {
+				if (e.getMessage().contains("no protocol")) {
+					isLocalFile = true;
+				} else {
+					System.out.println(e.getMessage());
+				}
+
+			} catch (IOException e) {
+				return null;
+			}
+
+			try {
+
+				if (isLocalFile) {
+					File file = new File(urlStr);
+					datos = new String(Files.readAllBytes(file.toPath()));
+				} else {
+					datos = new String(is.readAllBytes());
+				}
+
+			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
 
-		} catch (IOException e) {
-			return null;
-		}
-
-		try {
-
-			if (isLocalFile) {
-				File file = new File(urlStr);
-				datos = new String(Files.readAllBytes(file.toPath()));
-			} else {
-				datos = new String(is.readAllBytes());
+			if (datos.charAt(0) != '[' && datos.charAt(0) != '{') {
+				if (datos.contains("jsonCallback(")) {
+					datos = datos.replace("jsonCallback(", "");
+					datos = datos.substring(0, datos.length() - 2);
+				}
 			}
-
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
-		if (datos.charAt(0) != '[' && datos.charAt(0) != '{') {
-			if (datos.contains("jsonCallback(")) {
-				datos = datos.replace("jsonCallback(", "");
-				datos = datos.substring(0, datos.length() - 2);
-			}
+		} else {
+			datos = urlStr;
 		}
 
 		return parser.parse(datos);

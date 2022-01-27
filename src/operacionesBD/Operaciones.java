@@ -23,19 +23,26 @@ public class Operaciones {
 	public static void cargarDatos() {
 
 		// Municipio
-		 cargarArrayList(JSONHandler.readMunicipios());
+		System.out.println("CARGANDO MUNICIPIOS...");
+		cargarArrayList(JSONHandler.readMunicipios());
 
 		// Espacios
-		//cargarArrayList(JSONHandler.readEspacios());
+		System.out.println("CARGANDO ESPACIOS...");
+		cargarArrayList(JSONHandler.readEspacios());
 
 		// Estaciones
-		 //cargarArrayList(JSONHandler.readEstaciones());
+		System.out.println("CARGANDO ESTACIONES...");
+		cargarArrayList(JSONHandler.readEstaciones());
 
 		// Diarios
-		 //cargarArrayList(JSONHandler.readDatosDiarios());
+		System.out.println("CARGANDO DATOS DIARIOS...");
+		cargarArrayList(JSONHandler.readDatosDiarios());
 
 		// Horarios
-		 //cargarArrayList(JSONHandler.readDatosHorarios());
+		System.out.println("CARGANDO DATOS HORARIOS...");
+		cargarArrayList(JSONHandler.readDatosHorarios());
+		
+		System.out.println("-- CARGA DE DATOS FINALIZADA --");
 
 	}
 
@@ -88,6 +95,7 @@ public class Operaciones {
 
 		session.close();
 
+		System.out.println(res);
 		return res;
 
 	}
@@ -261,15 +269,6 @@ public class Operaciones {
 	public static String getEstacionesByNomMunicipioJSON(String nombreMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-
-		/*String[] municipioFragments = nombreMunicipio.split("_");
-		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
-		
-		for (String municipioFragment : municipioFragments) {
-			hql += municipioFragment + "%";
-		}
-		
-		hql += "'";*/
 		
 		String hql = "from Estaciones WHERE NomMunicipio = '" + nombreMunicipio + "'";
 		
@@ -302,15 +301,6 @@ public class Operaciones {
 	public static String getInfoMuniByIdMuni(String idMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-
-		/*String[] municipioFragments = nombreMunicipio.split("_");
-		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
-		
-		for (String municipioFragment : municipioFragments) {
-			hql += municipioFragment + "%";
-		}
-		
-		hql += "'";*/
 		
 		String hql = "from Municipios WHERE Nombre = '" + idMunicipio + "'";
 		
@@ -440,31 +430,6 @@ public class Operaciones {
 		return datosdiarios;
 	}
 
-	/*
-	 * public static String getCodProvinciaByName(String name) {
-	 * 
-	 * SessionFactory sesion = HibernateUtil.getSessionFactory(); Session session =
-	 * sesion.openSession();
-	 * 
-	 * String hql = "from Estaciones WHERE Nombre = '" + name + "'"; Query q =
-	 * session.createQuery(hql).setMaxResults(1); Provincia provincia = (Provincia)
-	 * q.uniqueResult();
-	 * 
-	 * String payload = "{";
-	 * 
-	 * if (provincia != null) {
-	 * 
-	 * payload += "\"exists\":\"true\","; payload += "\"codProvincia\":\"" +
-	 * provincia.getCodProvincia() + "\""; } else { payload +=
-	 * "\"exists\":\"false\""; }
-	 * 
-	 * payload += "}";
-	 * 
-	 * session.close();
-	 * 
-	 * return payload; }
-	 */
-
 	public static Estaciones getCodEstacionByName(String name) {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
@@ -491,12 +456,7 @@ public class Operaciones {
 	}
 
 	public static void main(String[] args) {
-		//cargarDatos();
-
-		/*System.out.println(getAllProvinciasJSON());
-		System.out.println(getMunicipiosByCodProvinciaJSON("01"));
-		System.out.println(getEstacionesByNomMunicipioJSON("Bilbao"));
-		System.out.println(getDatosdiariosByCodEstacionJSON("22"));*/
+		cargarDatos();
 	}
 
 }
