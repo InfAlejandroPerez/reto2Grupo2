@@ -126,36 +126,7 @@ public class Operaciones {
 
 	}
 
-	public static String getAllMunicipios() {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-
-		String hql = "from Municipios";
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		String payload = "{\"data\":[";
-
-		while (iterator.hasNext()) {
-			Municipios muni = (Municipios) iterator.next();
-
-			payload += "{";
-			payload += "\"codMunicipio\":\"" + muni.getCodMunicipio() + "\",";
-			payload += "\"nombre\":\"" + muni.getNombre() + "\"";
-			payload += "}";
-
-			if (iterator.hasNext())
-				payload += ",";
-		}
-
-		payload += "]}";
-
-		session.close();
-
-		return payload;
-	}
-
-	public static String getAllProvinciasJSON() {
+	public static String getAllProvincias() {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
@@ -185,32 +156,7 @@ public class Operaciones {
 		return payload;
 	}
 
-	public static ArrayList<Provincia> getAllProvincias() {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-
-		String hql = "from Provincia";
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		ArrayList<Provincia> provincias = new ArrayList<>();
-
-		while (iterator.hasNext()) {
-			Provincia obj = (Provincia) iterator.next();
-			Provincia provincia = new Provincia();
-
-			provincia.setCodProvincia(obj.getCodProvincia());
-			provincia.setNombre(obj.getNombre());
-
-			provincias.add(provincia);
-
-		}
-		session.close();
-
-		return provincias;
-	}
-
-	public static String getMunicipiosByCodProvinciaJSON(String codProvincia) {
+	public static String getMunicipiosByCodProvincia(String codProvincia) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
@@ -239,35 +185,7 @@ public class Operaciones {
 		return payload;
 	}
 
-	public static ArrayList<Municipios> getMunicipiosByCodProvincia(String codProvincia) {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-
-		String hql = "from Municipios WHERE CodProvincia = '" + codProvincia + "'";
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		ArrayList<Municipios> municipios = new ArrayList<>();
-
-		while (iterator.hasNext()) {
-			Municipios obj = (Municipios) iterator.next();
-			Municipios municipio = new Municipios();
-
-			municipio.setCodMunicipio(obj.getCodMunicipio());
-			municipio.setCodProvincia(obj.getCodProvincia());
-			municipio.setDescripcion(obj.getDescripcion());
-			municipio.setNombre(obj.getNombre());
-			municipio.setCodMunicipio(obj.getCodMunicipio());
-
-			municipios.add(municipio);
-
-		}
-		session.close();
-
-		return municipios;
-	}
-
-	public static String getEstacionesByNomMunicipioJSON(String nombreMunicipio) {
+	public static String getEstacionesByNomMunicipio(String nombreMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 		
@@ -298,35 +216,8 @@ public class Operaciones {
 
 		return payload;
 	}
-	
-	public static ArrayList<Estaciones> getEstacionesByNomMunicipio(String nombreMunicipio) {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
 
-		String hql = "from Estaciones WHERE NomMunicipio = '" + nombreMunicipio + "'";
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		ArrayList<Estaciones> estaciones = new ArrayList<>();
-
-		while (iterator.hasNext()) {
-			Estaciones obj = (Estaciones) iterator.next();
-			Estaciones estacion = new Estaciones();
-
-			estacion.setCodEstacion(obj.getCodEstacion());
-			estacion.setCoordenadaX(obj.getCoordenadaX());
-			estacion.setCoordenadaY(obj.getCoordenadaY());
-			estacion.setNombreEstacion(obj.getNombreEstacion());
-			estacion.setNomMunicipio(obj.getNomMunicipio());
-
-			estaciones.add(estacion);
-		}
-		session.close();
-
-		return estaciones;
-	}
-
-	public static String getDatosdiariosByCodEstacionJSON(String codEstacion) {
+	public static String getDatosdiariosByCodEstacion(String codEstacion) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
@@ -363,39 +254,6 @@ public class Operaciones {
 		session.close();
 
 		return payload;
-	}
-	
-	public static ArrayList<Datosdiarios> getDatosdiariosByCodEstacion(String codEstacion) {
-		SessionFactory sesion = HibernateUtil.getSessionFactory();
-		Session session = sesion.openSession();
-
-		String hql = "from Datosdiarios WHERE CodEstacion = '" + codEstacion + "'";
-		Query q = session.createQuery(hql);
-		Iterator<?> iterator = q.iterate();
-
-		ArrayList<Datosdiarios> datosdiarios = new ArrayList<>();
-
-		while (iterator.hasNext()) {
-			Datosdiarios obj = (Datosdiarios) iterator.next();
-			Datosdiarios datosdiario = new Datosdiarios();
-
-			datosdiario.setCo8hmgm3(obj.getCo8hmgm3());
-			datosdiario.setCodEstacion(obj.getCodEstacion());
-			datosdiario.setComgm3(obj.getCo8hmgm3());
-			datosdiario.setDate(obj.getDate());
-			datosdiario.setNo2gm3(obj.getNo2gm3());
-			datosdiario.setNogm3(obj.getNogm3());
-			datosdiario.setNoxgm3(obj.getNoxgm3());
-			datosdiario.setPm10gm3(obj.getPm10gm3());
-			datosdiario.setPm25gm3(obj.getPm25gm3());
-			datosdiario.setS2gm3(obj.getS2gm3());
-
-			datosdiarios.add(datosdiario);
-
-		}
-		session.close();
-
-		return datosdiarios;
 	}
 
 	public static Estaciones getCodEstacionByName(String name) {

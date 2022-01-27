@@ -61,20 +61,17 @@ public class Servidor {
 				case REGISTER:
 					salida.writeObject(Operaciones.validarRegister(params[0], params[1]));
 					break;
-				case MUNICIPIOS:
-					salida.writeObject(Operaciones.getAllMunicipios());
-					break;
 				case PROVINCIA:
-					salida.writeObject(Operaciones.getAllProvinciasJSON());
+					salida.writeObject(Operaciones.getAllProvincias());
 					break;
 				case MUNICIPIOCODPROV:
-					salida.writeObject(Operaciones.getMunicipiosByCodProvinciaJSON(params[0]));
+					salida.writeObject(Operaciones.getMunicipiosByCodProvincia(params[0]));
 					break;
 				case ESTACIONESCODMUN:
-					salida.writeObject(Operaciones.getEstacionesByNomMunicipioJSON(params[0]));
+					salida.writeObject(Operaciones.getEstacionesByNomMunicipio(params[0]));
 					break;
 				case DATOSESTACION:
-					salida.writeObject(Operaciones.getDatosdiariosByCodEstacionJSON(params[0]));
+					salida.writeObject(Operaciones.getDatosdiariosByCodEstacion(params[0]));
 					break;
 				case INFOMUNICIPIO:
 					salida.writeObject(Operaciones.getInfoMuniByIdMuni(params[0]));
