@@ -24,6 +24,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -459,9 +461,15 @@ public class Aplicacion extends JFrame {
 		btnInfoMunicipio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Municipios municipio = listaMun.get(listMun.getSelectedIndex());
-				String message = "Descripción:\r\r" + ;
-				//JEditorPane jpn = new JEditorPane();
-				//JOptionPane.showMessageDialog(null, municipio.getNombre(), message, JOptionPane.MESSAGE_PROPERTY);
+
+				JEditorPane jpn = new JEditorPane();
+				jpn.setContentType("text/html");
+				
+				String body = "<h3>" + municipio.getNombre() + "</h3></br>" + municipio.getDescripcion();
+				
+				jpn.setText(body);
+
+				
 			}
 		});
 		panelMunicipios.add(btnInfoMunicipio);
@@ -608,6 +616,7 @@ public class Aplicacion extends JFrame {
 				datosDiarios.setPm10gm3(obj.get("pm10gm3").getAsBigDecimal());
 				datosDiarios.setPm25gm3(obj.get("pm25gm3").getAsBigDecimal());
 				datosDiarios.setS2gm3(obj.get("s2gm3").getAsBigDecimal());
+				datosDiarios.setNo2gm3(obj.get("no2gm3").getAsBigDecimal());
 
 				listaDatosDiarios.add(datosDiarios);
 			}

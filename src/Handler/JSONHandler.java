@@ -19,6 +19,7 @@ import com.google.gson.JsonParser;
 
 import modelo.Datosdiarios;
 import modelo.Datoshorarios;
+import modelo.Datosindice;
 import modelo.EspaciosNaturales;
 import modelo.Estaciones;
 import modelo.Municipios;
@@ -142,16 +143,14 @@ public class JSONHandler {
 
 				if (campo.equals("municipalitycode")) {
 
-					
 					if (valor.split(" ").length > 1) {
 						espacio.setCodMunicipio(valor.split(" ")[0]);
 					} else {
 						espacio.setCodMunicipio(valor);
 					}
-					
 
-				} 
-				
+				}
+
 				if (campo.equals("turismDescription")) {
 
 					if (valor.length() < 490) {
@@ -165,7 +164,7 @@ public class JSONHandler {
 					}
 
 				}
-				
+
 				if (campo.equals("latwgs84")) {
 
 					if (valor.length() > 0) {
@@ -181,7 +180,7 @@ public class JSONHandler {
 					}
 
 				}
-				
+
 				if (!atributos.hasNext()) {
 					if (espacio.getCodMunicipio().length() > 0 && hasCoords(espacio)) {
 						espacios.add(espacio);
@@ -296,11 +295,11 @@ public class JSONHandler {
 							if (url.contains("datos_diarios")) {
 
 								JsonElement jsonDatos = readJSON(url);
-								
+
 								if (jsonDatos == null) {
 									continue;
 								}
-								
+
 								Iterator<JsonElement> jsonDatosIterator = jsonDatos.getAsJsonArray().iterator();
 
 								while (jsonDatosIterator.hasNext()) {
@@ -429,11 +428,11 @@ public class JSONHandler {
 							if (url.contains("datos_horarios")) {
 
 								JsonElement jsonDatos = readJSON(url);
-								
+
 								if (jsonDatos == null) {
 									continue;
 								}
-								
+
 								Iterator<JsonElement> jsonDatosIterator = jsonDatos.getAsJsonArray().iterator();
 
 								while (jsonDatosIterator.hasNext()) {
@@ -530,13 +529,157 @@ public class JSONHandler {
 		return horarios;
 	}
 
+	public static ArrayList<Datosindice> readDatosIndice() {
+
+		JsonElement json = readJSON(
+				"https://opendata.euskadi.eus/contenidos/ds_informes_estudios/calidad_aire_2021/es_def/adjuntos/index.json");
+
+		Iterator<Entry<String, JsonElement>> atributos = json.getAsJsonObject().entrySet().iterator();
+
+		ArrayList<Datosindice> indices = new ArrayList<>();
+
+		while (atributos.hasNext()) {
+			Entry<String, JsonElement> atributo = atributos.next();
+
+			// if (atributo.getKey().equals("lastUpdateDate"))
+
+			if (atributo.getKey().equals("aggregated")) {
+				JsonArray aggregated = atributo.getValue().getAsJsonArray();
+
+				for (int i = 0; i < aggregated.size(); i++) {
+
+					JsonObject rutas = aggregated.get(i).getAsJsonObject();
+					Iterator<Entry<String, JsonElement>> atributosRutas = rutas.getAsJsonObject().entrySet().iterator();
+
+					while (atributosRutas.hasNext()) {
+
+						String format = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
+						String name = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
+						String url = atributosRutas.next().getValue().getAsJsonPrimitive().getAsString();
+
+						Estaciones estacion = Operaciones.getCodEstacionByName(name);
+
+						if (estacion != null) {
+
+							String codEstacion = String.valueOf(estacion.getCodEstacion());
+
+							if (url.contains("datos_indice")) {
+
+								JsonElement jsonDatos = readJSON(url);
+
+								if (jsonDatos == null) {
+									continue;
+								}
+
+								Iterator<JsonElement> jsonDatosIterator = jsonDatos.getAsJsonArray().iterator();
+
+								while (jsonDatosIterator.hasNext()) {
+
+									JsonObject datos = jsonDatosIterator.next().getAsJsonObject();
+									Iterator<Entry<String, JsonElement>> atributosDatos = datos.getAsJsonObject()
+											.entrySet().iterator();
+
+									Datosindice indice = new Datosindice();
+									boolean isDateOk = true;
+
+									indice.setCodEstacion(codEstacion);
+
+									while (atributosDatos.hasNext() && isDateOk) {
+										Entry<?, ?> atributoDatos = (Entry<?, ?>) atributosDatos.next();
+										String campo = atributoDatos.getKey().toString();
+										String valor = cleanString(atributoDatos.getValue().toString());
+
+										if (campo.equalsIgnoreCase("Date")) {
+
+											// Si no es de esta fecha se salta el objeto
+											if (!valor.equals("31/12/2021"))
+												isDateOk = false;
+
+											indice.setDate(valor);
+
+										}
+
+										if (campo.equalsIgnoreCase("HourGMT")) {
+
+											indice.setHourGmt(valor);
+										}
+
+										if (campo.equalsIgnoreCase("NO2ICA")) {
+
+											indice.setNo2ica(valor);
+										}
+
+										if (campo.equalsIgnoreCase("O3ICA")) {
+
+											indice.setO3ica(valor);
+										}
+
+										if (campo.equalsIgnoreCase("PM10ICA")) {
+
+											indice.setPm10ica(valor);
+										}
+
+										if (campo.equalsIgnoreCase("SO2ICA")) {
+
+											indice.setSo2ica(valor);
+										}
+
+										if (campo.equalsIgnoreCase("ICAEstacion")) {
+
+											indice.setIcaestacion(valor);
+										}
+
+										// Si es del 31/12/2021 lo añadimos
+										if (isDateOk) {
+											if (!atributosDatos.hasNext()) {
+												if (indice.getCodEstacion().length() > 0) {
+													indices.add(indice);
+												}
+											}
+										}
+
+									}
+
+								}
+
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return indices;
+	}
+
+	public static String getLastUpdate() {
+		String lastUpdate = null;
+		JsonElement json = readJSON(
+				"https://opendata.euskadi.eus/contenidos/ds_informes_estudios/calidad_aire_2021/es_def/adjuntos/index.json");
+
+		Iterator<Entry<String, JsonElement>> atributos = json.getAsJsonObject().entrySet().iterator();
+
+		ArrayList<Datosdiarios> diarios = new ArrayList<>();
+
+		while (atributos.hasNext()) {
+			Entry<String, JsonElement> atributo = atributos.next();
+			
+			
+			if (atributo.getKey().equals("lastUpdateDate")) {
+				lastUpdate = cleanString(atributo.getValue().getAsString());
+			}
+		}
+
+		return lastUpdate;
+	}
+
 	public static JsonElement readJSON(String urlStr) {
 		System.setProperty("javax.net.ssl.trustStore", "NUL");
 		System.setProperty("javax.net.ssl.trustStoreType", "Windows-ROOT");
 
 		JsonParser parser = new JsonParser();
 		InputStream is = null;
-		
+
 		String datos = "";
 
 		boolean isLocalFile = false;
@@ -589,10 +732,10 @@ public class JSONHandler {
 
 	public static BigDecimal parseBigDecimal(String n) {
 		n = n.replace("\"", "").replace(",", ".");
-		
+
 		return BigDecimal.valueOf(Float.valueOf(n));
 	}
-	
+
 	private static boolean hasCoords(EspaciosNaturales espacio) {
 		return espacio.getLatitud() != null && espacio.getLongitud() != null;
 	}

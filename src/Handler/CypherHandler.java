@@ -15,6 +15,7 @@ public class CypherHandler {
     private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
+    public static final int DEF_SALT_LENGTH = 10;
     
      public static String getSalt(int length) {
         StringBuilder returnValue = new StringBuilder(length);
@@ -33,47 +34,31 @@ public class CypherHandler {
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             return skf.generateSecret(spec).getEncoded();
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new AssertionError("Error while hashing a password: " + e.getMessage(), e);
+            throw new AssertionError("Error while hashing a text: " + e.getMessage(), e);
         } finally {
             spec.clearPassword();
         }
     }
 
-    public static String generateSecurePassword(String password, String salt) {
+    public static String generateHash(String text, String salt) {
         String returnValue = null;
 
-        byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
+        byte[] secureText = hash(text.toCharArray(), salt.getBytes());
  
-        returnValue = Base64.getEncoder().encodeToString(securePassword);
+        returnValue = Base64.getEncoder().encodeToString(secureText);
  
         return returnValue;
     }
     
-    public static boolean verifyUserPassword(String providedPassword,
-            String securedPassword, String salt)
+    public static boolean verifyHash(String providedText,
+            String hash, String salt)
     {
         boolean returnValue = false;
 
-        String newSecurePassword = generateSecurePassword(providedPassword, salt);
+        String newSecureText = generateHash(providedText, salt);
 
-        returnValue = newSecurePassword.equals(securedPassword);
+        returnValue = newSecureText.equals(hash);
         
         return returnValue;
     }
-    
-    // Cosas nazis
-    public static void main(String[] args) {
-    	final int DEF_SALT_LENGTH = 10;
-		String salt = getSalt(DEF_SALT_LENGTH);
-		String password = "Testing";
-		String secPass = generateSecurePassword(password, salt);
-		
-		
-		System.out.println("Default salt length: " + DEF_SALT_LENGTH);
-		System.out.println("Salt: " + salt);
-		System.out.println("Password: " + password);
-		System.out.println("Hashed Password: " + secPass);
-		System.out.println("Passcheck (Meh): " + (verifyUserPassword("Hola", secPass, salt)));
-		System.out.println("Passcheck (Ok): " + (verifyUserPassword("Testing", secPass, salt)));
-	}
 }

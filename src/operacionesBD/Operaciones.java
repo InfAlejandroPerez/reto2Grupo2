@@ -11,6 +11,7 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
+import Handler.CypherHandler;
 import Handler.JSONHandler;
 import modelo.Datosdiarios;
 import modelo.EspaciosNaturales;
@@ -18,36 +19,11 @@ import modelo.Estaciones;
 import modelo.Municipios;
 import modelo.Provincia;
 import modelo.Usuarios;
+import modelo.Hashes;
 
 public class Operaciones {
 
-	public static void cargarDatos() {
-
-		// Municipio
-		System.out.println("CARGANDO MUNICIPIOS...");
-		cargarArrayList(JSONHandler.readMunicipios());
-
-		// Espacios
-		System.out.println("CARGANDO ESPACIOS...");
-		cargarArrayList(JSONHandler.readEspacios());
-
-		// Estaciones
-		System.out.println("CARGANDO ESTACIONES...");
-		cargarArrayList(JSONHandler.readEstaciones());
-
-		// Diarios
-		System.out.println("CARGANDO DATOS DIARIOS...");
-		cargarArrayList(JSONHandler.readDatosDiarios());
-
-		// Horarios
-		System.out.println("CARGANDO DATOS HORARIOS...");
-		cargarArrayList(JSONHandler.readDatosHorarios());
-		
-		System.out.println("-- CARGA DE DATOS FINALIZADA --");
-
-	}
-
-	public static void cargarArrayList(ArrayList<?> items) {
+	private static void cargarArrayList(ArrayList<?> items) {
 
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -60,20 +36,121 @@ public class Operaciones {
 				tx.commit();
 
 			} catch (Exception e) {
-				/*
-				 * if (e.getCause().toString().contains(
-				 * "MySQLIntegrityConstraintViolationException")) {
-				 * System.out.println("Registro duplicado con PK duplicada en el indice: " +
-				 * items.indexOf(item) + " se ha saltado"); } else {
-				 * System.out.println(e.getMessage()); }
-				 */
-
-				System.out.println(e.getMessage());
+				System.out.println();
 			}
 		}
 
 		session.close();
 
+	}
+
+	private static boolean checkForUpdates(String latestUpdate) {
+		boolean updatesAvailable = false;
+		String salt = CypherHandler.getSalt(CypherHandler.DEF_SALT_LENGTH);
+		String hash = getLatestUpdateHash();
+
+		if (!CypherHandler.verifyHash(latestUpdate, hash, salt)) {
+			updateHash(CypherHandler.generateHash(latestUpdate, salt));
+			updatesAvailable = true;
+		}
+
+		return updatesAvailable;
+
+	}
+
+	private static void updateHash(String hash) {
+
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		Hashes nHash = new Hashes();
+		nHash.setHash(hash);
+
+		session.update(nHash);
+
+		session.close();
+
+	}
+
+	private static void borrarTablasDatos() {
+
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		session.createSQLQuery("truncate table datosdiarios").executeUpdate();
+		session.createSQLQuery("truncate table datoshorarios").executeUpdate();
+		session.createSQLQuery("truncate table datosindice").executeUpdate();
+
+		session.close();
+
+	}
+
+	public static void cargarDatos() {
+	
+		// Comprobar sí hay actualizaciones
+		if (checkForUpdates(JSONHandler.getLastUpdate())) {
+			// No lo he probado pero no dudo de que funcione
+			borrarTablasDatos();
+	
+			// Diarios
+			System.out.println("CARGANDO DATOS DIARIOS...");
+			cargarArrayList(JSONHandler.readDatosDiarios());
+	
+			// Horarios
+			System.out.println("CARGANDO DATOS HORARIOS...");
+			cargarArrayList(JSONHandler.readDatosHorarios());
+	
+			// Indice
+			System.out.println("CARGANDO DATOS ÍNDICE...");
+			cargarArrayList(JSONHandler.readDatosIndice());
+	
+			System.out.println("-- CARGA DE DATOS FINALIZADA --");
+		}
+	
+	}
+
+	public static void cargarLugares() {
+		// Municipio
+		System.out.println("CARGANDO MUNICIPIOS...");
+		cargarArrayList(JSONHandler.readMunicipios());
+	
+		// Espacios
+		System.out.println("CARGANDO ESPACIOS...");
+		cargarArrayList(JSONHandler.readEspacios());
+	
+		// Estaciones
+		System.out.println("CARGANDO ESTACIONES...");
+		cargarArrayList(JSONHandler.readEstaciones());
+	
+		System.out.println("-- CARGA DE DATOS FINALIZADA --");
+	}
+
+	public static String getLatestUpdateHash() {
+		String res = "";
+	
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+	
+		String hql = "from hashes";
+		Query q = session.createQuery(hql).setMaxResults(1);
+		Hashes hash = (Hashes) q.uniqueResult();
+	
+		if (hash != null) {
+			res = hash.getHash();
+		} else {
+			res = ":(";
+			Transaction tx = session.beginTransaction();
+	
+			Hashes nHash = new Hashes();
+			nHash.setHash(res);
+	
+			session.save(nHash);
+			tx.commit();
+		}
+	
+		session.close();
+	
+		return res;
 	}
 
 	public static String validarLogin(String usuario, String pass) {
@@ -189,9 +266,9 @@ public class Operaciones {
 	public static String getEstacionesByNomMunicipio(String nombreMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
+
 		String hql = "from Estaciones WHERE NomMunicipio = '" + nombreMunicipio + "'";
-		
+
 		Query q = session.createQuery(hql);
 		Iterator<?> iterator = q.iterate();
 
@@ -205,12 +282,11 @@ public class Operaciones {
 			payload += "\"nombre\":\"" + estacion.getNombreEstacion() + "\"";
 			payload += "}";
 
-
 			if (iterator.hasNext())
 				payload += ",";
 
 		}
-		
+
 		payload += "]}";
 
 		session.close();
@@ -241,15 +317,14 @@ public class Operaciones {
 			payload += "\"pm10gm3\":\"" + datosdiario.getPm10gm3() + "\",";
 			payload += "\"pm25gm3\":\"" + datosdiario.getPm25gm3() + "\",";
 			payload += "\"s2gm3\":\"" + datosdiario.getS2gm3() + "\"";
-			
-			payload += "}";
 
+			payload += "}";
 
 			if (iterator.hasNext())
 				payload += ",";
 
 		}
-		
+
 		payload += "]}";
 
 		session.close();
@@ -286,17 +361,18 @@ public class Operaciones {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
-		/*String[] municipioFragments = nombreMunicipio.split("_");
-		String hql = "from Estaciones WHERE NomMunicipio LIKE '%";
-		
-		for (String municipioFragment : municipioFragments) {
-			hql += municipioFragment + "%";
-		}
-		
-		hql += "'";*/
-		
-		String hql = "from Municipios WHERE CodMunicipio = '" + idMunicipio + "'" ;
-		
+		/*
+		 * String[] municipioFragments = nombreMunicipio.split("_"); String hql =
+		 * "from Estaciones WHERE NomMunicipio LIKE '%";
+		 * 
+		 * for (String municipioFragment : municipioFragments) { hql +=
+		 * municipioFragment + "%"; }
+		 * 
+		 * hql += "'";
+		 */
+
+		String hql = "from Municipios WHERE CodMunicipio = '" + idMunicipio + "'";
+
 		Query q = session.createQuery(hql);
 		Iterator<?> iterator = q.iterate();
 
@@ -310,25 +386,24 @@ public class Operaciones {
 			payload += "\"descripcion\":\"" + municipio.getDescripcion() + "\"";
 			payload += "}";
 
-
 			if (iterator.hasNext())
 				payload += ",";
 
 		}
-		
+
 		payload += "]}";
 
 		session.close();
 
 		return payload;
 	}
-	
+
 	public static String getEspaciosNaturalesByIdMuni(String idMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
-		String hql = "FROM EspaciosNaturales WHERE codMunicipio = '"+ idMunicipio + "'";
-		
+
+		String hql = "FROM EspaciosNaturales WHERE codMunicipio = '" + idMunicipio + "'";
+
 		Query q = session.createQuery(hql);
 		Iterator<?> iterator = q.iterate();
 
@@ -342,25 +417,24 @@ public class Operaciones {
 			payload += "\"codEspacio\":\"" + espacioNatural.getCodEspacio() + "\"";
 			payload += "}";
 
-
 			if (iterator.hasNext())
 				payload += ",";
 
 		}
-		
+
 		payload += "]}";
 
 		session.close();
 
 		return payload;
 	}
-	
+
 	public static String getAllEspaciosNaturales() {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-		
+
 		String hql = "FROM EspaciosNaturales";
-		
+
 		Query q = session.createQuery(hql);
 		Iterator<?> iterator = q.iterate();
 
@@ -376,19 +450,18 @@ public class Operaciones {
 			payload += "\"longitud\":\"" + espacioNatural.getLongitud() + "\"";
 			payload += "}";
 
-
 			if (iterator.hasNext())
 				payload += ",";
 
 		}
-		
+
 		payload += "]}";
 
 		session.close();
 
 		return payload;
 	}
-	
+
 	public static void main(String[] args) {
 		cargarDatos();
 	}

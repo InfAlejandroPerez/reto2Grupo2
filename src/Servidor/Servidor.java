@@ -117,7 +117,7 @@ public class Servidor {
 		Servidor s = new Servidor();
 		s.iniciar();
 		
-		// TODO Comprobar Hash
-
+		// Comprueba si hay updates y si las hay pues eso, actualiza
+		Operaciones.cargarDatos();
 	}
 }
