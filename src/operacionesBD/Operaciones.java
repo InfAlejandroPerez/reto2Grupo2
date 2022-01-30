@@ -356,6 +356,49 @@ public class Operaciones {
 
 		return estacion;
 	}
+	
+	public static String getInfoEspacioByIdEspacio(String idEspacio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		/*
+		 * String[] municipioFragments = nombreMunicipio.split("_"); String hql =
+		 * "from Estaciones WHERE NomMunicipio LIKE '%";
+		 * 
+		 * for (String municipioFragment : municipioFragments) { hql +=
+		 * municipioFragment + "%"; }
+		 * 
+		 * hql += "'";
+		 */
+		
+		int idEsp = Integer.parseInt(idEspacio);
+
+		String hql = "from EspaciosNaturales WHERE CodEspacio = " + idEsp;
+
+		Query q = session.createQuery(hql);
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			EspaciosNaturales espacio = (EspaciosNaturales) iterator.next();
+
+			payload += "{";
+			payload += "\"nombre\":\"" + espacio.getNombre() + "\",";
+			payload += "\"descripcion\":\"" + espacio.getDescripcion() + "\"";
+			payload += "}";
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
 
 	public static String getInfoMuniByIdMuni(String idMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
