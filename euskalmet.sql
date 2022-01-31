@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2022 a las 20:11:43
+-- Tiempo de generación: 31-01-2022 a las 17:25:11
 -- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.3.33
+-- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -122,17 +122,10 @@ CREATE TABLE `datosindice` (
   `CodEstacion` varchar(11) NOT NULL,
   `Date` varchar(50) NOT NULL,
   `HourGMT` varchar(50) NOT NULL,
-  `COmgm3` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `CO8hmgm3` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `NOgm3` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `NO2` decimal(10,2) NOT NULL DEFAULT 0.00,
   `NO2ICA` varchar(50) NOT NULL DEFAULT 'SIN DATOS',
-  `NOXgm3` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `PM10` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `O3ICA` varchar(50) NOT NULL DEFAULT 'SIN DATOS',
   `PM10ICA` varchar(50) NOT NULL DEFAULT 'SIN DATOS',
-  `PM25` decimal(10,2) NOT NULL DEFAULT 0.00,
   `PM25ICA` varchar(50) NOT NULL DEFAULT 'SIN DATOS',
-  `SO2` decimal(10,2) NOT NULL DEFAULT 0.00,
   `SO2ICA` varchar(50) NOT NULL DEFAULT 'SIN DATOS',
   `ICAEstacion` varchar(50) NOT NULL DEFAULT 'SIN DATOS'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -279,8 +272,7 @@ CREATE TABLE `favoritos_espacios` (
 --
 
 CREATE TABLE `hashes` (
-  `CodHash` int(11) NOT NULL,
-  `Url` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
+  `Hash` varchar(256) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -429,12 +421,6 @@ ALTER TABLE `esta_en`
 --
 ALTER TABLE `favoritos_espacios`
   ADD PRIMARY KEY (`CodUsuario`,`CodEspacio`);
-
---
--- Indices de la tabla `hashes`
---
-ALTER TABLE `hashes`
-  ADD PRIMARY KEY (`CodHash`);
 
 --
 -- Indices de la tabla `municipios`
