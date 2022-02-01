@@ -403,7 +403,9 @@ public class Operaciones {
 
 			payload += "{";
 			payload += "\"nombre\":\"" + espacio.getNombre() + "\",";
-			payload += "\"descripcion\":\"" + espacio.getDescripcion() + "\"";
+			payload += "\"descripcion\":\"" + espacio.getDescripcion() + "\",";
+			payload += "\"latitud\":\"" + espacio.getLatitud() + "\",";
+			payload += "\"longitud\":\"" + espacio.getLongitud() + "\"";
 			payload += "}";
 
 			if (iterator.hasNext())

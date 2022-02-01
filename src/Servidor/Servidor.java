@@ -22,6 +22,7 @@ public class Servidor {
 		final String ESPACIOSCODMUNI = "ESPACIOSCODMUNI";
 		final String ESPACIOS = "ESPACIOS";
 		final String INFOESPACIO = "INFOESPACIO";
+		final String GETFAV = "GETFAV";
 		
 		ServerSocket servidor = null;
 		int puerto = 4444;
@@ -86,6 +87,9 @@ public class Servidor {
 				case INFOESPACIO:
 					salida.writeObject(Operaciones.getInfoEspacioByIdEspacio(params[0]));
 					break;
+				case GETFAV:
+					salida.writeObject(Operaciones.comprobarEspacioEnFavoritosPorUsuario(params[0], params[1]));
+					break;
 				}
 
 				entrada.close();
@@ -121,7 +125,5 @@ public class Servidor {
 		Servidor s = new Servidor();
 		s.iniciar();
 		
-		// Comprueba si hay updates y si las hay pues eso, actualiza
-		Operaciones.cargarDatos();
 	}
 }
