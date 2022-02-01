@@ -596,9 +596,83 @@ public class Operaciones {
 		}
 
 	}
+	
+	public static String getTopRanking() {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "SELECT ep.codEspacio, ep.nombre, COUNT(*) "
+				+ "FROM "
+				+ "	EspaciosNaturales ep "
+				+ "	INNER JOIN FavoritosEspacios fe ON ep.codEspacio = fe.id.codEspacio "
+				+ "GROUP BY "
+				+ "	ep.nombre "
+				+ " ORDER BY "
+				+ "	COUNT(*) "
+				+ " DESC ";
+
+		Query q = session.createQuery(hql);
+		q.setMaxResults(5);
+		
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Object[] row = (Object[]) iterator.next();
+
+			payload += "{";
+			payload += "\"codEspacio\":\"" + row[0] + "\",";
+			payload += "\"nombre\":\"" + row[1]+ "\",";
+			payload += "\"numero\":\"" + row[2]+ "\"";
+			payload += "}";
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
+	
+	public static String getEspaciosNaturalesByIdUsuario(String idUsuario) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "SELECT ep.codEspacio, ep.nombre FROM EspaciosNaturales ep INNER JOIN FavoritosEspacios fe ON ep.codEspacio = fe.id.codEspacio AND fe.id.codUsuario = :idUsuario";
+
+		Query q = session.createQuery(hql);
+		q.setParameter("idUsuario", Integer.parseInt(idUsuario));
+		
+		Iterator<?> iterator = q.iterate();
+
+		String payload = "{\"data\":[";
+
+		while (iterator.hasNext()) {
+			Object[] row = (Object[]) iterator.next();
+
+			payload += "{";
+			payload += "\"codEspacio\":\"" + row[0] + "\",";
+			payload += "\"nombre\":\"" + row[1] + "\"";
+			payload += "}";
+
+			if (iterator.hasNext())
+				payload += ",";
+
+		}
+
+		payload += "]}";
+
+		session.close();
+
+		return payload;
+	}
 
 	public static void main(String[] args) {
 
+		
 	}
-
 }
