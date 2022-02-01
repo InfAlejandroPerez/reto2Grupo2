@@ -18,6 +18,7 @@ import modelo.Datosdiarios;
 import modelo.EspaciosNaturales;
 import modelo.Estaciones;
 import modelo.FavoritosEspacios;
+import modelo.FavoritosEspaciosId;
 import modelo.Municipios;
 import modelo.Provincia;
 import modelo.Usuarios;
@@ -73,8 +74,8 @@ public class Operaciones {
 			String sql = "UPDATE Hashes SET hash = :nHash";
 			Query q = session.createQuery(sql);
 
-			q.setParameter("nHash", hash);
-			q.executeUpdate();
+			q.setParameter("nHash", hash)
+			.executeUpdate();
 
 			tx.commit();
 
@@ -379,16 +380,6 @@ public class Operaciones {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
-		/*
-		 * String[] municipioFragments = nombreMunicipio.split("_"); String hql =
-		 * "from Estaciones WHERE NomMunicipio LIKE '%";
-		 * 
-		 * for (String municipioFragment : municipioFragments) { hql +=
-		 * municipioFragment + "%"; }
-		 * 
-		 * hql += "'";
-		 */
-
 		int idEsp = Integer.parseInt(idEspacio);
 
 		String hql = "from EspaciosNaturales WHERE CodEspacio = " + idEsp;
@@ -423,16 +414,6 @@ public class Operaciones {
 	public static String getInfoMuniByIdMuni(String idMunicipio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-
-		/*
-		 * String[] municipioFragments = nombreMunicipio.split("_"); String hql =
-		 * "from Estaciones WHERE NomMunicipio LIKE '%";
-		 * 
-		 * for (String municipioFragment : municipioFragments) { hql +=
-		 * municipioFragment + "%"; }
-		 * 
-		 * hql += "'";
-		 */
 
 		String hql = "from Municipios WHERE CodMunicipio = '" + idMunicipio + "'";
 
@@ -555,9 +536,69 @@ public class Operaciones {
 
 		return payload;
 	}
+	
+	public static void removeFromEspaciosFavoritos(String idUsuario, String idEspacio) {
+
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		Transaction tx = null;
+		try {
+
+			tx = session.beginTransaction();
+
+			String sql = "DELETE FROM FavoritosEspacios fe WHERE fe.id.codEspacio = :idEspacio AND fe.id.codUsuario = :idUsuario";
+			Query q = session.createQuery(sql);
+
+			q.setParameter("idEspacio", idEspacio)
+			.setParameter("idUsuario", Integer.parseInt(idUsuario))
+			.executeUpdate();
+
+			tx.commit();
+
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
+	
+	public static void addToEspaciosFavoritos(String idUsuario, String idEspacio) {
+
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		Transaction tx = null;
+		try {
+
+			tx = session.beginTransaction();
+
+			FavoritosEspacios fe = new FavoritosEspacios();
+			FavoritosEspaciosId feId = new FavoritosEspaciosId();
+			
+			feId.setCodEspacio(idEspacio);
+			feId.setCodUsuario(Integer.parseInt(idUsuario));
+			
+			fe.setId(feId);
+			
+			session.save(fe);
+			tx.commit();
+
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+	}
 
 	public static void main(String[] args) {
-		//cargarDatos();
+
 	}
 
 }
