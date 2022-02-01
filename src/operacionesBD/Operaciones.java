@@ -3,6 +3,7 @@ package operacionesBD;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +17,7 @@ import Handler.JSONHandler;
 import modelo.Datosdiarios;
 import modelo.EspaciosNaturales;
 import modelo.Estaciones;
+import modelo.FavoritosEspacios;
 import modelo.Municipios;
 import modelo.Provincia;
 import modelo.Usuarios;
@@ -63,12 +65,26 @@ public class Operaciones {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
 
-		Hashes nHash = new Hashes();
-		nHash.setHash(hash);
+		Transaction tx = null;
+		try {
 
-		session.update(nHash);
+			tx = session.beginTransaction();
 
-		session.close();
+			String sql = "UPDATE Hashes SET hash = :nHash";
+			Query q = session.createQuery(sql);
+
+			q.setParameter("nHash", hash);
+			q.executeUpdate();
+
+			tx.commit();
+
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 
 	}
 
@@ -86,70 +102,72 @@ public class Operaciones {
 	}
 
 	public static void cargarDatos() {
-	
+
 		// Comprobar sí hay actualizaciones
 		if (checkForUpdates(JSONHandler.getLastUpdate())) {
-			// No lo he probado pero no dudo de que funcione
 			borrarTablasDatos();
-	
+
 			// Diarios
 			System.out.println("CARGANDO DATOS DIARIOS...");
 			cargarArrayList(JSONHandler.readDatosDiarios());
-	
+			System.out.flush();
+
 			// Horarios
 			System.out.println("CARGANDO DATOS HORARIOS...");
 			cargarArrayList(JSONHandler.readDatosHorarios());
-	
+			System.out.flush();
+
 			// Indice
 			System.out.println("CARGANDO DATOS ÍNDICE...");
 			cargarArrayList(JSONHandler.readDatosIndice());
-	
+			System.out.flush();
+
 			System.out.println("-- CARGA DE DATOS FINALIZADA --");
 		}
-	
+
 	}
 
 	public static void cargarLugares() {
 		// Municipio
 		System.out.println("CARGANDO MUNICIPIOS...");
 		cargarArrayList(JSONHandler.readMunicipios());
-	
+
 		// Espacios
 		System.out.println("CARGANDO ESPACIOS...");
 		cargarArrayList(JSONHandler.readEspacios());
-	
+
 		// Estaciones
 		System.out.println("CARGANDO ESTACIONES...");
 		cargarArrayList(JSONHandler.readEstaciones());
-	
+
 		System.out.println("-- CARGA DE DATOS FINALIZADA --");
 	}
 
 	public static String getLatestUpdateHash() {
 		String res = "";
-	
+
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
-	
-		String hql = "from hashes";
+
+		String hql = "from Hashes";
 		Query q = session.createQuery(hql).setMaxResults(1);
 		Hashes hash = (Hashes) q.uniqueResult();
-	
+
 		if (hash != null) {
 			res = hash.getHash();
 		} else {
 			res = ":(";
 			Transaction tx = session.beginTransaction();
-	
+
 			Hashes nHash = new Hashes();
 			nHash.setHash(res);
-	
+
 			session.save(nHash);
 			tx.commit();
 		}
-	
+
 		session.close();
-	
+
 		return res;
 	}
 
@@ -165,7 +183,7 @@ public class Operaciones {
 
 		if (user != null) {
 			if (user.getPassword().equals(pass))
-				res = "Login OK";
+				res = "Login OK;" + user.getCodUsuario();
 			else
 				res = "Credenciales inválidas";
 		} else
@@ -356,7 +374,7 @@ public class Operaciones {
 
 		return estacion;
 	}
-	
+
 	public static String getInfoEspacioByIdEspacio(String idEspacio) {
 		SessionFactory sesion = HibernateUtil.getSessionFactory();
 		Session session = sesion.openSession();
@@ -370,7 +388,7 @@ public class Operaciones {
 		 * 
 		 * hql += "'";
 		 */
-		
+
 		int idEsp = Integer.parseInt(idEspacio);
 
 		String hql = "from EspaciosNaturales WHERE CodEspacio = " + idEsp;
@@ -505,8 +523,39 @@ public class Operaciones {
 		return payload;
 	}
 
+	public static String comprobarEspacioEnFavoritosPorUsuario(String idUsuario, String idEspacio) {
+		SessionFactory sesion = HibernateUtil.getSessionFactory();
+		Session session = sesion.openSession();
+
+		String hql = "FROM FavoritosEspacios fe WHERE fe.id.codUsuario = :idUsuario AND fe.id.codEspacio = :idEspacio";
+
+		Query q = session.createQuery(hql);
+		FavoritosEspacios favEspacio = null;
+
+		q.setParameter("idUsuario", Integer.parseInt(idUsuario)).setParameter("idEspacio", idEspacio)
+		 .setMaxResults(1);
+
+		favEspacio = (FavoritosEspacios)q.uniqueResult();
+
+		String payload = "{";
+
+		if (favEspacio != null) {
+
+			payload += "\"isFav\":\"true\"";
+
+		} else {
+			payload += "\"isFav\":\"false\"";
+		}
+
+		payload += "}";
+
+		session.close();
+
+		return payload;
+	}
+
 	public static void main(String[] args) {
-		cargarDatos();
+		//cargarDatos();
 	}
 
 }
