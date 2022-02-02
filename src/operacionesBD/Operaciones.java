@@ -39,7 +39,7 @@ public class Operaciones {
 				tx.commit();
 
 			} catch (Exception e) {
-				System.out.println();
+				System.out.println(e.getMessage());
 			}
 		}
 
@@ -673,6 +673,7 @@ public class Operaciones {
 
 	public static void main(String[] args) {
 
+		
 		
 	}
 }

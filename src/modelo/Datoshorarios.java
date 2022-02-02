@@ -1,5 +1,5 @@
 package modelo;
-// Generated 28 ene 2022 16:46:24 by Hibernate Tools 5.5.7.Final
+// Generated 2 feb 2022 15:48:22 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 
@@ -22,6 +22,12 @@ public class Datoshorarios implements java.io.Serializable {
 	private BigDecimal so2gm3;
 
 	public Datoshorarios() {
+	}
+
+	public Datoshorarios(String codEstacion, String fecha, String hora) {
+		this.codEstacion = codEstacion;
+		this.fecha = fecha;
+		this.hora = hora;
 	}
 
 	public Datoshorarios(String codEstacion, String fecha, String hora, BigDecimal comgm3, BigDecimal co8hmgm3,

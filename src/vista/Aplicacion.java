@@ -14,11 +14,13 @@ import com.google.gson.JsonObject;
 
 import Handler.JSONHandler;
 import modelo.Datosdiarios;
+import modelo.EspaciosNaturales;
 import modelo.Estaciones;
 import modelo.Municipios;
 import modelo.Provincia;
 
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -46,7 +48,9 @@ public class Aplicacion extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private String provSelec = null;
 	private String munSelec = null;
+	private String CodMunSelec;
 	private String estSelec;
+	private int espSelected;
 	private JPanel contentPane;
 	private JTextField tfUser;
 	private CardLayout cardlayout;
@@ -57,6 +61,8 @@ public class Aplicacion extends JFrame {
 	private ArrayList<Datosdiarios> listaDatosDiarios = new ArrayList<>();
 	private ArrayList<Municipios> listaMun = new ArrayList<>();
 	private ArrayList<Estaciones> listaEst = new ArrayList<>();
+	private ArrayList<EspaciosNaturales> listaEspacios = new ArrayList<>();
+	private ArrayList<EspaciosNaturales> espacioInfo = new ArrayList<>();
 	private ObjectInputStream entrada = null;
 	private ObjectOutputStream salida = null;
 
@@ -113,6 +119,12 @@ public class Aplicacion extends JFrame {
 			break;
 		case 6:
 			panelSeleccionado = panelEstaciones();
+			break;
+		case 7:
+			panelSeleccionado = panelEspacios();
+			break;
+		case 8:
+			panelSeleccionado = panelinfoEspacios();
 			break;
 		}
 
@@ -183,7 +195,7 @@ public class Aplicacion extends JFrame {
 
 						cliente.close();
 
-						if (response.equals("Login OK")) {
+						if (response.split(";")[0].equals("Login OK")) {
 
 							if (!(contentPane.getComponentCount() == 1)) {
 								contentPane.remove(0);
@@ -397,8 +409,10 @@ public class Aplicacion extends JFrame {
 				Municipios municipio = new Municipios();
 				JsonObject obj = json.get(i).getAsJsonObject();
 
-				municipio.setCodProvincia(obj.get("codMunicipio").getAsString());
+				municipio.setCodMunicipio(obj.get("codMunicipio").getAsString());
 				municipio.setNombre(obj.get("nombre").getAsString());
+				municipio.setDescripcion(obj.get("descripcion").getAsString());
+
 
 				listaMun.add(municipio);
 			}
@@ -430,6 +444,7 @@ public class Aplicacion extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 
 				munSelec = listaMun.get(listMun.getSelectedIndex()).getNombre();
+				CodMunSelec = listaMun.get(listMun.getSelectedIndex()).getCodMunicipio();
 
 				if (!(contentPane.getComponentCount() == 1)) {
 					contentPane.remove(0);
@@ -454,22 +469,21 @@ public class Aplicacion extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setBounds(157, 22, 172, 21);
 		panelMunicipios.add(lblNewLabel);
-		
+
 		JButton btnInfoMunicipio = new JButton("Mas informaci\u00F3n");
 		btnInfoMunicipio.setBounds(154, 227, 123, 23);
-		
 		btnInfoMunicipio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Municipios municipio = listaMun.get(listMun.getSelectedIndex());
+				
+				if (municipio.getDescripcion() != null) {
+					String body = "<html><body>" + "<h3>" + municipio.getNombre() + "</h3><p style='width: 350px'>"
+							+ municipio.getDescripcion().replaceAll("\\<.*?\\>", "") + "</p></body></html>";
+					JOptionPane.showMessageDialog(null, body, "Información Adicional", JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "No hay info adicional de este espacio!", "Información Adicional", JOptionPane.INFORMATION_MESSAGE);
+				}
 
-				JEditorPane jpn = new JEditorPane();
-				jpn.setContentType("text/html");
-				
-				String body = "<h3>" + municipio.getNombre() + "</h3></br>" + municipio.getDescripcion();
-				
-				jpn.setText(body);
-
-				
 			}
 		});
 		panelMunicipios.add(btnInfoMunicipio);
@@ -575,7 +589,7 @@ public class Aplicacion extends JFrame {
 		tituloProvincias.setForeground(new Color(255, 255, 255));
 		tituloProvincias.setFont(new Font("Tahoma", Font.BOLD, 17));
 		tituloProvincias.setBounds(157, 22, 172, 21);
-		
+
 		panelProvincias.add(tituloProvincias);
 
 		return panelProvincias;
@@ -608,15 +622,24 @@ public class Aplicacion extends JFrame {
 				Datosdiarios datosDiarios = new Datosdiarios();
 				JsonObject obj = json.get(i).getAsJsonObject();
 
-				datosDiarios.setDate(obj.get("date").getAsString());
-				datosDiarios.setComgm3(obj.get("comgm3").getAsBigDecimal());
-				datosDiarios.setCo8hmgm3(obj.get("co8hmgm3").getAsBigDecimal());
-				datosDiarios.setNogm3(obj.get("nogm3").getAsBigDecimal());
-				datosDiarios.setNoxgm3(obj.get("noxgm3").getAsBigDecimal());
-				datosDiarios.setPm10gm3(obj.get("pm10gm3").getAsBigDecimal());
-				datosDiarios.setPm25gm3(obj.get("pm25gm3").getAsBigDecimal());
-				datosDiarios.setS2gm3(obj.get("s2gm3").getAsBigDecimal());
-				datosDiarios.setNo2gm3(obj.get("no2gm3").getAsBigDecimal());
+				if (!obj.get("date").getAsString().equals("null"))
+					datosDiarios.setDate(obj.get("date").getAsString());
+				if (!obj.get("comgm3").getAsString().equals("null"))
+					datosDiarios.setComgm3(obj.get("comgm3").getAsBigDecimal());
+				if (!obj.get("co8hmgm3").getAsString().equals("null"))
+					datosDiarios.setCo8hmgm3(obj.get("co8hmgm3").getAsBigDecimal());
+				if (!obj.get("nogm3").getAsString().equals("null"))
+					datosDiarios.setNogm3(obj.get("nogm3").getAsBigDecimal());
+				if (!obj.get("noxgm3").getAsString().equals("null"))
+					datosDiarios.setNoxgm3(obj.get("noxgm3").getAsBigDecimal());
+				if (!obj.get("pm10gm3").getAsString().equals("null"))
+					datosDiarios.setPm10gm3(obj.get("pm10gm3").getAsBigDecimal());
+				if (!obj.get("pm25gm3").getAsString().equals("null"))
+					datosDiarios.setPm25gm3(obj.get("pm25gm3").getAsBigDecimal());
+				if (!obj.get("s2gm3").getAsString().equals("null"))
+					datosDiarios.setS2gm3(obj.get("s2gm3").getAsBigDecimal());
+				if (!obj.get("no2gm3").getAsString().equals("null"))
+					datosDiarios.setNo2gm3(obj.get("no2gm3").getAsBigDecimal());
 
 				listaDatosDiarios.add(datosDiarios);
 			}
@@ -702,6 +725,15 @@ public class Aplicacion extends JFrame {
 
 		JButton btnEspacios = new JButton("Espacios Naturales");
 		btnEspacios.setBounds(250, 215, 154, 23);
+		btnEspacios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(7), "Espacio");
+				cardlayout.show(contentPane, "Espacio");
+			}
+		});
 		panelInfoEstaciones.add(btnEspacios);
 
 		JLabel infoCO = new JLabel("");
@@ -760,15 +792,24 @@ public class Aplicacion extends JFrame {
 		panelInfoEstaciones.add(btnBack);
 
 		for (int i = 0; i < listaDatosDiarios.size(); i++) {
-			lblinfoNO.setText(listaDatosDiarios.get(i).getNogm3().toString());
-			lblinfoCO8.setText(listaDatosDiarios.get(i).getCo8hmgm3().toString());
-			lblinfoNOX.setText(listaDatosDiarios.get(i).getNoxgm3().toString());
-			lblinfoPM10.setText(listaDatosDiarios.get(i).getPm10gm3().toString());
-			infoNO2.setText(listaDatosDiarios.get(i).getNo2gm3().toString());
-			infoCO.setText(listaDatosDiarios.get(i).getComgm3().toString());
-			infoSO2.setText(listaDatosDiarios.get(i).getS2gm3().toString());
-			lblinfoPM25.setText(listaDatosDiarios.get(i).getPm25gm3().toString());
-			lblinfoFecha.setText(listaDatosDiarios.get(i).getDate().toString());
+			if (listaDatosDiarios.get(i).getNogm3() != null)
+				lblinfoNO.setText(listaDatosDiarios.get(i).getNogm3().toString());
+			if (listaDatosDiarios.get(i).getCo8hmgm3() != null)
+				lblinfoCO8.setText(listaDatosDiarios.get(i).getCo8hmgm3().toString());
+			if (listaDatosDiarios.get(i).getNoxgm3() != null)
+				lblinfoNOX.setText(listaDatosDiarios.get(i).getNoxgm3().toString());
+			if (listaDatosDiarios.get(i).getPm10gm3() != null)
+				lblinfoPM10.setText(listaDatosDiarios.get(i).getPm10gm3().toString());
+			if (listaDatosDiarios.get(i).getNo2gm3() != null)
+				infoNO2.setText(listaDatosDiarios.get(i).getNo2gm3().toString());
+			if (listaDatosDiarios.get(i).getComgm3() != null)
+				infoCO.setText(listaDatosDiarios.get(i).getComgm3().toString());
+			if (listaDatosDiarios.get(i).getS2gm3() != null)
+				infoSO2.setText(listaDatosDiarios.get(i).getS2gm3().toString());
+			if (listaDatosDiarios.get(i).getPm25gm3() != null)
+				lblinfoPM25.setText(listaDatosDiarios.get(i).getPm25gm3().toString());
+			if (listaDatosDiarios.get(i).getDate() != null)
+				lblinfoFecha.setText(listaDatosDiarios.get(i).getDate().toString());
 		}
 
 		return panelInfoEstaciones;
@@ -885,6 +926,199 @@ public class Aplicacion extends JFrame {
 
 		return panelEstaciones;
 
+	}
+
+	public JPanel panelinfoEspacios() {
+		try {
+
+			iniciar();
+
+			String mensaje = "INFOESPACIO " + String.valueOf(espSelected);
+			String response = null;
+			JsonArray json = null;
+			Iterator<?> iterator = null;
+
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			response = (String) entrada.readObject();
+
+			espacioInfo.clear();
+
+			json = JSONHandler.readJSON(response).getAsJsonObject().get("data").getAsJsonArray();
+
+			for (int i = 0; i < json.size(); i++) {
+				EspaciosNaturales espacio = new EspaciosNaturales();
+				JsonObject obj = json.get(i).getAsJsonObject();
+
+				espacio.setNombre(obj.get("nombre").getAsString());
+				espacio.setDescripcion(obj.get("descripcion").getAsString());
+
+				espacioInfo.add(espacio);
+			}
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		JPanel panelInfoNaturales = new JPanel();
+
+		panelInfoNaturales.setBounds(this.getBounds());
+		panelInfoNaturales.setLayout(null);
+		panelInfoNaturales.setBackground(new Color(153, 204, 204));
+
+		JLabel lblTituloInfoEspacio = new JLabel("");
+		lblTituloInfoEspacio.setForeground(new Color(255, 255, 255));
+		lblTituloInfoEspacio.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblTituloInfoEspacio.setBounds(157, 22, 172, 21);
+		panelInfoNaturales.add(lblTituloInfoEspacio);
+
+		JLabel lblDesc = new JLabel("");
+		lblDesc.setBounds(50, 71, 293, 124);
+		panelInfoNaturales.add(lblDesc);
+
+		JButton btnVolver = new JButton("Cancel");
+		btnVolver.setBounds(146, 215, 97, 25);
+		btnVolver.setBackground(new Color(204, 153, 204));
+		btnVolver.setForeground(new Color(0, 0, 0));
+		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(7), "Espacios");
+				cardlayout.show(contentPane, "Espacios");
+
+			}
+		});
+		panelInfoNaturales.add(btnVolver);
+
+		lblTituloInfoEspacio.setText(espacioInfo.get(0).getNombre());
+		
+		String body = "<html><body><p style='width: 350px'>"
+				+ espacioInfo.get(0).getDescripcion().replaceAll("\\<.*?\\>", "") + "</p></body></html>";
+		
+		lblDesc.setText(body);
+
+		return panelInfoNaturales;
+
+	}
+
+	public JPanel panelEspacios() {
+		try {
+
+			iniciar();
+
+			String mensaje = "ESPACIOSCODMUNI " + CodMunSelec;
+			String response = null;
+			JsonArray json = null;
+			Iterator<?> iterator = null;
+
+			System.out.println(mensaje);
+
+			salida.writeObject(mensaje);
+			salida.flush();
+
+			response = (String) entrada.readObject();
+
+			listaEspacios.clear();
+
+			json = JSONHandler.readJSON(response).getAsJsonObject().get("data").getAsJsonArray();
+
+			for (int i = 0; i < json.size(); i++) {
+				EspaciosNaturales espacio = new EspaciosNaturales();
+				JsonObject obj = json.get(i).getAsJsonObject();
+
+				espacio.setCodEspacio(Integer.parseInt(obj.get("codEspacio").getAsString()));
+				espacio.setNombre(obj.get("nombre").getAsString());
+
+				listaEspacios.add(espacio);
+			}
+
+			cliente.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		JPanel panelEspacioNatural = new JPanel();
+
+		panelEspacioNatural.setBounds(this.getBounds());
+		panelEspacioNatural.setLayout(null);
+		panelEspacioNatural.setBackground(new Color(153, 204, 204));
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(61, 64, 291, 145);
+		panelEspacioNatural.add(scrollPane);
+
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		JList<String> listEspacios = new JList<String>();
+
+		scrollPane.setViewportView(listEspacios);
+
+		for (int i = 0; i < listaEspacios.size(); i++) {
+
+			listModel.add(i, listaEspacios.get(i).getNombre().toString());
+
+		}
+
+		listEspacios.setModel(listModel);
+//		JList list = new JList();
+//		list.setBounds(59, 61, 306, 131);	
+//		contentPane.add(list);
+
+		JButton btnConfirmEsp = new JButton("Confirm");
+		btnConfirmEsp.setBounds(267, 205, 112, 35);
+		btnConfirmEsp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				espSelected = listaEspacios.get(listEspacios.getSelectedIndex()).getCodEspacio();
+
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+
+				contentPane.add(mPanelSelected(8), "infoEspacios");
+				cardlayout.show(contentPane, "infoEspacios");
+
+			}
+		});
+		panelEspacioNatural.add(btnConfirmEsp);
+
+		JButton btnBackEsp = new JButton("Back");
+		btnBackEsp.setBounds(29, 205, 106, 35);
+		btnBackEsp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (!(contentPane.getComponentCount() == 1)) {
+					contentPane.remove(0);
+				}
+				contentPane.add(mPanelSelected(6), "infoEstacion");
+				cardlayout.show(contentPane, "infoEstacion");
+
+			}
+		});
+		panelEspacioNatural.add(btnBackEsp);
+
+		JLabel lblTituloEspacios = new JLabel("Espacios Naturales");
+		lblTituloEspacios.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTituloEspacios.setBounds(122, 13, 172, 35);
+		panelEspacioNatural.add(lblTituloEspacios);
+
+		return panelEspacioNatural;
 	}
 
 	public void iniciar() {

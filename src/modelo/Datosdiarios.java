@@ -1,5 +1,5 @@
 package modelo;
-// Generated 28 ene 2022 16:46:24 by Hibernate Tools 5.5.7.Final
+// Generated 2 feb 2022 15:48:22 by Hibernate Tools 5.5.7.Final
 
 import java.math.BigDecimal;
 
@@ -21,6 +21,11 @@ public class Datosdiarios implements java.io.Serializable {
 	private BigDecimal s2gm3;
 
 	public Datosdiarios() {
+	}
+
+	public Datosdiarios(String codEstacion, String date) {
+		this.codEstacion = codEstacion;
+		this.date = date;
 	}
 
 	public Datosdiarios(String codEstacion, String date, BigDecimal comgm3, BigDecimal co8hmgm3, BigDecimal nogm3,
